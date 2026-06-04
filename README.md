@@ -103,14 +103,15 @@ The final design we are competing with is the result of **4 major chassis iterat
 ## ⚙️ Mobility Management
 
 ### 🚗 Drivebase & Drivetrain
-Our current chassis features a rigid rear differential combined with a precise front-axle steering geometry based on the open-source engineering community design from Thingiverse. This layout offers exceptional turning radiuses, minimizes tire scrubbing during high-speed cornering, and solves our previous power transmission inefficiencies.
+Our current chassis features an R/C style rear differential combined with a precise front-axle Ackermann steering geometry based on the open-source engineering community design from Thingiverse. This layout offers exceptional turning radiuses, minimizes tire scrubbing during high-speed cornering, and solves our previous power transmission inefficiencies.
 
 ### ⚙️ Motors & Powertrain
-* **Model:** 2 pcs x DC Gear Motors.
-* **Integration:** Reused systematically throughout all four prototype versions. In the current V4 chassis, they are perfectly aligned with the core transmission gears, distributing torque evenly without binding or slipping.
+* **Propulsion System:** 2 pcs x DC Gear Motors configured for rear-wheel drive.
+* **Steering Actuator:** 1 x High-torque Servo Motor controlling the front Ackermann rack steering geometry.
+* **Integration:** Main actuators were reused systematically throughout all four prototype versions. In the current V4 chassis, they are perfectly aligned with the core transmission gears, distributing torque evenly without binding or slipping.
 
 ### 🛞 Wheels & Tires
-The platform is equipped with specialized rims designed to withstand axial loads during tight corner maneuvers. The tires provide consistent static friction to avoid drifting offsets on the track.
+The platform is equipped with specialized rims designed to withstand axial loads during tight corner maneuvers. The high-traction tires provide consistent static friction to avoid drifting offsets on the track.
 
 ---
 
@@ -121,7 +122,7 @@ The platform is equipped with specialized rims designed to withstand axial loads
 2. **AI Vision Sensor:** DFRobot HuskyLens — An AI machine vision sensor used for real-time color recognition, tracking the red and green obstacle pillars natively without overloading the main microcontroller.
 3. **Motor Driver:** L298N Dual H-Bridge module — Safely bridges the Arduino logic pins with high-current motor demands.
 4. **Actuators:** 2 x DC Gear Motors (Propulsion) & 1 x Standard Servo Motor (Steering).
-5. **Power Source:** 2 x 18650 Li-ion Batteries (Ultrofite 3.7V, wired in series to supply ~7.4V to the drivetrain and logic systems).
+5. **Power Source:** 2 x 18650 Li-ion Batteries (Ultrofite 3.7V, wired in series to supply a stable ~7.4V power rail to the drivetrain and logic systems).
 
 ### 🔌 Motor Driver Integration
 To bridge the control logic of the Arduino Uno with the power requirements of our dual DC gear motors, we utilized an **L298N Dual H-Bridge Motor Driver**. This component allowed us to safely manage motor direction and speed via PWM, while completely isolating the microcontroller from high-current spikes.
@@ -144,7 +145,7 @@ The software architecture is written for the Arduino environment:
 ## 📽️ Performance Video
 Watch the StormDrive autonomous vehicle executing test runs on our practice track:
 
-[![StormDrive Robot Run](https://img.youtube.com/vi/[YOUTUBE_VIDEO_ID]/0.jpg)](https://www.youtube.com/watch?v=[YOUTUBE_VIDEO_ID])
+[![StormDrive Robot Run]()
 
 ---
 
@@ -166,3 +167,7 @@ Our budget directly reflects a sustainable R&D workflow. By choosing a standard 
 | **Total Cost** | | | **126 EUR** |
 
 ---
+
+## 📜 License
+Copyright (c) 2026 **StormDrive Team** (Guzu Isabella Elena, Barladianu Mario-Gabriel, Dascalu Robert Marian, Rădulescu Ramona). All rights reserved. 
+This project is developed exclusively for educational purposes as part of the World Robot Olympiad (WRO) Future Engineers competition.
