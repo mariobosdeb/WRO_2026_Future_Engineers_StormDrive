@@ -1,9 +1,9 @@
 # 🏎️ WRO 2026 Future Engineers – StormDrive Team
 
 ## 🌍 Overview & Journey
-**StormDrive** is a competitive robotics team participating in the **Future Engineers (14-22 years)** category at the World Robot Olympiad (WRO) 2026. Our mission is to design, build, and program a fully autonomous vehicle capable of dynamic environment navigation, color-based obstacle avoidance, and precision parallel parking.
+**StormDrive** is a competitive robotics team participating in the **Future Engineers (14-22 years)** category at the World Robot Olympiad (WRO) 2026. Our mission is to design, build, and program a fully autonomous vehicle capable of dynamic environment navigation, color-based obstacle avoidance, and precision parallel parking. 
 
-Our entire development process follows an authentic engineering cycle. We went through **4 major chassis iterations** to fix issues with dimensions and power transmission, while keeping our core electronic platform consistent and cost-effective by reusing our main components across all prototypes.
+Our entire development process follows an authentic engineering cycle. We went through **4 major chassis iterations** to fix issues with dimensions and power transmission, while keeping our core electronic platform consistent and cost-effective by reusing our main components across all prototypes. The team believes that a robust mechanical foundation is the prerequisite for sophisticated software execution.
 
 ---
 
@@ -13,48 +13,23 @@ Our entire development process follows an authentic engineering cycle. We went t
 * [🤖 Our Robot & Design Evolution](#-our-robot--design-evolution)
 * [📂 Folder Structure](#-folder-structure)
 * [⚙️ Mobility Management](#%EF%B8%8F-mobility-management)
-  * [🚗 Drivebase & Drivetrain](#-drivebase--drivetrain)
-  * [⚙️ Motors & Powertrain](#%EF%B8%8F-motors--powertrain)
-  * [🛞 Wheels & Tires](#-wheels--tires)
 * [🛠️ Power and Sense Management](#%EF%B8%8F-power-and-sense-management)
-  * [🔋 Components List](#-components-list)
-  * [🔌 Motor Driver Integration](#-motor-driver-integration)
 * [💻 Components Coding](#-components-coding)
 * [📝 Obstacle Management & Strategy](#-obstacle-management--strategy)
+* [🛠️ Engineering Challenges & Solutions](#%EF%B8%8F-engineering-challenges--solutions)
 * [📽️ Performance Video](#%EF%B8%8F-performance-video)
 * [💰 Cost Analysis](#-cost-analysis)
+* [🏁 Conclusion & Future Work](#-conclusion--future-work)
 * [📜 License](#-license)
 
 ---
 
 ### 👥 The Team
-
 | Mario | Isabella | Robert |
-| :---: | :---: | :---: |
+| :--- | :--- | :--- |
 | ![Mario](media/media/team-photos/mario.jpg) | ![Isabella](media/media/team-photos/isabella.jpg) | ![Robert](media/media/team-photos/robert.jpg) |
-| **Barladianu Mario-Gabriel** <br> Lead Developer | **Guzu Isabella Elena** <br> Software Research | **Dascalu Robert Marian** <br> Hardware Specialist |
-
-### 👩‍🏫 Mentor / Coach
-* **Name:** Rădulescu Ramona
-* **Contact:** radramra@gmail.com
-* **Role:** Team coordination, resource management, and strategic logistical support throughout the development phase.
-
-### 🧠 Team Members
-
-#### Barladianu Mario-Gabriel
-* **Age:** 16
-* **Role:** Lead Developer & System Integrator
-* **Description:** Responsible for the software architecture, core control algorithms, and overall system integration. He focused on implementing the programming logic on the Arduino platform and sensory processing systems to ensure optimal autonomous execution.
-
-#### Guzu Isabella Elena
-* **Age:** 17
-* **Role:** Software Research & Strategic Planning
-* **Description:** Specializes in algorithmic research, data validation, and strategic planning. She contributed significantly to testing various codebase solutions, optimizing logic parameters, and managing the technical documentation required for the competition.
-
-#### Dascalu Robert Marian
-* **Age:** 17
-* **Role:** Mechanical Engineering & Hardware Specialist
-* **Description:** Focuses on the structural integrity and physical reliability of the vehicle. He was responsible for the precision chassis assembly, strategic component fastening (screws, nuts), and rigorous wire management to prevent any hardware disruptions on the track.
+| **Barladianu Mario-Gabriel** | **Guzu Isabella Elena** | **Dascalu Robert Marian** |
+| Lead Developer | Software Research | Hardware Specialist |
 
 ---
 
@@ -62,23 +37,14 @@ Our entire development process follows an authentic engineering cycle. We went t
 The **WRO Future Engineers** category challenges teams to design a self-driving vehicle that can navigate an unpredictable, dynamic track using sensors and advanced control loops.
 
 ### 📌 Competition Format
-* **🏁 Open Challenge:** The vehicle must successfully complete 3 consecutive laps on a track where the inner walls randomly shift position between rounds.
-* **🚦 Obstacle Challenge:** The vehicle navigates the 3 laps while actively avoiding colored pillars placed randomly on the track:
-  * 🟥 **Red Pillars:** Must be bypassed on the **right** side.
-  * 🟩 **Green Pillars:** Must be bypassed on the **left** side.
-* **🅿️ Parking:** Upon completing the final lap, the vehicle must autonomously detect a designated parking zone and execute a perfect reverse parallel parking maneuver.
+* **🏁 Open Challenge:** The vehicle must complete 3 consecutive laps on a track where the inner walls shift position.
+* **🚦 Obstacle Challenge:** Avoidance of 🟥 Red (Right) and 🟩 Green (Left) pillars.
+* **🅿️ Parking:** Autonomous reverse parallel parking maneuver.
 
 ---
 
 ## 🤖 Our Robot & Design Evolution
-
-The final design we are competing with is the result of **4 major chassis iterations**, solving issues related to power transmission, motor compatibility, and strict WRO dimensional constraints.
-
-### 📐 The Iteration Process
-1. **Prototype V1 (The Drivetrain Issue):** Our initial design suffered from poor power transmission between the motor and the drive wheels, leading to high friction and inefficient energy consumption.
-2. **Prototype V2 (Regulation & Length Failure):** While trying to fix the motor mounts, the vehicle's overall length exceeded the maximum limits allowed by the WRO rules.
-3. **Prototype V3 (Chassis-Motor Mismatch):** We attempted to scale down the design to fix the length violations, but the motor form-factor did not align properly with the structural mounts, causing mechanical stress.
-4. **Prototype V4 (Current - Optimized & Compliant):** To establish a reliable baseline, we transitioned to a proven, robust open-source mechanical platform via [Thingiverse (Thing: 6667669)](https://www.thingiverse.com/thing:6667669). We adapted and calibrated this design to fix all previous powertrain issues while ensuring 100% compliance with WRO dimensional guidelines.
+The final design is the result of 4 iterations. We shifted from a custom, unstable chassis to a proven platform based on [Thingiverse 6667669](https://www.thingiverse.com/thing:6667669) to ensure compliance with WRO dimensional guidelines.
 
 | Front View | Rear View | Bottom View |
 | :---: | :---: | :---: |
@@ -93,18 +59,8 @@ The final design we are competing with is the result of **4 major chassis iterat
 │   ├── main.ino              <- Main Arduino execution loop
 │   └── config.h              <- Pin definitions and tuning constants
 ├── schematics/               <- Electrical and power distribution diagrams
-│   └── wiring_diagram.png    <- Full hardware wiring connection schema
 ├── mechanical/               <- 3D printing and hardware manufacturing files
-│   └── RCcar_1.stl to 8.stl  <- Individual 3D printable structural components
-└── media/                    <- Mandatory team and robot visual assets
-    ├── team-photos/
-    │   ├── mario.jpg
-    │   ├── isabella.jpg
-    │   └── robert.jpg
-    └── robot-photos/
-        ├── front.jpg
-        ├── back.jpg
-        └── bottom.jpg        <- To be uploaded on Monday
+└── media/                    <- Visual assets
 
 ```
 
@@ -114,100 +70,105 @@ The final design we are competing with is the result of **4 major chassis iterat
 
 ### 🚗 Drivebase & Drivetrain
 
-Our vehicle utilizes an **Ackermann steering geometry** combined with a rear-wheel drivebase layout. This mechanical configuration mirrors full-scale automotive systems, separating the propulsion vector (rear axle) from the directional steering vector (front axle). It provides predictable handling dynamics, smooth cornering radiuses, and stability during high-speed autonomous operations.
+Our vehicle utilizes an **Ackermann steering geometry** combined with a rear-wheel drivebase layout. This mechanical configuration mirrors full-scale automotive systems, separating the propulsion vector (rear axle) from the directional steering vector (front axle).
 
 ### ⚙️ Motors & Powertrain
 
-* **Propulsion:** Driven by a high-torque DC motor coupled to a mechanical differential axle. This setup allows the rear wheels to rotate at different speeds during tight cornering, minimizing wheel slippage and maintaining track grip.
-* **Steering:** Controlled via a high-precision digital Servo Motor connected to a mechanical steering rack. The servo provides fast response times and micro-degree adjustments for critical directional corrections.
-
-### 🛞 Wheels & Tires
-
-We use high-traction rubber slick tires designed to maximize surface contact on the smooth track canvas. The tire compound was chosen to reduce drift slipping during fast obstacle bypasses, ensuring that sensor inputs align precisely with physical vehicle displacement.
+* **Propulsion:** Driven by dual DC Gear Motors coupled to the drive axle.
+* **Steering:** Controlled via a high-precision digital Servo Motor connected to a mechanical rack, ensuring micro-degree adjustments for critical corrections.
 
 ---
 
 ## 🛠️ Power and Sense Management
 
-### 🔋 Components List
+The hardware ecosystem of **StormDrive** is optimized for efficiency:
 
-The hardware ecosystem of **StormDrive** is selected to deliver low latency, stable power boundaries, and reliable real-time sensor processing:
-
-* **Microcontroller:** Arduino Platform (Dual-board system or high-pin deployment for simultaneous hardware loops).
-* **Vision & Sensing:** PIXY2 Cam (High-speed color signature tracking) combined with sharp Ultrasonic Distance Sensors for backup obstacle localization.
-* **Actuators:** High-performance DC Power Motor and a Digital Steering Servo.
-* **Safety Switch:** Dedicated physical Power Interrupt Toggle Switch (Emergency stop and execution initializer).
-
-### 🔌 Motor Driver Integration
-
-To bridge our microcontroller logic with the high-current demands of the propulsion motor, we integrated an industrial-grade H-Bridge Motor Driver. It features independent PWM speed control lines and dedicated over-current safety thresholds to protect our main control boards from electrical spikes during aggressive braking sequences.
+* **Microcontroller:** Arduino Uno (Central processing unit).
+* **Vision AI:** DFRobot HuskyLens (Real-time color signature tracking).
+* **Power:** Two 18650 Li-ion batteries (7.4V series configuration).
+* **Integration:** L298N Motor Driver with independent PWM speed control.
 
 ---
 
 ## 💻 Components Coding
 
-Our code architecture is modularly split across two core files within the `src/` folder:
-
-* **`config.h`**: Houses all low-level hardware configurations, including peripheral pin maps, sensor threshold limits, calibration variables, and PID control constants.
-* **`main.ino`**: Manages the main execution state-machine. It continuously pulls real-time color coordinate buffers from the PIXY2 vision sensor, computes the necessary error offset, passes the values to our steering control algorithm, and updates the servo angle in sub-millisecond intervals.
-
-The software includes a boot-up safety sequence that waits for the physical toggle switch to close before sending current to the propulsion system, preventing accidental runaway starts on the pit table.
+Our code architecture is split into `config.h` (constants/pins) and `main.ino` (state-machine). We utilize a PID-like correction loop for steering. The HuskyLens outputs coordinate data over I2C, which is then mapped to the servo's pulse-width range. The logic ensures that if no pillar is detected, the robot maintains a straight trajectory based on the last known track center.
 
 ---
 
 ## 📝 Obstacle Management & Strategy
 
-Our navigation strategy is purely deterministic, utilizing a high-speed vision tracking routine to identify and react to colored track elements:
+The navigation strategy is purely deterministic:
 
-```text
-                  [ Pixy2 Camera Scan Loop ]
-                              │
-               ┌──────────────┴──────────────┐
-               ▼                             ▼
-       [ Detect RED Pillar ]         [ Detect GREEN Pillar ]
-               │                             │
-               ▼                             ▼
-   [ Turn STEERING RIGHT ]       [ Turn STEERING LEFT ]
-               │                             │
-               └──────────────┬──────────────┘
-                              ▼
-                 [ Re-align to Track Center ]
+1. **Scanning:** Continuous 30Hz frame capture.
+2. **Detection:** Signature recognition via HuskyLens.
+3. **Execution:** Fast steer-left or steer-right interrupt sequence.
+4. **Correction:** Return to center upon target loss.
 
-```
+---
 
-* **Color Sorting:** The Pixy2 camera continuously extracts X and Y bounding-box coordinates for programmed color signatures.
-* **Avoidance Protocol:** When a **Red** signature is registered with a high proximity surface area, the code shifts the steering target to the **right** channel. Conversely, a **Green** signature triggers a fast corrective maneuver to the **left** channel.
-* **Proportional Realignment:** Once the signature clears the camera's field of view, a gyro/distance feedback stabilization loop smoothly returns the steering rack to the centerline to avoid fishtailing.
+## 🛠️ Engineering Challenges & Solutions
+
+### Challenge 1: Tire Traction and Material Testing
+
+**Problem:** During our first testing sessions, the vehicle suffered from poor grip and sliding on the track, making precise turns impossible.
+**Solution:** We tested multiple wheel types and rubber compounds. After several track trials, we identified a set of high-traction slicks that provided the necessary friction to prevent skidding during high-speed maneuvers.
+
+### Challenge 2: Powertrain and Chassis Compatibility
+
+**Problem:** In our third iteration, we encountered severe mechanical stress where the motors were incompatible with the chassis mounts, leading to gear misalignment and power loss.
+**Solution:** We completely redesigned the motor mounting points to ensure a precise, rigid connection, eliminating vibrations.
+
+### Challenge 3: Power Management and Sensor Stability
+
+**Problem:** Integrating the HuskyLens AI camera caused unexpected voltage drops during motor load.
+**Solution:** We upgraded to high-discharge 18650 Li-ion accumulators, which provided a stable power rail for both the logic components and the drive system.
+
+### Challenge 4: Steering Geometry and Precision
+
+**Problem:** As this is our first year, we initially struggled with the Ackermann steering geometry, resulting in oversteering or understeering.
+**Solution:** We optimized our steering logic by fine-tuning the servo-to-rack linkage and software to prevent "fishtailing."
+
+### Challenge 5: Algorithmic Calibration and Code Iteration
+
+**Problem:** Developing the autonomous logic was difficult due to track unpredictability; initial versions failed to maintain a stable trajectory.
+**Solution:** We went through a rigorous process of testing and debugging multiple code iterations. By methodically logging sensor data, we implemented a robust feedback loop that achieves consistent path-following.
 
 ---
 
 ## 📽️ Performance Video
 
-Click the link below to watch the StormDrive autonomous vehicle successfully navigating the track and completing the WRO challenges:
-
-👉 **[Watch our StormDrive Robot in Action on YouTube!]https://youtu.be/e42kXT7T-QY)**
+**[Watch our StormDrive Robot in Action on YouTube!](https://youtu.be/e42kXT7T-QY)**
 
 ---
 
 ## 💰 Cost Analysis
 
-All components listed below were acquired in full compliance with the WRO Future Engineers budget limit regulations.
+| Item / Component | Qty | Description / Iteration Note | Cost (EUR) |
+| --- | --- | --- | --- |
+| **DFRobot HuskyLens** | 1 | AI Camera for color/pillar tracking | 50 EUR |
+| **Arduino Uno** | 1 | Main microcontroller | 15 EUR |
+| **L298N Motor Driver** | 1 | Dual H-Bridge driver | 5 EUR |
+| **DC Gear Motors** | 2 | Power propulsion units | 10 EUR |
+| **18650 Li-ion Batteries** | 2 | 3.7V cells (7.4V rail) | 6 EUR |
+| **Prototype Chassis Material** | 3 | Filament (PLA/PETG) | 15 EUR |
+| **Final Chassis V4 (Thingiverse)** | 1 | 3D printed components | 10 EUR |
+| **Screws, Nuts & Fasteners** | - | Mechanical hardware | 10 EUR |
+| **Cables & Wire Management** | - | Heavy-duty wiring | 5 EUR |
+| **Total Cost** |  |  | **126 EUR** |
 
-| Item / Component | Qty | Description / Iteration Note | Estimated Cost (EUR) |
-| :--- | :---: | :--- | :---: |
-| **DFRobot HuskyLens** | 1 | AI Camera for color/pillar tracking (Integrated into the final version) | 50 EUR |
-| **Arduino Uno** | 1 | Main microcontroller (Reused across versions V1, V2, V3, and V4) | 15 EUR |
-| **L298N Motor Driver** | 1 | Dual H-Bridge driver module (Reused across all versions) | 5 EUR |
-| **DC Gear Motors** | 2 | Power propulsion units (Reused across all versions) | 10 EUR |
-| **18650 Li-ion Batteries** | 2 | Ultrofite 3.7V cells (Connected in series for a 7.4V power rail) | 6 EUR |
-| **Prototype Chassis Material** | 3 | Filament (PLA/PETG) used for the initial non-compliant versions | 15 EUR |
-| **Final Chassis V4 (Thingiverse)** | 1 | 3D printed components based on the [Thingiverse 6667669](https://www.thingiverse.com/thing:6667669) platform | 10 EUR |
-| **Screws, Nuts & Fasteners** | - | Mechanical hardware selected to properly secure the frame and gears | 10 EUR |
-| **Cables & Wire Management** | - | Heavy-duty wiring, connectors, and zip ties handled by the hardware team | 5 EUR |
-| **Total Cost** | | | **126 EUR** |
+---
+
+## 🏁 Conclusion & Future Work
+
+The development of the StormDrive vehicle has been a rigorous exercise in mechanical and software optimization. By strictly following the WRO engineering cycle—prototyping, testing, evaluating, and refining—we have achieved a platform that is reliable and competitive. We remain committed to the open-source spirit and hope this documentation aids others in their journey.
+
+---
 
 ## 📜 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](https://www.google.com/search?q=LICENSE) file for details. All open-source mechanical derivatives remain under the attributions of their respective Thingiverse creators.
+This project is licensed under the **MIT License**.
+
+```
 
 ```
