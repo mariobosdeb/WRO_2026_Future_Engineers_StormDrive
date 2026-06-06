@@ -5,8 +5,6 @@
 
 Our entire development process follows an authentic engineering cycle. We went through **4 major chassis iterations** to fix issues with dimensions and power transmission, while keeping our core electronic platform consistent and cost-effective by reusing our main components across all prototypes.
 
-*Team Coach: Rădulescu Ramona (radramra@gmail.com)*
-
 ---
 
 ## 📚 Table of Contents
@@ -22,7 +20,7 @@ Our entire development process follows an authentic engineering cycle. We went t
   * [🔋 Components List](#-components-list)
   * [🔌 Motor Driver Integration](#-motor-driver-integration)
 * [💻 Components Coding](#-components-coding)
-* [📝 Obstacle Management](#-obstacle-management)
+* [📝 Obstacle Management & Strategy](#-obstacle-management--strategy)
 * [📽️ Performance Video](#%EF%B8%8F-performance-video)
 * [💰 Cost Analysis](#-cost-analysis)
 * [📜 License](#-license)
@@ -94,80 +92,27 @@ The final design we are competing with is the result of **4 major chassis iterat
 3. **Prototype V3 (Chassis-Motor Mismatch):** We attempted to scale down the design to fix the length violations, but the motor form-factor did not align properly with the structural mounts, causing mechanical stress.
 4. **Prototype V4 (Current - Optimized & Compliant):** To establish a reliable baseline, we transitioned to a proven, robust open-source mechanical platform via [Thingiverse (Thing: 6667669)](https://www.thingiverse.com/thing:6667669). We adapted and calibrated this design to fix all previous powertrain issues while ensuring 100% compliance with WRO dimensional guidelines.
 
-| Front View | Rear View | Side Profile |
+| Front View | Rear View | Bottom View |
 | :---: | :---: | :---: |
-| <img src="media/robot-photos/front.jpg" width="200px"> | <img src="media/robot-photos/back.jpg" width="200px"> | <img src="media/robot-photos/side.jpg" width="200px"> |
+| <img src="media/robot-photos/front.jpg" width="200px"> | <img src="media/robot-photos/back.jpg" width="200px"> | *To be uploaded during assembly on Monday* |
 
 ---
 
-## ⚙️ Mobility Management
-
-### 🚗 Drivebase & Drivetrain
-Our current chassis features an R/C style rear differential combined with a precise front-axle Ackermann steering geometry based on the open-source engineering community design from Thingiverse. This layout offers exceptional turning radiuses, minimizes tire scrubbing during high-speed cornering, and solves our previous power transmission inefficiencies.
-
-### ⚙️ Motors & Powertrain
-* **Propulsion System:** 2 pcs x DC Gear Motors configured for rear-wheel drive.
-* **Steering Actuator:** 1 x High-torque Servo Motor controlling the front Ackermann rack steering geometry.
-* **Integration:** Main actuators were reused systematically throughout all four prototype versions. In the current V4 chassis, they are perfectly aligned with the core transmission gears, distributing torque evenly without binding or slipping.
-
-### 🛞 Wheels & Tires
-The platform is equipped with specialized rims designed to withstand axial loads during tight corner maneuvers. The high-traction tires provide consistent static friction to avoid drifting offsets on the track.
-
----
-
-## 🛠️ Power and Sense Management
-
-### 🔋 Components List
-1. **Main Controller:** Arduino Uno — Handles all main logic computations, tracking math, and outputs PWM signals to control speed and direction.
-2. **AI Vision Sensor:** DFRobot HuskyLens — An AI machine vision sensor used for real-time color recognition, tracking the red and green obstacle pillars natively without overloading the main microcontroller.
-3. **Motor Driver:** L298N Dual H-Bridge module — Safely bridges the Arduino logic pins with high-current motor demands.
-4. **Actuators:** 2 x DC Gear Motors (Propulsion) & 1 x Standard Servo Motor (Steering).
-5. **Power Source:** 2 x 18650 Li-ion Batteries (Ultrofite 3.7V, wired in series to supply a stable ~7.4V power rail to the drivetrain and logic systems).
-
-### 🔌 Motor Driver Integration
-To bridge the control logic of the Arduino Uno with the power requirements of our dual DC gear motors, we utilized an **L298N Dual H-Bridge Motor Driver**. This component allowed us to safely manage motor direction and speed via PWM, while completely isolating the microcontroller from high-current spikes.
-
----
-
-## 💻 Components Coding
-The software architecture is written for the Arduino environment:
-* **Sensor & Camera Integration:** The Arduino Uno communicates with the HuskyLens camera over the I2C protocol, fetching object blocks and color IDs dynamically.
-* **Speed & Direction Control:** The code adjusts the duty cycle sent to the L298N driver and changes the servo angle dynamically, allowing smooth acceleration profiles and sharp directional corrections when avoiding obstacles.
-
----
-
-## 📝 Obstacle Management
-* **Obstacle Avoidance:** When the HuskyLens registers a `Red` pillar block, the steering servo shifts the front wheels to the **right**. When a `Green` pillar block is detected, the servo aligns the wheels to the **left**.
-* **Parking Sequence:** The Arduino keeps track of the lap progression. Upon reaching the final sector, the system triggers a pre-programmed sequence that steers the vehicle smoothly into the parking spot using reverse propulsion.
-
----
-
-## 📽️ Performance Video
-Watch the StormDrive autonomous vehicle executing test runs on our practice track:
-
-[![StormDrive Robot Run]()
-
----
-
-## 💰 Cost Analysis
-
-Our budget directly reflects a sustainable R&D workflow. By choosing a standard electronic platform and transferring it across all chassis upgrades, we avoided unnecessary expenses on electronics.
-
-| Item / Component | Qty | Description / Iteration Note | Estimated Cost (EUR) |
-| :--- | :---: | :--- | :---: |
-| **DFRobot HuskyLens** | 1 | AI Camera for color/pillar tracking (Integrated into the final version) | 50 EUR |
-| **Arduino Uno** | 1 | Main microcontroller (Reused across versions V1, V2, V3, and V4) | 15 EUR |
-| **L298N Motor Driver** | 1 | Dual H-Bridge driver module (Reused across all versions) | 5 EUR |
-| **DC Gear Motors** | 2 | Power propulsion units (Reused across all versions) | 10 EUR |
-| **18650 Li-ion Batteries** | 2 | Ultrofite 3.7V cells (Connected in series for a 7.4V power rail) | 6 EUR |
-| **Prototype Chassis Material** | 3 | Filament (PLA/PETG) used for the initial non-compliant versions | 15 EUR |
-| **Final Chassis V4 (Thingiverse)** | 1 | 3D printed components based on the [Thingiverse 6667669](https://www.thingiverse.com/thing:6667669) platform | 10 EUR |
-| **Screws, Nuts & Fasteners** | - | Mechanical hardware selected to properly secure the frame and gears | 10 EUR |
-| **Cables & Wire Management** | - | Heavy-duty wiring, connectors, and zip ties handled by the hardware team | 5 EUR |
-| **Total Cost** | | | **126 EUR** |
-
----
-
-## 📜 License
-Copyright (c) 2026 **StormDrive Team** (Guzu Isabella Elena, Barladianu Mario-Gabriel, Dascalu Robert Marian, Rădulescu Ramona). All rights reserved. 
-This project is developed exclusively for educational purposes as part of the World Robot Olympiad (WRO) Future Engineers competition.
+## 📂 Folder Structure
+```text
+├── README.md                  <- Main documentation file
+├── src/                       <- Complete vehicle source code
+│   ├── main.ino               <- Main Arduino execution loop
+│   └── config.h               <- Pin definitions and tuning constants
+├── schematics/                <- Electrical and power distribution diagrams
+│   └── wiring_diagram.png     <- Full hardware wiring connection schema
+├── mechanical/                <- 3D printing and hardware manufacturing files
+│   └── chassis_v4_modified.stl<- Adapted Thingiverse mechanical platform
+└── media/                     <- Mandatory team and robot visual assets
+    ├── team-photos/
+    │   ├── mario.jpg
+    │   ├── isabella.jpg
+    │   └── robert.jpg
+    └── robot-photos/
+        ├── front.jpg
+        └── back.jpg
