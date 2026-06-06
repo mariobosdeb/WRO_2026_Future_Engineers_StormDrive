@@ -27,24 +27,12 @@ Our entire development process follows an authentic engineering cycle. We went t
 
 ---
 
-## 👥 The Team
+### 👥 The Team
 
-<table>
-  <tr>
-    <td align="center">
-      <img src="media/team-photos/mario.jpg" width="200px;" alt="Barladianu Mario-Gabriel"/><br />
-      <sub><b>Barladianu Mario-Gabriel</b></sub>
-    </td>
-    <td align="center">
-      <img src="media/team-photos/isabella.jpg" width="200px;" alt="Guzu Isabella Elena"/><br />
-      <sub><b>Guzu Isabella Elena</b></sub>
-    </td>
-    <td align="center">
-      <img src="media/team-photos/robert.jpg" width="200px;" alt="Dascalu Robert Marian"/><br />
-      <sub><b>Dascalu Robert Marian</b></sub>
-    </td>
-  </tr>
-</table>
+| Mario | Isabella | Robert |
+| :---: | :---: | :---: |
+| ![Mario](media/media/team-photos/mario.jpg) | ![Isabella](media/media/team-photos/isabella.jpg) | ![Robert](media/media/team-photos/robert.jpg) |
+| **Barladianu Mario-Gabriel** <br> Lead Developer | **Guzu Isabella Elena** <br> Software Research | **Dascalu Robert Marian** <br> Hardware Specialist |
 
 ### 👩‍🏫 Mentor / Coach
 * **Name:** Rădulescu Ramona
