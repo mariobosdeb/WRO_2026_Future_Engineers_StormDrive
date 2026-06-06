@@ -1,0 +1,12 @@
+# Arduino IDE temporary build files
+**/build/
+**/local_build/
+*.local.properties
+*.o
+*.a
+
+# OS generated files
+.DS_Store
+Thumbs.db
+*.bak
+*.tmp
