@@ -31,7 +31,7 @@ Our entire development process follows an authentic engineering cycle. We went t
 
 | Mario | Isabella | Robert |
 | :---: | :---: | :---: |
-| ![Mario](media/team-photos/mario.jpg) | ![Isabella](media/team-photos/isabella.jpg) | ![Robert](media/team-photos/robert.jpg) |
+| ![Mario](media/media/team-photos/mario.jpg) | ![Isabella](media/media/team-photos/isabella.jpg) | ![Robert](media/media/team-photos/robert.jpg) |
 | **Barladianu Mario-Gabriel** <br> Lead Developer | **Guzu Isabella Elena** <br> Software Research | **Dascalu Robert Marian** <br> Hardware Specialist |
 
 ### 👩‍🏫 Mentor / Coach
