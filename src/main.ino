@@ -1,64 +1,58 @@
-#include "config.h"
 #include <Servo.h>
 
 Servo s;
-bool hasRun = false; // Garantează că traseul se execută o singură dată
+
+const int IN1 = 7;
+const int IN2 = 8;
+const int ENA = 9;
+const int SERVO_PIN = 10;
+
+const int drept  = 90;
+const int stanga = 55;
+const int viteza = 255;
 
 void setup() {
-  // Inițializare pini motor conform codului tău
-  pinMode(IN1_PIN, OUTPUT);
-  pinMode(IN2_PIN, OUTPUT);
-  pinMode(ENA_PIN, OUTPUT);
-
-  // Inițializare buton pornire (WRO)
-  pinMode(START_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(IN1, OUTPUT);
+  pinMode(IN2, OUTPUT);
+  pinMode(ENA, OUTPUT);
 
   s.attach(SERVO_PIN);
-  s.write(DREPT); // Robotul pornește cu roțile drepte
+
+  // 1. sta drept 5 secunde
+  s.write(drept);
+  delay(5000);
+
+  // 2. merge inainte drept
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  analogWrite(ENA, viteza);
+  delay(2200);
+
+  // 3. prima oara
+  s.write(stanga);
+  delay(500);
+  analogWrite(ENA, 0);
+  s.write(drept);
+  delay(800);
+  analogWrite(ENA, viteza);
+  delay(18000);
+
+  // 4. a doua oara
+  s.write(stanga);
+  delay(500);
+  analogWrite(ENA, 0);
+  s.write(drept);
+  delay(500);
+  analogWrite(ENA, viteza);
+  delay(12000);
+
+  // STOP FINAL
+  analogWrite(ENA, 0);
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, LOW);
+  s.write(drept);
 }
 
 void loop() {
-  // Robotul așteaptă apăsarea butonului de pe pinul 2 ca să înceapă cursa
-  if (!hasRun && digitalRead(START_BUTTON_PIN) == LOW) {
-    delay(500); // Mică pauză anti-bouncing
-    runRaceSequence();
-    hasRun = true; // Blochează repetarea codului
-  }
-}
-
-// Logica ta exactă de mișcare, activată la buton
-void runRaceSequence() {
-  // 1. Sta drept 5 secunde
-  s.write(DREPT);
-  delay(5000);
-
-  // 2. Merge inainte drept
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, HIGH);
-  analogWrite(ENA_PIN, VITEZA);
-  delay(2200);
-
-  // 3. Prima oara (Viraj stânga)
-  s.write(STANGA);
-  delay(500);
-  analogWrite(ENA_PIN, 0);
-  s.write(DREPT);
-  delay(800);
-  analogWrite(ENA_PIN, VITEZA);
-  delay(18000);
-
-  // 4. A doua oara (Viraj stânga)
-  s.write(STANGA);
-  delay(500);
-  analogWrite(ENA_PIN, 0);
-  s.write(DREPT);
-  delay(500);
-  analogWrite(ENA_PIN, VITEZA);
-  delay(12000);
-
-  // STOP FINAL (Frână totală)
-  analogWrite(ENA_PIN, 0);
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, LOW);
-  s.write(DREPT);
+  // gol — nu se mai repeta
 }
