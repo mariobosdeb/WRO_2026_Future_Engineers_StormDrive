@@ -94,7 +94,7 @@ The final design we are competing with is the result of **4 major chassis iterat
 
 | Front View | Rear View | Bottom View |
 | :---: | :---: | :---: |
-| <img src="media/robot-photos/front.jpg" width="200px"> | <img src="media/robot-photos/back.jpg" width="200px"> | *To be uploaded during assembly on Monday* |
+| <img src="media/robot-photos/front.jpg" width="200px"> | <img src="media/robot-photos/back.jpg" width="200px"> | 
 
 ---
 
