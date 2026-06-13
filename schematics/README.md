@@ -1,38 +1,31 @@
-# ⚡ Electrical Schematics
+## 🛠️ Electrical Architecture & Schematics
 
-This folder contains the official wiring diagrams and power distribution layout for the StormDrive autonomous vehicle.
+Our vehicle employs a **galvanically isolated power architecture**. By utilizing two independent power sources and separate physical switches, we ensure that the propulsion and control systems operate as distinct electrical units, preventing high-current motor noise from affecting the sensitive logic and vision processing.
 
----
+### 🔗 Connection Matrix
+| Component | Power Source | Logic/Signal Pins | Purpose |
+| :--- | :--- | :--- | :--- |
+| **Arduino Uno** | 9V Battery | - | Logic Control |
+| **L298N Driver** | 7.4V 2S Battery | Pins 5 (ENA), 7, 8 | Motor Control |
+| **Steering Servo** | Arduino 5V Out | Pin 10 | Directional Actuation |
+| **HuskyLens AI** | Arduino 5V Out | A4 (SDA), A5 (SCL) | Vision Data (I2C) |
 
-## 📂 Files Inventory
-* `wiring_diagram.png` -
+### 🧩 System Logic Diagram
+The following diagram illustrates our dual-battery strategy, where the control and drive circuits operate as isolated electrical systems:
 
----
 
-## 🔋 Power Architecture
 
-To ensure stability and prevent the Arduino board from resetting when the drive motor starts, our vehicle uses a split-power strategy managed by a main hardware power switch:
-
-1. **Main Power Switch:** A heavy-duty hardware switch is connected directly to the battery line, cutting or enabling total power to the entire system for safety and regulation compliance.
-2. **Logic Power (5V Circuit):** * Powered via the regulated **5V output** from the L298N motor driver.
-   * Supplies power to the **Arduino Uno** and the **DFRobot HuskyLens** camera.
-3. **Motor Power (High Current Circuit):**
-   * Powered directly from the **2x 18650 Li-ion battery pack** (~7.4V - 8.4V).
-   * Supplies raw power to the **L298N power input** (for the DC drive motor) and the **high-torque steering servo**.
-
----
-
-## 📌 Pin Mapping Reference
-
-Here is how the components connect to the Arduino Uno, matching our source code configuration:
-
-| Component | Component Pin | Arduino Uno Pin | Description |
-| :--- | :---: | :---: | :--- |
-| **Main Switch** | Power Line | **Battery VCC** | Hardware power cutoff (Safety Regulation) |
-| **L298N Driver** | IN1 | **Pin 7** | Motor Direction Control |
-| **L298N Driver** | IN2 | **Pin 8** | Motor Direction Control |
-| **L298N Driver** | ENA | **Pin 9** | Motor Speed Control (PWM) |
-| **Steering Servo**| PWM Signal | **Pin 10** | Front Wheels Steering Angle |
-| **HuskyLens** | TX / RX | I2C Pins (SDA/SCL) | Vision Sensor Data Communication |
-
----
+```mermaid
+graph TD
+    %% Alimentare Logica
+    B9V[Baterie 9V Logică] --> S1{Switch 1}
+    S1 --> Arduino[Arduino Uno]
+    
+    %% Alimentare Putere
+    B7V[Baterie 7.4V Putere] --> S2{Switch 2}
+    S2 --> L298N[L298N Motor Driver]
+    
+    %% Semnal si Comunicare
+    Arduino -- "Pins 5, 7, 8" --> L298N
+    Arduino -- "I2C" --> HL[HuskyLens]
+    Arduino -- "Pin 10" --> Servo[Servo Direcție]
