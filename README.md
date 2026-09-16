@@ -127,9 +127,9 @@ Rather than continuing to add modifications to the existing platform, we started
 
 # 🤖 StormDrive V2 — Current Platform
 
-The European-stage platform is currently based on an **Adeept PiCar-B Mars Rover Kit** with a **Raspberry Pi** as the main computing platform.
+The European-stage platform is based on an **Adeept PiCar-B Mars Rover Smart Car Kit** with a **Raspberry Pi** as the main computing platform.
 
-We are currently using the components supplied with the platform and are testing the vehicle before deciding whether additional sensors or the previous HuskyLens system should be introduced.
+The robot has now been **fully assembled**. We are entering the hardware and software testing phase and will validate the platform before committing to the final autonomous architecture.
 
 ### Current direction
 
@@ -139,12 +139,19 @@ We are currently using the components supplied with the platform and are testing
 | Robot platform | Adeept PiCar-B |
 | Drive system | Kit motor system |
 | Steering | Kit steering servo |
-| Vision | Currently being evaluated on the new platform |
+| Vision | Raspberry Pi camera / OpenCV capabilities being evaluated |
 | HuskyLens | **Not currently used** |
 | Additional sensors | To be evaluated after initial testing |
+| Current phase | **Hardware & software testing** |
 | Main goal | Reliable autonomous WRO driving |
 
-> **Hardware specifications are intentionally kept conservative here until the exact installed components and Raspberry Pi configuration are verified.**
+### 📚 V2 documentation
+
+- [🔧 Hardware Reference](european/hardware.md)
+- [💻 Software Reference](european/software-reference.md)
+- [🇪🇺 European Stage Documentation](european/README.md)
+
+The V2 documentation is based on the technical material and example software supplied with the PiCar-B package. Vendor example values are clearly distinguished from StormDrive calibration values and measured results.
 
 ---
 
@@ -217,9 +224,9 @@ The exact implementation will evolve together with the hardware and testing resu
 
 For V2, testing is treated as part of the engineering process rather than something done only at the end.
 
-We plan to validate the robot at several levels:
+We will validate the robot at several levels:
 
-1. **Component testing** — motors, steering, camera, electronics and sensors.
+1. **Component testing** — motors, steering, camera, electronics and available sensors.
 2. **Subsystem testing** — individual driving, steering and perception functions.
 3. **Integration testing** — complete software/hardware interaction.
 4. **Track testing** — corners, obstacles, laps and parking.
@@ -261,7 +268,7 @@ This makes the repository a development journal as well as a code repository.
 |---|---|---|
 | Development stage | National Championship | European Championship development |
 | Main controller | Arduino-based platform | Raspberry Pi platform |
-| Vision approach | HuskyLens | Currently being evaluated |
+| Vision approach | HuskyLens | Raspberry Pi camera / OpenCV under evaluation |
 | Chassis | Custom/iterated V1 platform | Adeept PiCar-B platform |
 | Drive hardware | V1 motor system | Kit motor system |
 | Steering | V1 steering system | Kit steering servo |
@@ -277,6 +284,10 @@ V1 remains documented because it is an important part of the project's engineeri
 StormDrive/
 │
 ├── README.md
+├── european/
+│   ├── README.md
+│   ├── hardware.md
+│   └── software-reference.md
 ├── src/                    # Current source code
 ├── mechanical/             # Mechanical files and CAD/STL documentation
 ├── schematics/             # Electrical and wiring documentation
@@ -286,7 +297,7 @@ StormDrive/
 └── .gitignore
 ```
 
-As V2 development grows, the repository structure will be expanded with dedicated documentation for hardware, software, testing and the development log.
+As V2 development grows, this structure will be expanded with testing data and a development log.
 
 ---
 
@@ -301,7 +312,7 @@ The repository contains documentation photos from both the team and the robot de
 - `media/media/team-photos/team-wro-romania-2026.jpg`
 
 ### Robot
-The existing `media/robot-photos/` directory documents the previous V1 platform. New V2 photos will be added as the European-stage vehicle is assembled and tested.
+The existing `media/robot-photos/` directory documents the previous V1 platform. New V2 photos will be added as testing progresses.
 
 ---
 
@@ -315,9 +326,9 @@ The existing `media/robot-photos/` directory documents the previous V1 platform.
 
 ### StormDrive V2
 - ✅ New platform selected
-- 🔄 Assembly in progress
+- ✅ Robot fully assembled
 - 🔄 Hardware verification
-- 🔄 Software development
+- 🔄 Software bring-up
 - ⏳ Autonomous track testing
 - ⏳ Obstacle testing
 - ⏳ Lap testing
@@ -333,7 +344,7 @@ Status will be updated as development progresses.
 - [x] Complete Romanian Championship stage
 - [x] Finish in 3rd place at WRO Romania 2026
 - [x] Select a new V2 platform
-- [ ] Complete V2 assembly
+- [x] Complete V2 assembly
 - [ ] Verify all hardware
 - [ ] Establish the V2 software architecture
 - [ ] Implement autonomous driving
@@ -350,12 +361,16 @@ Status will be updated as development progresses.
 
 Detailed technical documentation will be developed alongside the robot.
 
-Planned documentation includes:
+Current V2 documentation:
 
-- **Hardware** — components, wiring, power and mechanical integration
-- **Software** — architecture, algorithms and control logic
+- **[Hardware Reference](european/hardware.md)** — components, interfaces, power monitoring and hardware test plan
+- **[Software Reference](european/software-reference.md)** — supplied Python capabilities, computer vision, PID and reusable software concepts
+- **[European Stage](european/README.md)** — V2 development overview
+
+Planned additions:
+
 - **Testing** — experiments, measurements and repeatability
-- **Mechanical** — CAD, STL files and design decisions
+- **Mechanical** — V2 CAD, STL files and design decisions
 - **Development Log** — chronological record of major changes
 
 ---
@@ -364,7 +379,7 @@ Planned documentation includes:
 
 StormDrive is more than the final robot.
 
-It is the record of how a student robotics team moves from an initial design, through competition experience and failure analysis, toward a new platform and a more structured engineering process.
+It is the record of how a student robotics team moves from an initial design, through competition experience and engineering analysis, toward a new platform and a more structured development process.
 
 > **Build. Test. Learn. Improve. Repeat.**
 
