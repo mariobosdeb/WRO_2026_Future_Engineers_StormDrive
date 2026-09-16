@@ -27,7 +27,7 @@ Our work is organized around a simple engineering cycle:
 
 > **Design → Build → Test → Measure → Improve**
 
-This repository documents that process — including the successful parts, the problems we encountered, the decisions we changed, and the evolution from our original **V1** platform to the new **V2** platform developed for the European stage.
+This repository documents that process — including successful solutions, failed approaches, engineering decisions, and the evolution from our original **V1** platform to the new **V2** platform developed for the European stage.
 
 ---
 
@@ -35,9 +35,9 @@ This repository documents that process — including the successful parts, the p
 
 Our 2026 season started with the Romanian stage of WRO Future Engineers, where **StormDrive finished in 3rd place**.
 
-The competition gave us practical experience with autonomous driving, track interpretation, mechanical reliability, software tuning and the pressure of running a robot repeatedly in a competition environment.
+The competition gave us practical experience with autonomous driving, track interpretation, mechanical reliability, software tuning and repeated operation in a competition environment.
 
-That experience also showed us where our original platform could be improved. Instead of continuing with increasingly complex modifications to V1, we chose to use the lessons from the national stage as the starting point for a new platform.
+That experience also showed us where the original platform could be improved. Instead of continuing to add complexity to V1, we used the lessons from the national stage as the starting point for a new platform.
 
 ### 📸 The team at the Romanian Championship
 
@@ -70,13 +70,13 @@ That experience also showed us where our original platform could be improved. In
 </table>
 
 ### 👨‍💻 Mario Barladianu
-**Lead Developer** — responsible for the main software development, control logic, integration and programming workflow.
+**Lead Developer** — main software development, control logic, integration and programming workflow.
 
 ### 🧠 Isabella Guzu
-**Software Research** — focuses on software research, testing ideas and helping evaluate approaches for autonomous navigation.
+**Software Research** — software research, testing ideas and evaluating approaches for autonomous navigation.
 
 ### 🔧 Robert Dascalu
-**Hardware Specialist** — focuses on mechanical construction, electronics, physical integration and hardware testing.
+**Hardware Specialist** — mechanical construction, electronics, physical integration and hardware testing.
 
 > StormDrive is a team project. Mechanical, software and testing decisions are developed collaboratively throughout the season.
 
@@ -88,7 +88,7 @@ After the Romanian Championship, we decided to take a different engineering appr
 
 Our original vehicle had already gone through several mechanical iterations. The national competition gave us valuable information about what worked and what limited consistency in real competition conditions.
 
-Rather than continuing to add modifications to the existing platform, we started **StormDrive V2** as a new platform.
+Rather than continuing to modify V1, we started **StormDrive V2** as a new platform.
 
 ```text
 ┌──────────────────────┐
@@ -99,8 +99,8 @@ Rather than continuing to add modifications to the existing platform, we started
            ▼
 ┌──────────────────────┐
 │  🇷🇴 WRO Romania     │
-│      2026             │
-│     🥉 3rd Place      │
+│       2026            │
+│     🥉 3rd Place     │
 └──────────┬───────────┘
            │
            ▼
@@ -121,7 +121,7 @@ Rather than continuing to add modifications to the existing platform, we started
 └──────────────────────┘
 ```
 
-**V2 is not simply an upgraded V1. It is a new engineering iteration built from the experience gained with V1.**
+**V2 is not simply an upgraded V1. It is a new engineering iteration built from experience gained with V1.**
 
 ---
 
@@ -129,7 +129,7 @@ Rather than continuing to add modifications to the existing platform, we started
 
 The European-stage platform is based on an **Adeept PiCar-B Mars Rover Smart Car Kit** with a **Raspberry Pi** as the main computing platform.
 
-The robot has now been **fully assembled**. We are entering the hardware and software testing phase and will validate the platform before committing to the final autonomous architecture.
+The robot is **fully assembled**. We are now in the hardware verification and software bring-up phase before finalizing the autonomous architecture.
 
 ### Current direction
 
@@ -137,11 +137,11 @@ The robot has now been **fully assembled**. We are entering the hardware and sof
 |---|---|
 | Main computer | Raspberry Pi platform |
 | Robot platform | Adeept PiCar-B |
-| Drive system | Kit motor system |
-| Steering | Kit steering servo |
-| Vision | Raspberry Pi camera / OpenCV capabilities being evaluated |
+| Drive system | Original kit motor system |
+| Steering | Original kit steering servo |
+| Vision | Raspberry Pi camera / OpenCV capabilities under evaluation |
 | HuskyLens | **Not currently used** |
-| Additional sensors | To be evaluated after initial testing |
+| Additional sensors | To be evaluated after baseline testing |
 | Current phase | **Hardware & software testing** |
 | Main goal | Reliable autonomous WRO driving |
 
@@ -149,41 +149,32 @@ The robot has now been **fully assembled**. We are entering the hardware and sof
 
 - [🔧 Hardware Reference](european/hardware.md)
 - [💻 Software Reference](european/software-reference.md)
-- [🇪🇺 European Stage Documentation](european/README.md)
+- [🇪🇺 European Stage](european/README.md)
+- [🧭 Documentation Hub](docs/README.md)
+- [🔌 Schematics](schematics/README.md)
 
-The V2 documentation is based on the technical material and example software supplied with the PiCar-B package. Vendor example values are clearly distinguished from StormDrive calibration values and measured results.
+The V2 documentation uses the Adeept package as technical reference material. Manufacturer examples are kept distinct from StormDrive implementation details and from measured results.
 
 ---
 
-# 🎯 What V2 Needs to Achieve
+# 🎯 WRO Engineering Objectives
 
-The goal of the European-stage platform is a reliable autonomous system capable of handling the complete competition workflow.
+The European-stage platform is being developed around the complete autonomous workflow:
 
-### 🏎️ Autonomous driving
-Follow the track without manual steering during the run.
-
-### ↪️ Cornering
-Detect and handle changes in direction while maintaining a stable trajectory.
-
-### 🚧 Obstacle handling
-Interpret the environment and execute the required avoidance behaviour.
-
-### 🔄 Lap management
-Track progress through the course and avoid incorrect lap transitions.
-
-### 🅿️ Parking
-Develop a repeatable autonomous parking sequence suitable for the competition environment.
-
-### ⚡ Reliability
-Prioritize repeatable behaviour over a single successful run.
+| Challenge | Engineering focus |
+|---|---|
+| 🏎️ Autonomous driving | Stable autonomous movement and trajectory control |
+| ↪️ Cornering | Repeatable steering through direction changes |
+| 🚧 Obstacle handling | Reliable environment interpretation and avoidance behaviour |
+| 🔄 Lap management | Robust state and course-progress handling |
+| 🅿️ Parking | Repeatable autonomous parking sequence |
+| ⚡ Reliability | Consistent behaviour across repeated runs |
 
 ---
 
 # 🧠 Software Architecture — V2
 
-The V2 software is being developed around a modular architecture rather than keeping all robot behaviour in one large program.
-
-The intended structure separates the main responsibilities:
+The V2 software is being developed as a modular system rather than one large program.
 
 ```text
                     ┌─────────────┐
@@ -216,31 +207,23 @@ The intended structure separates the main responsibilities:
                     └─────────────┘
 ```
 
-The exact implementation will evolve together with the hardware and testing results.
+The implementation will evolve together with hardware validation and measured track behaviour.
 
 ---
 
-# 🧪 Testing Philosophy
+# 🧪 Testing & Validation
 
-For V2, testing is treated as part of the engineering process rather than something done only at the end.
-
-We will validate the robot at several levels:
+Testing is part of the engineering process, not only a final step.
 
 1. **Component testing** — motors, steering, camera, electronics and available sensors.
-2. **Subsystem testing** — individual driving, steering and perception functions.
+2. **Subsystem testing** — driving, steering and perception functions.
 3. **Integration testing** — complete software/hardware interaction.
 4. **Track testing** — corners, obstacles, laps and parking.
 5. **Repeatability testing** — multiple consecutive runs under similar conditions.
 
-When measured data becomes available, this repository will include actual test results instead of estimated performance claims.
+When data becomes available, results will be recorded as measurements rather than estimates.
 
----
-
-# 🔬 Engineering Process
-
-One of the main purposes of this repository is to show **how StormDrive was engineered**.
-
-For important changes we want to record:
+### Engineering record format
 
 ```text
 Problem
@@ -258,7 +241,7 @@ Measured result
 Decision
 ```
 
-This makes the repository a development journal as well as a code repository.
+This turns the repository into an engineering journal as well as a code repository.
 
 ---
 
@@ -270,9 +253,9 @@ This makes the repository a development journal as well as a code repository.
 | Main controller | Arduino-based platform | Raspberry Pi platform |
 | Vision approach | HuskyLens | Raspberry Pi camera / OpenCV under evaluation |
 | Chassis | Custom/iterated V1 platform | Adeept PiCar-B platform |
-| Drive hardware | V1 motor system | Kit motor system |
-| Steering | V1 steering system | Kit steering servo |
-| Development goal | Build and compete | Improve the platform through a new design |
+| Drive hardware | V1 motor system | Original kit motor system |
+| Steering | V1 steering system | Original kit steering servo |
+| Development goal | Build and compete | New platform + structured testing |
 
 V1 remains documented because it is an important part of the project's engineering history.
 
@@ -284,26 +267,27 @@ V1 remains documented because it is an important part of the project's engineeri
 StormDrive/
 │
 ├── README.md
+├── docs/
+│   └── README.md
 ├── european/
 │   ├── README.md
 │   ├── hardware.md
 │   └── software-reference.md
-├── src/                    # Current source code
+├── src/                    # Source code
 ├── mechanical/             # Mechanical files and CAD/STL documentation
 ├── schematics/             # Electrical and wiring documentation
 ├── media/                  # Team and robot photos
-│   └── media/team-photos/  # Team photography
+│   ├── media/team-photos/
+│   └── robot-photos/
 ├── LICENSE
 └── .gitignore
 ```
 
-As V2 development grows, this structure will be expanded with testing data and a development log.
+The structure will expand with test data, engineering logs, V2 schematics and final competition documentation.
 
 ---
 
 # 📸 Project Media
-
-The repository contains documentation photos from both the team and the robot development process.
 
 ### Team
 - `media/media/team-photos/mario.jpg`
@@ -359,19 +343,18 @@ Status will be updated as development progresses.
 
 # 📚 Documentation
 
-Detailed technical documentation will be developed alongside the robot.
-
-Current V2 documentation:
-
-- **[Hardware Reference](european/hardware.md)** — components, interfaces, power monitoring and hardware test plan
-- **[Software Reference](european/software-reference.md)** — supplied Python capabilities, computer vision, PID and reusable software concepts
+- **[Documentation Hub](docs/README.md)** — central index for engineering records
 - **[European Stage](european/README.md)** — V2 development overview
+- **[Hardware Reference](european/hardware.md)** — platform, interfaces and hardware test plan
+- **[Software Reference](european/software-reference.md)** — supplied software capabilities and reusable concepts
+- **[Schematics](schematics/README.md)** — electrical architecture and wiring
+- **[Mechanical](mechanical/markdown.md)** — mechanical files and design history
 
 Planned additions:
 
 - **Testing** — experiments, measurements and repeatability
-- **Mechanical** — V2 CAD, STL files and design decisions
-- **Development Log** — chronological record of major changes
+- **Development Log** — chronological engineering record
+- **Final Competition Configuration** — frozen hardware/software setup used at the event
 
 ---
 
