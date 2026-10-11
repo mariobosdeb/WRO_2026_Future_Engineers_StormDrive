@@ -1,28 +1,26 @@
-## 🛠️ Mechanical Components
+# StormDrive V1 — Mechanical Design
 
-This section details the custom chassis assembly of our autonomous vehicle. We have optimized the mechanical structure to ensure precise steering and robust power transmission.
+This folder contains the STL files and notes for the team's original V1 vehicle, which competed at the Romanian national stage. These files are historical V1 documentation; they do not describe the current V2 car.
 
-### 📐 Chassis & Steering Assembly
-Our mechanical platform is structured for high-performance navigation, focusing on precise Ackermann geometry and structural rigidity.
+## Chassis and steering parts
 
-| Component | Functionality |
-| :--- | :--- |
-| **Part 1** | Internal pivot mechanism for front wheel rotation. |
-| **Part 2** | Front steering housing where Part 1 is seated. |
-| **Part 3** | Main steering linkage block for directional control. |
-| **Part 4** | Servo-to-linkage connector (main steering rod). |
-| **Part 5** | Primary main chassis base. |
-| **Part 6** | Structural mount for assembling Parts 1, 2, and 3. |
-| **Part 7** | Lock-nut/fastener for Part 6 assembly. |
-| **Part 8** | Drivetrain coupler (connects motor to rear wheels). |
+| File | Part | Description |
+|---|---:|---|
+| [RCcar_1.stl](RCcar_1.stl) | 1 | Internal pivot mechanism for the front-wheel steering |
+| [RCcar_2.stl](RCcar_2.stl) | 2 | Front steering housing |
+| [RCcar_3.stl](RCcar_3.stl) | 3 | Steering linkage block |
+| [RCcar_4.stl](RCcar_4.stl) | 4 | Servo-to-linkage connector |
+| [RCcar_5.stl](RCcar_5.stl) | 5 | Main chassis base |
+| [RCcar_6.stl](RCcar_6.stl) | 6 | Structural mount for the front assembly |
+| [RCcar_7.stl](RCcar_7.stl) | 7 | Fastener / locking part for the assembly |
+| [RCcar_8.stl](RCcar_8.stl) | 8 | Drivetrain coupler |
 
-### 📷 Camera Mounting System
-The **DFRobot HuskyLens** is mounted for maximum stability:
-* **Positioning:** Integrated into the front suspension structure.
-* **Fixation:** Secured using a **single M3 bolt with two precision washers**. This custom fixation ensures a rigid, vibration-free setup, preventing sensor misalignment during high-speed obstacle avoidance maneuvers.
+The part descriptions are based on the team's original V1 notes. Verify fit and orientation against the assembled vehicle before manufacturing replacement parts.
 
-### 📂 Structural Design Notes
-The vehicle's mechanical design is modular, allowing for quick repairs and adjustments during competition. By utilizing a multi-part assembly (Parts 1-8), we have achieved a centralized mass distribution that lowers the vehicle's center of gravity, improving grip on the track during sharp turns.
+## V1 camera mount
 
----
-*For high-resolution CAD assemblies and print settings, refer to the `/mechanical/` folder of this repository.*
+The original V1 notes describe a front-mounted DFRobot HuskyLens secured with one M3 bolt and two washers. This is a V1 detail; V2 uses a different platform and camera-based software.
+
+## V2 mechanical documentation
+
+V2 is based on the Adeept PiCar-B platform with team adaptations. Add V2-specific photos, modifications, and CAD files here when they are ready.
