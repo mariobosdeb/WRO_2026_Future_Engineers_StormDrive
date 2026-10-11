@@ -20,6 +20,7 @@ From this directory:
 sudo python3 calibrate.py
 sudo python3 main.py open
 sudo python3 main.py obstacle
+sudo python3 main.py parcare  # development mode; parking is not complete
 ```
 
 Calibrate the assembled car before driving. `calibration.json` is generated for the local robot and is intentionally not included in the repository. Keep run logs, traces, learned values, and other local output in `debug/`; these files are ignored by Git.
