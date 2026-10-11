@@ -15,6 +15,38 @@
   <em>From our first WRO national-stage car to the V2 we're taking to Europe.</em>
 </p>
 
+## ⚡ StormDrive at a glance
+
+| StormDrive V1 | StormDrive V2 | Current team progress |
+|---|---|---|
+| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the European stage, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
+
+### 🔎 Explore the project
+
+[🤖 V2 source and run guide](src/v2/README.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
+
+<details>
+<summary><strong>Contents of this README</strong></summary>
+
+- [About StormDrive](#-about-stormdrive)
+- [WRO Romania 2026](#-wro-romania-2026)
+- [Meet the Team](#-meet-the-team)
+- [Road to Europe](#-road-to-europe)
+- [StormDrive V2 — Current Platform](#-stormdrive-v2--current-platform)
+- [WRO Engineering Objectives](#-wro-engineering-objectives)
+- [Software Architecture — V2](#-software-architecture--v2)
+- [Testing & Validation](#-testing--validation)
+- [V1 → V2](#-v1--v2)
+- [Repository Structure](#-repository-structure)
+- [Project Media](#-project-media)
+- [Development Status](#-development-status)
+- [Roadmap](#-roadmap)
+- [Documentation](#-documentation)
+- [Our Goal](#-our-goal)
+- [License](#-license)
+
+</details>
+
 ## 🎥 StormDrive V2 on track
 
 <table>
@@ -35,16 +67,6 @@
     </td>
   </tr>
 </table>
-
-## ⚡ StormDrive at a glance
-
-| StormDrive V1 | StormDrive V2 | Current team progress |
-|---|---|---|
-| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the European stage, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
-
-### 🔎 Explore the project
-
-[🤖 V2 source and run guide](src/v2/README.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
 
 ---
 
@@ -72,48 +94,40 @@ That experience also showed us where the original platform could be improved. In
 
 ### 📸 The team at the Romanian Championship
 
-<p align="center">
-  <img src="media/media/team-photos/team-wro-romania-2026.jpg" width="800" alt="StormDrive team at WRO Romania 2026">
-</p>
+The team photo is shown at the top of this page.
 
 ---
 
-# 👥 Meet the Team
+## 👥 Meet the Team
 
 <table>
   <tr>
-    <td align="center">
-      <img src="media/media/team-photos/mario.jpg" width="220" alt="Mario"><br>
+    <td align="center" width="33%">
+      <img src="media/media/team-photos/mario.jpg" width="180" alt="Mario Barladianu"><br>
       <strong>Mario Barladianu</strong><br>
-      Lead Developer
+      <strong>Lead Developer</strong><br>
+      Main software development, control logic, integration and programming workflow.
     </td>
-    <td align="center">
-      <img src="media/media/team-photos/isabella.jpg" width="220" alt="Isabella"><br>
+    <td align="center" width="33%">
+      <img src="media/media/team-photos/isabella.jpg" width="180" alt="Isabella Guzu"><br>
       <strong>Isabella Guzu</strong><br>
-      Software Research
+      <strong>Software Research</strong><br>
+      Software research, testing ideas and evaluating autonomous-navigation approaches.
     </td>
-    <td align="center">
-      <img src="media/media/team-photos/robert.jpg" width="220" alt="Robert"><br>
+    <td align="center" width="33%">
+      <img src="media/media/team-photos/robert.jpg" width="180" alt="Robert Dascalu"><br>
       <strong>Robert Dascalu</strong><br>
-      Hardware Specialist
+      <strong>Hardware Specialist</strong><br>
+      Mechanical construction, electronics, physical integration and hardware testing.
     </td>
   </tr>
 </table>
-
-### 👨‍💻 Mario Barladianu
-**Lead Developer** — main software development, control logic, integration and programming workflow.
-
-### 🧠 Isabella Guzu
-**Software Research** — software research, testing ideas and evaluating approaches for autonomous navigation.
-
-### 🔧 Robert Dascalu
-**Hardware Specialist** — mechanical construction, electronics, physical integration and hardware testing.
 
 > StormDrive is a team project. Mechanical, software and testing decisions are developed collaboratively throughout the season.
 
 ---
 
-# 🇪🇺 Road to Europe
+## 🇪🇺 Road to Europe
 
 After the Romanian Championship, we decided to take a different engineering approach for the European stage.
 
@@ -156,7 +170,7 @@ Rather than continuing to modify V1, we started **StormDrive V2** as a new platf
 
 ---
 
-# 🤖 StormDrive V2 — Current Platform
+## 🤖 StormDrive V2 — Current Platform
 
 StormDrive V2 uses Adeept hardware and software infrastructure as a starting point, with the team's own adaptations. The competition-driving software is developed for StormDrive and is not an unmodified Adeept demonstration program.
 
@@ -188,7 +202,7 @@ The V2 documentation uses the Adeept package as technical reference material. Ma
 
 ---
 
-# 🎯 WRO Engineering Objectives
+## 🎯 WRO Engineering Objectives
 
 The European-stage software covers the complete autonomous workflow:
 
@@ -203,7 +217,7 @@ The European-stage software covers the complete autonomous workflow:
 
 ---
 
-# 🧠 Software Architecture — V2
+## 🧠 Software Architecture — V2
 
 The V2 software is organized as a modular system, with separate components for perception, navigation, control and hardware.
 
@@ -242,7 +256,7 @@ The implementation will evolve together with hardware validation and measured tr
 
 ---
 
-# 🧪 Testing & Validation
+## 🧪 Testing & Validation
 
 Testing is part of the engineering process, not only a final step.
 
@@ -276,7 +290,7 @@ This turns the repository into an engineering journal as well as a code reposito
 
 ---
 
-# 🔄 V1 → V2
+## 🔄 V1 → V2
 
 | Area | StormDrive V1 | StormDrive V2 |
 |---|---|---|
@@ -292,7 +306,7 @@ V1 remains documented because it is an important part of the project's engineeri
 
 ---
 
-# 📂 Repository Structure
+## 📂 Repository Structure
 
 ```text
 StormDrive/
@@ -318,7 +332,7 @@ Starter pages for testing, engineering decisions and final configuration are alr
 
 ---
 
-# 📸 Project Media
+## 📸 Project Media
 
 ### Team
 - `media/media/team-photos/mario.jpg`
@@ -331,7 +345,7 @@ The existing `media/robot-photos/` directory documents the previous V1 platform.
 
 ---
 
-# 📈 Development Status
+## 📈 Development Status
 
 ### StormDrive V1
 - ✅ Designed and iterated
@@ -351,7 +365,7 @@ Status will be updated as development progresses.
 
 ---
 
-# 🗺️ Roadmap
+## 🗺️ Roadmap
 
 - [x] Complete Romanian Championship stage
 - [x] Finish in 3rd place at WRO Romania 2026
@@ -367,7 +381,7 @@ Status will be updated as development progresses.
 
 ---
 
-# 📚 Documentation
+## 📚 Documentation
 
 - **[Documentation Hub](docs/README.md)** — central index for engineering records
 - **[European Stage](european/README.md)** — V2 development overview
@@ -384,7 +398,7 @@ Next documentation updates:
 
 ---
 
-# 🏁 Our Goal
+## 🏁 Our Goal
 
 StormDrive is more than the final robot.
 
