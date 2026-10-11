@@ -1,35 +1,50 @@
-# StormDrive
+# 🏎️ StormDrive
 
-**WRO Future Engineers 2026** · Romania and European stages
+### WRO Future Engineers 2026
 
-StormDrive is our autonomous robotics project. **V1** was our first car and competed at the Romanian national stage. **V2** is the current car being prepared for the European stage. The team developed its competition software using the Adeept platform and software package as a starting point, then built and tuned its own driving system.
+<p align="center">
+  <img src="media/media/team-photos/team-wro-romania-2026.jpg" width="820" alt="StormDrive team at the WRO Romania 2026 national stage">
+</p>
+
+<p align="center">
+  <strong>🥉 3rd place · WRO Romania 2026</strong><br>
+  Building our next car for the European stage
+</p>
+
+StormDrive is our student robotics project for **WRO Future Engineers**. We design, build and program autonomous cars, learning from each competition and improving through testing.
+
+## From V1 to V2
+
+**V1** was our first competition car and took us to the Romanian national stage, where our team finished third. What we learned there shaped **V2**, the car we are preparing for the European stage.
+
+Adeept's platform and software package gave us a starting point. We adapted the setup and developed our own competition-driving software for StormDrive.
 
 ## Current progress
 
-- V1 competed at the Romanian national stage and placed third.
-- V2 completes three laps in Open Challenge testing.
-- In Obstacle Challenge testing, V2 is close to completing three laps; calibration is still underway.
-- Parking is the main remaining software task.
+| Challenge | Latest team update |
+|---|---|
+| **Open** | Completes three laps in current testing; calibration and tuning continue. |
+| **Obstacle** | Close to completing three laps; calibration and tuning continue. |
+| **Parking** | Still in development. |
 
-These are team-reported development results. The code and calibration continue to change as testing progresses.
+This is the team's current report. Results can change as we continue tuning the car.
 
 ## V2 software
 
-The competition code is in [`src/v2/`](src/v2/). It contains the robot entry points, the `wro` control and perception modules, calibration tools, and simulation/replay utilities. Start with the [V2 software guide](src/v2/README.md).
+The V2 code is in [src/v2/](src/v2/). It includes the driving entry points, camera and sensor processing, localization, planning, control, calibration tools, and simulation utilities.
 
-The repository also keeps V1 and the Adeept reference material separate from StormDrive's V2 implementation. See the [European-stage overview](european/README.md), [hardware notes](european/hardware.md), and [documentation index](docs/README.md).
+Start with the [V2 software guide](src/v2/README.md) for the run modes and setup notes.
 
-## Repository map
+## Explore the project
 
-```text
-src/          V1 and V2 competition software
-european/     V2 platform and reference notes
-docs/         Engineering records and project documentation
-vendor/       Adeept reference material
-media/        Team and robot photos
-```
+- [European-stage overview](european/README.md)
+- [Hardware reference](european/hardware.md)
+- [Adeept software reference](european/software-reference.md)
+- [Documentation hub](docs/README.md)
+- [Team and robot media](media/)
+
+The repository keeps our competition code distinct from manufacturer reference material and records V1 as part of the team's engineering history.
 
 ## License
 
-Project software is licensed under the MIT License. Manufacturer reference files remain subject to their original licenses and notices.
-
+StormDrive project software is licensed under the [MIT License](LICENSE). Manufacturer reference material remains subject to its original license and notices.
