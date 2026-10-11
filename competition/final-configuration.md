@@ -10,7 +10,7 @@ This page will describe the exact StormDrive configuration used at the WRO 2026 
 |---|---|
 | Project | StormDrive |
 | Season | WRO 2026 Future Engineers |
-| Platform | Adeept PiCar-B |
+| Platform | Adeept PiCar-B base with team adaptations |
 | Main controller | TBD — verify exact Raspberry Pi model and RAM |
 | Drive architecture | TBD — verify final configuration |
 | Steering actuator | Kit servo / TBD final calibration |
