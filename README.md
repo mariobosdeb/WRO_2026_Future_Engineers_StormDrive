@@ -274,8 +274,8 @@ This turns the repository into an engineering journal as well as a code reposito
 | Main controller | Arduino-based platform | Raspberry Pi platform |
 | Vision approach | HuskyLens | Camera and OpenCV in the V2 software |
 | Chassis | Custom/iterated V1 platform | Adeept PiCar-B platform |
-| Drive hardware | V1 motor system | Original kit motor system |
-| Steering | V1 steering system | Original kit steering servo |
+| Drive hardware | V1 motor system | Adeept-based hardware, adapted by the team |
+| Steering | V1 steering system | Adeept-based steering, calibrated for V2 |
 | Development goal | National competition car | European-stage car with team-developed software |
 
 V1 remains documented because it is an important part of the project's engineering history.
@@ -286,20 +286,20 @@ V1 remains documented because it is an important part of the project's engineeri
 
 ```text
 StormDrive/
-│
 ├── README.md
-├── docs/
-│   └── README.md
-├── european/
-│   ├── README.md
-│   ├── hardware.md
-│   └── software-reference.md
-├── src/                    # Source code
-├── mechanical/             # Mechanical files and CAD/STL documentation
-├── schematics/             # Electrical and wiring documentation
-├── media/                  # Team and robot photos
-│   ├── media/team-photos/
-│   └── robot-photos/
+├── docs/                       # Engineering journal, testing and decisions
+├── competition/                # Final competition configuration
+├── european/                   # V2 platform and software references
+├── src/
+│   ├── config.h, main.ino      # V1 Arduino source
+│   └── v2/                     # V2 Python source and wro/ modules
+├── mechanical/                 # V1 STL files and mechanical notes
+├── schematics/                 # Wiring documentation
+├── media/
+│   ├── media/team-photos/      # Team and Romanian-stage photos
+│   ├── robot-photos/           # V1 vehicle views
+│   └── videos.md               # V2 test footage and final-video checklist
+├── vendor/adeept-picar-b2/     # Adeept examples kept as reference
 ├── LICENSE
 └── .gitignore
 ```
