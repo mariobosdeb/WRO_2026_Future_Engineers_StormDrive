@@ -15,7 +15,7 @@ This folder is the central index for the engineering documentation of StormDrive
 | [Software Reference](../european/software-reference.md) | Manufacturer reference capabilities and reusable concepts | Active |
 | [Schematics](../schematics/README.md) | Wiring and electrical documentation | Active |
 | [Mechanical](../mechanical/markdown.md) | Mechanical files and design history | Active |
-| [V2 Source](../src/v2/README.md) | Final V2 competition-code entry point | In development |
+| [V2 Source](../src/v2/README.md) | Current V2 source and run guide | Available; calibration and parking remain in progress |
 | [Competition Configuration](../competition/final-configuration.md) | Exact final vehicle and software configuration | In development |
 | [Competition Videos](../media/videos.md) | Open and Obstacle Challenge video evidence | In development |
 
