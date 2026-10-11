@@ -21,6 +21,12 @@
 |---|---|---|
 | 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the European stage, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
 
+<p align="center">
+  <img src="media/robot-photos/stormdrive-v1-v2-comparison.jpg" width="850" alt="StormDrive V1 and V2 side by side">
+</p>
+
+<p align="center"><em>From our first national-stage car to the V2 developed for the European stage.</em></p>
+
 ### 🔎 Explore the project
 
 [🤖 V2 source and run guide](src/v2/README.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
