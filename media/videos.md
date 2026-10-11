@@ -1,34 +1,45 @@
-# 🎥 Competition Videos
+# 🎥 StormDrive V2 — Video Evidence
 
-WRO 2026 documentation requires one video for each challenge, with the autonomous-driving demonstration portion lasting at least 30 seconds.
+## Current team test footage
 
-## Open Challenge
+These clips show progress during V2 development. The team has not yet confirmed which official challenge each clip documents or whether they meet every submission requirement, so they are not marked as final competition evidence.
 
-**Video:** `TBD`
+| Clip | Link | Evidence status |
+|---|---|---|
+| Freestyle at the start of a run | [Watch on YouTube](https://www.youtube.com/shorts/D6ktwOCZt6o) | Team test footage; challenge and duration not confirmed |
+| After three complete laps | [Watch on YouTube](https://youtu.be/VadijJ4WS1s) | Team test footage; challenge and duration not confirmed |
+
+## Final competition videos
+
+WRO documentation calls for separate Open Challenge and Obstacle Challenge video evidence. Add the final links here after confirming the challenge, recording date, autonomous-driving duration, and competition configuration.
+
+### Open Challenge
+
+**Final video:** To be added after confirmation.
 
 - [ ] Public or accessible by link
-- [ ] Shows StormDrive driving autonomously
-- [ ] Autonomous driving segment is at least 30 seconds
-- [ ] Final competition configuration is shown
+- [ ] Shows the final V2 vehicle driving autonomously
+- [ ] Autonomous-driving segment meets the current WRO requirement
+- [ ] Shows the final competition configuration
 
-## Obstacle Challenge
+### Obstacle Challenge
 
-**Video:** `TBD`
+**Final video:** To be added after confirmation.
 
 - [ ] Public or accessible by link
-- [ ] Shows StormDrive driving autonomously
-- [ ] Autonomous driving segment is at least 30 seconds
-- [ ] Includes the obstacle/traffic-sign behaviour where possible
-- [ ] Final competition configuration is shown
+- [ ] Shows the final V2 vehicle driving autonomously
+- [ ] Includes the required obstacle / traffic-sign behaviour
+- [ ] Autonomous-driving segment meets the current WRO requirement
+- [ ] Shows the final competition configuration
 
-## Video documentation notes
+## Video record
 
-When the final videos are available, record:
+For each final video, record:
 
 - YouTube URL
 - date recorded
-- hardware/software version
-- challenge type
-- relevant test configuration
+- hardware and software version
+- challenge type and test configuration
+- autonomous-driving segment duration
 
-Do not replace the final competition links with temporary test videos without clearly labelling them.
+Check the current official WRO rules and Q&A before treating a clip as submission evidence.
