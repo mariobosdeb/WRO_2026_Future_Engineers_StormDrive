@@ -1,6 +1,6 @@
 # 🔧 StormDrive V2 — Hardware Reference
 
-This document records the hardware information identified from the Adeept PiCar-B V5.1 software/documentation package. It is a **reference for the current assembled platform**, not a claim that every supplied module is currently used in the WRO configuration.
+This document records hardware information from the Adeept PiCar-B V5.1 package used as a starting point for V2. The team's car may use a modified selection of the supplied hardware; this page is a reference, not a complete bill of materials or confirmation that every listed module is installed. Check the assembled car before using any pinout or value.
 
 ## 🤖 Platform
 
