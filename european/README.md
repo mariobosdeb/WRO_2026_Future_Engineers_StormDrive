@@ -1,30 +1,20 @@
-# 🇪🇺 StormDrive V2 — European Stage
+# StormDrive V2 — European stage
 
-This section documents the second-generation StormDrive platform being developed for the WRO 2026 European stage.
+V2 is the team's current car for the WRO Future Engineers European stage. V1 was the first car and competed at the Romanian national stage. The team used the Adeept platform and software package as a starting point for V2, then developed its own competition-driving software.
 
-StormDrive V2 is based on the Adeept PiCar-B platform and a Raspberry Pi computing platform. The robot has been assembled and is now entering the hardware and software testing phase.
+## Current development status
 
-## 📚 Documentation
+- Open Challenge: completes three laps in team testing.
+- Obstacle Challenge: close to completing three laps; calibration and tuning continue.
+- Parking: in development and the main remaining software task.
 
-- [Hardware](hardware.md) — platform architecture, motor/servo control, interfaces and supplied modules
-- [Software Reference](software-reference.md) — useful capabilities found in the supplied Adeept software package and how they relate to StormDrive V2
+The status above is based on the team's current tests. It may change as the hardware and software are tuned.
 
-## 🔄 Development status
+## Project files
 
-- ✅ PiCar-B platform selected
-- ✅ Robot assembled
-- 🔄 Hardware verification
-- 🔄 Software bring-up
-- ⏳ Autonomous driving
-- ⏳ Obstacle handling
-- ⏳ Lap management
-- ⏳ Parking
-- ⏳ Repeatability testing
+- [V2 source and run guide](../src/v2/README.md)
+- [Hardware reference](hardware.md)
+- [Adeept software reference](software-reference.md)
 
-## 📦 Source package
+The Adeept package is reference material and the foundation for the platform. It is not the StormDrive competition program. Robot-specific calibration and run logs are kept locally rather than committed.
 
-The V2 development started from the software and documentation supplied with the **Adeept PiCar-B Mars Rover Smart Car Kit** (item code ADR012, package version V5.1 dated 2026-04-07).
-
-The supplied package contains tutorials, example Python programs, hardware documentation and datasheets. We use it as a technical reference while developing StormDrive-specific software.
-
-> Vendor examples are treated as reference material. StormDrive's competition software will be developed and documented separately.
