@@ -18,8 +18,8 @@ This page is a working checklist for the international WRO 2026 Future Engineers
 | Mobility, power/sensing and obstacle-management discussion | 🔄 | Covered by `european/`, `schematics/` and the journal; add measured results and final decisions. |
 | Vehicle photos: every side, top and bottom | ⚠️ | Existing photos document V1. Add final V2 front/back/left/right/top/bottom photos. |
 | Team photo | ✅ | `media/media/team-photos/team-wro-romania-2026.jpg` |
-| YouTube video — Open Challenge | ⏳ | Add a public/unlisted-link video with at least 30 seconds of autonomous driving. |
-| YouTube video — Obstacle Challenge | ⏳ | Add a separate video with at least 30 seconds of autonomous driving. |
+| YouTube video — Open Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm the challenge, duration and final configuration before using one as evidence. |
+| YouTube video — Obstacle Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm obstacle behaviour, duration and final configuration before using one as evidence. |
 | Public repository link submitted by organizer deadline | ⏳ | Record the official deadline when announced. |
 | Repository remains public for at least 12 months after event | ⏳ | Keep the repository public after the international event. |
 | At least 3 meaningful commits | ✅ | Repository history already contains multiple development commits. Timing of required commits must still be checked against the official event date. |
