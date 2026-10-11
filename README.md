@@ -15,6 +15,27 @@
   <em>From our first competition platform to a completely new generation of StormDrive.</em>
 </p>
 
+## 🎥 StormDrive V2 on track
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://www.youtube.com/shorts/D6ktwOCZt6o">
+        <img src="https://img.youtube.com/vi/D6ktwOCZt6o/hqdefault.jpg" width="400" alt="StormDrive V2 freestyle at the start">
+      </a><br>
+      <strong>Freestyle at the start</strong><br>
+      <a href="https://www.youtube.com/shorts/D6ktwOCZt6o">▶ Watch on YouTube</a>
+    </td>
+    <td align="center">
+      <a href="https://youtu.be/VadijJ4WS1s">
+        <img src="https://img.youtube.com/vi/VadijJ4WS1s/hqdefault.jpg" width="400" alt="StormDrive V2 after three complete laps">
+      </a><br>
+      <strong>After three complete laps</strong><br>
+      <a href="https://youtu.be/VadijJ4WS1s">▶ Watch on YouTube</a>
+    </td>
+  </tr>
+</table>
+
 ---
 
 ## 🌍 About StormDrive
@@ -297,13 +318,6 @@ The structure will expand with test data, engineering logs, V2 schematics and fi
 
 ### Robot
 The existing `media/robot-photos/` directory documents the previous V1 platform.
-
-### 🎥 StormDrive V2 on track
-
-| Freestyle at the start | After three complete laps |
-|---|---|
-| [![StormDrive V2 at the start of a freestyle run](https://img.youtube.com/vi/D6ktwOCZt6o/hqdefault.jpg)](https://www.youtube.com/shorts/D6ktwOCZt6o) | [![StormDrive V2 after three complete laps](https://img.youtube.com/vi/VadijJ4WS1s/hqdefault.jpg)](https://youtu.be/VadijJ4WS1s) |
-| [▶ Watch the start clip on YouTube](https://www.youtube.com/shorts/D6ktwOCZt6o) | [▶ Watch the three-lap run on YouTube](https://youtu.be/VadijJ4WS1s) |
 
 ---
 
