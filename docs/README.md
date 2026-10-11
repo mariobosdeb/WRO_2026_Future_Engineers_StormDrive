@@ -17,7 +17,7 @@ This folder is the central index for the engineering documentation of StormDrive
 | [Mechanical](../mechanical/markdown.md) | Mechanical files and design history | Active |
 | [V2 Source](../src/v2/README.md) | Current V2 source and run guide | Available; calibration and parking remain in progress |
 | [Competition Configuration](../competition/final-configuration.md) | Exact final vehicle and software configuration | In development |
-| [Competition Videos](../media/videos.md) | Open and Obstacle Challenge video evidence | In development |
+| [Competition Videos](../media/videos.md) | Current V2 test clips and final challenge evidence | Progress clips available; final evidence pending |
 
 ## Documentation principle
 
