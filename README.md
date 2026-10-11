@@ -304,7 +304,7 @@ StormDrive/
 └── .gitignore
 ```
 
-The structure will expand with test data, engineering logs, V2 schematics and final competition documentation.
+Starter pages for testing, engineering decisions and final configuration are already included. Team-measured run results, verified V2 wiring, current-vehicle photos and final competition evidence still need to be added.
 
 ---
 
@@ -366,11 +366,11 @@ Status will be updated as development progresses.
 - **[Schematics](schematics/README.md)** — electrical architecture and wiring
 - **[Mechanical](mechanical/markdown.md)** — mechanical files and design history
 
-Planned additions:
+Next documentation updates:
 
-- **Testing** — experiments, measurements and repeatability
-- **Development Log** — chronological engineering record
-- **Final Competition Configuration** — frozen hardware/software setup used at the event
+- Add dated results and repeatability data to **Testing** and the **Engineering Journal**.
+- Complete the **Final Competition Configuration** with the hardware and software actually used.
+- Add verified V2 wiring, current-vehicle photos and final challenge videos.
 
 ---
 
