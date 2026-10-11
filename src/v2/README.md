@@ -1,42 +1,38 @@
-# StormDrive V2 Source
+# StormDrive V2 software
 
-This directory is reserved for the software that actually participates in the WRO 2026 European / International competition configuration.
+This folder contains the Python software currently being developed for the V2 car. V2 uses the Adeept platform and kit software as a hardware/software foundation; the autonomous driving logic here is the team's own implementation.
 
-The current repository still contains the original Arduino V1 source under `src/`. V1 is retained as engineering history and must not be confused with the final V2 competition program.
+## Status
 
-## Planned V2 structure
+- **Open Challenge:** currently completes three laps in team testing.
+- **Obstacle Challenge:** close to completing three laps; calibration and tuning continue.
+- **Parking:** still in development.
 
-```text
-src/v2/
-├── README.md
-├── main.py
-├── perception/
-├── navigation/
-├── control/
-├── hardware/
-└── config/
+These results describe the current team-reported state and are not a guarantee for every run or hardware setup.
+
+## Run on the robot
+
+Use Raspberry Pi OS with the camera and robot hardware enabled. Install the system packages required by OpenCV, Picamera2, GPIO/I²C and the C++ planner, then install the Python packages used by the robot. The exact packages depend on the Raspberry Pi OS image and the Adeept hardware setup.
+
+From this directory:
+
+```bash
+sudo python3 calibrate.py
+sudo python3 main.py open
+sudo python3 main.py obstacle
 ```
 
-The exact structure will follow the implemented software architecture.
+Calibrate the assembled car before driving. `calibration.json` is generated for the local robot and is intentionally not included in the repository. Keep run logs, traces, learned values, and other local output in `debug/`; these files are ignored by Git.
 
-## Competition-code rule
+The parking entry point is present, but parking behavior is not yet considered complete. Follow the calibration prompts and keep a person ready to stop the robot during physical testing.
 
-Before the documentation freeze, this directory must contain the exact code used on the competition vehicle, including every project-specific module required to run it.
+## Contents
 
-## Development requirements
+- `main.py`, `open.py`, `obstacle.py`, `parcare.py` — run modes and entry points
+- `wro/` — hardware interface, perception, localization, planning, control, and simulation modules
+- `calibrate.py`, `calib_auto.py` — interactive and automatic calibration helpers
+- `simulate.py`, `replay.py`, `replay_open.py` — simulation and recorded-run analysis
+- `panou.py`, `gaseste_buton.py` — panel and button utilities
 
-Document in the V2 code and accompanying files:
+The simulator and replay tools do not replace testing on the actual car. Hardware-specific values must be measured on the team's V2 build.
 
-- camera/perception pipeline;
-- lane/track following;
-- steering control;
-- speed control;
-- obstacle and traffic-sign strategy;
-- lap/round state management;
-- parking logic;
-- startup and waiting-state behaviour;
-- calibration/configuration values that are legitimately part of the prepared program;
-- hardware interfaces;
-- failure handling.
-
-Every important module should have comments explaining its role and assumptions.

@@ -1,4 +1,17 @@
-# Arduino IDE temporary build files
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+
+# Robot-specific calibration and generated run data
+calibration.json
+debug/
+*.log
+*.csv
+
+# Arduino temporary build files
 **/build/
 **/local_build/
 *.local.properties
@@ -10,3 +23,4 @@
 Thumbs.db
 *.bak
 *.tmp
+
