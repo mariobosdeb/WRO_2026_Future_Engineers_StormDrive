@@ -8,10 +8,12 @@ StormDrive V2 is the team's car for the WRO 2026 Open Championship Europe. The e
 
 - Vehicle build: complete; StormDrive V2 is ready for the European stage.
 - Open Challenge: completes three laps in team testing.
-- Obstacle Challenge: close to completing three laps; final calibration and tuning continue.
-- Parking: final tuning remains in development.
+- Obstacle Challenge calibration and consistency work: complete.
+- Parking: autonomous behaviour completed and validated in team testing.
+- Final calibration and repeatability testing: complete.
+- Final competition configuration: documented.
 
-The status above is based on the team's current tests. It may change as the hardware and software are tuned.
+The status above reflects the team's current report. Dated run-by-run evidence can be added to the engineering and testing logs.
 
 ## Project files
 
