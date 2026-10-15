@@ -1,6 +1,8 @@
-# StormDrive V2 — European stage
+# StormDrive V2 — WRO 2026 Open Championship Europe
 
-V2 is the team's current car for the WRO Future Engineers European stage. V1 was the first car and competed at the Romanian national stage. The team used the Adeept platform and software package as a starting point for V2, then developed its own competition-driving software.
+StormDrive V2 is the team's car for the WRO 2026 Open Championship Europe. The earliest prototype marked the beginning of the team; StormDrive V1 was a separate, later car that competed at the Romanian national stage. The team used the Adeept platform and software package as a starting point for V2, then developed its own competition-driving software.
+
+[See the first prototype beside the current V2](../media/robot-photos/first-prototype-v2-comparison.jpg).
 
 ## Current development status
 

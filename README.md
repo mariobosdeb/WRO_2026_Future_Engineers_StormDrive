@@ -19,24 +19,24 @@
 
 <p align="center">
   <strong>🥉 3rd Place · WRO Romania 2026</strong><br>
-  <strong>🇪🇺 Road to the European Championship</strong>
+  <strong>🇪🇺 WRO 2026 Open Championship Europe</strong>
 </p>
 
 <p align="center">
-  <em>From our first WRO national-stage car to the V2 we're taking to Europe.</em>
+  <em>From the team's earliest prototype to StormDrive V2, developed for the WRO 2026 Open Championship Europe.</em>
 </p>
 
 ## ⚡ StormDrive at a glance
 
 | StormDrive V1 | StormDrive V2 | Current team progress |
 |---|---|---|
-| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the European stage, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
+| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the WRO 2026 Open Championship Europe, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
 
 <p align="center">
   <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
 </p>
 
-<p align="center"><em>The prototype that marked the beginning of our team, pictured alongside the current V2. This is not StormDrive V1, the car that later competed at the Romanian Championship.</em></p>
+<p align="center"><em>The prototype that marked the beginning of our team, pictured alongside the current V2. This is not StormDrive V1, the separate car that earned 3rd place at WRO Romania 2026.</em></p>
 
 ### 🔎 Explore the project
 
@@ -222,12 +222,14 @@ The V2 code is divided into modules for the actual camera, sensor, planning and 
 | Planning | `wro/plan.py`, `wro/lattice.py`, `wro/lattice.cpp` | Evaluate candidate paths for obstacle avoidance and turns |
 | Driving and parking | `wro/drive.py`, `wro/pathdrive.py`, `wro/parking.py` | Manage driving states, path tracking, recovery and parking development |
 | Hardware and simulation | `wro/hardware.py`, `wro/sim.py` | Provide the robot hardware layer and the simulation environment |
+| Calibration and run analysis | `calibrate.py`, `calib_auto.py`, `simulate.py`, `replay.py`, `wro/record.py` | Calibrate the car, simulate runs and replay recorded sensor data offline |
 
 ### ▶️ Run the V2 modes
 
 Follow the [V2 setup and run guide](src/v2/README.md) to prepare the Raspberry Pi and install the hardware dependencies. From `src/v2/`, calibrate the assembled car, then choose one driving mode:
 
 ```bash
+cd src/v2
 sudo python3 calibrate.py
 sudo python3 main.py open
 # or: sudo python3 main.py obstacle
@@ -363,7 +365,7 @@ Status will be updated as development progresses.
 - [ ] Complete and validate autonomous parking
 - [ ] Perform repeatability testing
 - [ ] Document the final competition configuration
-- [ ] Prepare the car for the European Championship
+- [ ] Prepare StormDrive V2 for WRO 2026 Open Championship Europe
 
 ---
 
@@ -392,7 +394,7 @@ It is the record of how a student robotics team moves from an initial design, th
 
 > **Build. Test. Learn. Improve. Repeat.**
 
-Our next milestone is the **WRO 2026 European Championship** with StormDrive V2.
+StormDrive V2 is our car for the **WRO 2026 Open Championship Europe**. This repository continues to document the build, testing evidence and lessons from the season.
 
 ---
 

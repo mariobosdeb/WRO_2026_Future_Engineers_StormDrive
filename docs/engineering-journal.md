@@ -1,6 +1,6 @@
 # 📓 StormDrive Engineering Journal
 
-This is the engineering record for StormDrive V1 → V2.
+This is the engineering record for the team's first prototype → StormDrive V1 → StormDrive V2.
 
 The purpose is to document **problems, observations, hypotheses, design changes, tests, measurements and decisions**. Assembly instructions alone are not enough: the journal should show how the team engineered the vehicle.
 
@@ -30,6 +30,10 @@ Next step
 | Software Architecture & Obstacle Strategy | Algorithms, state machine, lane following, obstacle/traffic-sign handling, tuning |
 | Systems Thinking & Engineering Decisions | Constraints, trade-offs, risks, interactions and why decisions were made |
 | Reproducibility & GitHub Quality | Version history, reproducible configuration, test workflow and final documentation |
+
+## First team prototype
+
+The [photo archive](../media/robot-photos/first-prototype-v2-comparison.jpg) shows the earliest prototype the team built beside the current V2. This vehicle predates V1; it is not the car that competed at the Romanian national stage.
 
 ## V1 — National stage
 

@@ -1,8 +1,10 @@
 # WRO 2026 Future Engineers — Documentation & Compliance Checklist
 
-This page is a working checklist for the international WRO 2026 Future Engineers requirements relevant to StormDrive.
+This page is a working checklist for the WRO 2026 Future Engineers requirements relevant to StormDrive's European Open Championship entry.
 
-**Rule source reviewed:** WRO Future Engineers Category — Game Rules 2026, version January 15, 2026.
+**Rule source reviewed:** [WRO Future Engineers Category — Game Rules 2026](https://wro-association.org/competition/2026-season/), version January 15, 2026.
+
+**Target event:** [WRO 2026 – Open Championship – Europe](https://wro-association.org/competition/international-events/) — Zagreb, Croatia, 13–16 October 2026.
 
 > This is a project checklist, not a replacement for the official rules. WRO Question & Answers (Q&A) can clarify, extend, or redefine rules during the season. The team must check the official Q&A before the final competition configuration is frozen.
 
@@ -16,12 +18,12 @@ This page is a working checklist for the international WRO 2026 Future Engineers
 | Final vehicle design documented | 🔄 | V2 hardware and mechanical documentation must be completed after testing. |
 | Final competition source code | ⏳ | V2 competition code is not final yet. Add the exact code used at the event. |
 | Mobility, power/sensing and obstacle-management discussion | 🔄 | Covered by `european/`, `schematics/` and the journal; add measured results and final decisions. |
-| Vehicle photos: every side, top and bottom | ⚠️ | Existing photos document V1. Add final V2 front/back/left/right/top/bottom photos. |
+| Vehicle photos: every side, top and bottom | ⚠️ | The archive now includes a first-prototype/V2 comparison and multi-angle V1 photos. Add dedicated V2 front/back/left/right/top/bottom photos. |
 | Team photo | ✅ | `media/media/team-photos/team-wro-romania-2026.jpg` |
 | YouTube video — Open Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm the challenge, duration and final configuration before using one as evidence. |
 | YouTube video — Obstacle Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm obstacle behaviour, duration and final configuration before using one as evidence. |
 | Public repository link submitted by organizer deadline | ⏳ | Record the official deadline when announced. |
-| Repository remains public for at least 12 months after event | ⏳ | Keep the repository public after the international event. |
+| Repository remains public for at least 12 months after event | ⏳ | Keep the repository public for at least 12 months after the European Open Championship. |
 | At least 3 meaningful commits | ✅ | Repository history already contains multiple development commits. Timing of required commits must still be checked against the official event date. |
 | Code comments/documentation | 🔄 | Maintain comments and module documentation in the final V2 code. |
 
@@ -145,13 +147,13 @@ Before the final freeze, verify the software and hardware against the competitio
 
 ## 5. Competition timing / submission checklist
 
-- [ ] Confirm official International Final date.
+- [x] Verify the official event name, location and dates: Open Championship Europe, Zagreb, 13–16 October 2026.
 - [ ] Confirm official GitHub submission deadline from the organizer.
 - [ ] Confirm required timing of the three documentation commits against that event date.
 - [ ] Freeze important documentation before the scoring deadline.
 - [ ] Freeze final competition code before the scoring deadline.
 - [ ] Verify repository is public and accessible without login.
-- [ ] Prepare hard-copy documentation for the international final.
+- [ ] Prepare hard-copy documentation for the European Open Championship.
 - [ ] Review the latest official WRO Q&A immediately before final submission.
 
 ## 6. Final evidence package

@@ -1,6 +1,6 @@
 # StormDrive V1 — Mechanical Design
 
-This folder contains the STL files and notes for the team's original V1 vehicle, which competed at the Romanian national stage. These files are historical V1 documentation; they do not describe the current V2 car.
+This folder contains the STL files and notes for the team's StormDrive V1 national-stage vehicle, which competed at the Romanian national stage. These files are historical V1 documentation; they do not describe the current V2 car.
 
 ## Chassis and steering parts
 

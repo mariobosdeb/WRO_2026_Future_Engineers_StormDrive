@@ -1,6 +1,6 @@
 # 🏁 Final Competition Configuration
 
-This page will describe the exact StormDrive configuration used at the WRO 2026 International Final.
+This page records the exact StormDrive configuration used at the WRO 2026 Open Championship Europe. Complete it only after the competition hardware, software and local calibration have been frozen.
 
 > Do not mark this page final until the vehicle has passed the team's own rule/compliance check and the final competition software and hardware have been frozen.
 

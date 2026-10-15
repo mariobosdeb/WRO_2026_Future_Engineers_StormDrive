@@ -35,7 +35,7 @@ The supplied servo example also uses the PCA9685 at address `0x5f` and creates a
 
 The example tests servo channel `1`.
 
-For StormDrive V2, the first hardware test should establish the real mechanical center, left limit and right limit of the steering system before autonomous control is implemented.
+Before relying on autonomous steering, measure the assembled V2's real steering center and left/right limits. Record those values during calibration; the kit example values are not a substitute for measurements on the competition car.
 
 ## 📏 Ultrasonic module
 
