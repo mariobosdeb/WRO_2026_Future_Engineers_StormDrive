@@ -55,7 +55,7 @@ Record here the actual lessons from the Romanian competition and the tests that 
 
 StormDrive V2 uses the Adeept PiCar-B Mars Rover platform and Raspberry Pi computing platform as a starting point, with the team's own adaptations and competition-driving software.
 
-**Current team-reported progress (date not recorded):** Open Challenge completes three laps in current testing. Obstacle Challenge is close to three laps. Calibration and tuning continue, and autonomous parking remains in development. These are progress notes, not a final competition result.
+**Current team-reported status (date not recorded):** the V2 build is complete and the car is ready for the European stage. Open Challenge completes three laps in current testing. Obstacle Challenge is close to three laps. Final calibration and parking tuning continue. These are progress notes, not a final competition result.
 
 ### Entry V2-001 — Platform transition
 

@@ -30,7 +30,7 @@
 
 | StormDrive V1 | StormDrive V2 | Current team progress |
 |---|---|---|
-| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the WRO 2026 Open Championship Europe, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
+| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the WRO 2026 Open Championship Europe, developed from Adeept infrastructure with team adaptations | ✅ Car built and ready for Europe<br>✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Final calibration and parking tuning |
 
 <p align="center">
   <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
@@ -167,7 +167,7 @@ flowchart TD
 
 StormDrive V2 uses Adeept hardware and software infrastructure as a starting point, with the team's own adaptations. The competition-driving software is developed for StormDrive and is not an unmodified Adeept demonstration program.
 
-V2 has moved beyond initial bring-up and is being tested on track. Open Challenge currently completes three laps; Obstacle Challenge is close to completing three laps. Final calibration is underway, and parking remains in development.
+The V2 build is complete and the car is ready for the WRO 2026 Open Championship Europe. In team testing, Open Challenge completes three laps; Obstacle Challenge is close to three laps. Final calibration and parking tuning continue.
 
 ### Current direction
 
@@ -342,7 +342,7 @@ The repository includes a V2 run guide, test protocol, engineering journal, hard
 - ✅ 3rd place at the Romanian stage
 
 ### StormDrive V2
-- ✅ V2 developed using Adeept infrastructure as a starting point, with team adaptations
+- ✅ V2 build complete and ready for WRO 2026 Open Championship Europe; developed from Adeept infrastructure with team adaptations
 - ✅ Open Challenge completes three laps in current team testing
 - 🔄 Obstacle Challenge is close to three laps; calibration and tuning continue
 - 🔄 Parking behaviour is in development
