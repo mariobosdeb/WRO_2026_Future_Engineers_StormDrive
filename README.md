@@ -2,6 +2,17 @@
 
 ### WRO 2026 · Future Engineers
 
+<div align="center">
+
+![WRO season](https://img.shields.io/badge/WRO-2026-2563eb?style=for-the-badge)
+![Category](https://img.shields.io/badge/Category-Future%20Engineers-f97316?style=for-the-badge)
+![Current car](https://img.shields.io/badge/Current%20car-StormDrive%20V2-16a34a?style=for-the-badge)
+![Python](https://img.shields.io/badge/Python-V2-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![C++ planner](https://img.shields.io/badge/C%2B%2B-Path%20planner-00599C?style=for-the-badge&logo=cplusplus&logoColor=white)
+![MIT License](https://img.shields.io/github/license/mariobosdeb/WRO_2026_Future_Engineers_StormDrive?style=for-the-badge)
+
+</div>
+
 <p align="center">
   <img src="media/media/team-photos/team-wro-romania-2026.jpg" width="850" alt="StormDrive team at WRO Romania 2026">
 </p>
@@ -22,7 +33,7 @@
 | 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the European stage, developed from Adeept infrastructure with team adaptations | ✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Calibration and parking: in progress |
 
 <p align="center">
-  <img src="media/robot-photos/stormdrive-v1-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
+  <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
 </p>
 
 <p align="center"><em>The prototype that marked the beginning of our team, pictured alongside the current V2. This is not StormDrive V1, the car that later competed at the Romanian Championship.</em></p>
@@ -135,44 +146,20 @@ The team photo is shown at the top of this page.
 
 ## 🇪🇺 Road to Europe
 
-After the Romanian Championship, we decided to take a different engineering approach for the European stage.
+The team's earliest prototype marked the beginning of the project. We later developed the separate **StormDrive V1** for our first competition, where it finished **3rd at WRO Romania 2026**. That experience showed us what worked and where the car needed more consistency.
 
-Our original vehicle had already gone through several mechanical iterations. The national competition gave us valuable information about what worked and what limited consistency in real competition conditions.
+For the European stage, we built **StormDrive V2** as a new platform, using Adeept infrastructure as a starting point and adapting it for our own design.
 
-Rather than continuing to modify V1, we started **StormDrive V2** as a new platform.
-
-```text
-┌──────────────────────┐
-│    StormDrive V1     │
-│ Original platform    │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│  🇷🇴 WRO Romania     │
-│       2026            │
-│     🥉 3rd Place     │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│   Lessons learned    │
-│   + redesign         │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│    StormDrive V2     │
-│ New vehicle platform │
-└──────────┬───────────┘
-           │
-           ▼
-┌──────────────────────┐
-│  🇪🇺 European Stage  │
-└──────────────────────┘
+```mermaid
+flowchart TD
+    P["First team prototype<br/>The start of our project"] --> V1["StormDrive V1<br/>First competition car"]
+    V1 --> RO["WRO Romania 2026<br/>🥉 3rd place"]
+    RO --> L["Competition lessons<br/>Redesign and calibration"]
+    L --> V2["StormDrive V2<br/>Adeept-based, adapted by our team"]
+    V2 --> EU["European stage"]
 ```
 
-**V2 is not simply an upgraded V1. It is a new engineering iteration built from experience gained with V1.**
+**The photo above shows the team's earliest prototype beside the current V2. StormDrive V1 was a separate car: the one that competed at the Romanian Championship.**
 
 ---
 
@@ -225,38 +212,28 @@ The European-stage software covers the complete autonomous workflow:
 
 ## 🧠 Software Architecture — V2
 
-The V2 software is organized as a modular system, with separate components for perception, navigation, control and hardware.
+The V2 code is divided into modules for the actual camera, sensor, planning and robot-control workflow.
 
-```text
-                    ┌─────────────┐
-                    │   CAMERA    │
-                    └──────┬──────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │   PERCEPTION    │
-                  │ Track / Objects │
-                  └────────┬────────┘
-                           │
-                           ▼
-                  ┌─────────────────┐
-                  │   NAVIGATION    │
-                  │  State / Path   │
-                  └────────┬────────┘
-                           │
-             ┌─────────────┴─────────────┐
-             ▼                           ▼
-      ┌─────────────┐             ┌─────────────┐
-      │  STEERING   │             │    SPEED    │
-      └──────┬──────┘             └──────┬──────┘
-             │                           │
-             └─────────────┬─────────────┘
-                           ▼
-                    ┌─────────────┐
-                    │   ROBOT     │
-                    │   CONTROL   │
-                    └─────────────┘
+| Layer | Modules | Responsibility |
+|---|---|---|
+| Entry points | `main.py`, `open.py`, `obstacle.py`, `parcare.py` | Start the Open, Obstacle or parking mode |
+| Perception | `wro/perception.py`, `wro/geometry.py` | Read the camera view and identify track edges, obstacles and parking markers |
+| State estimation | `wro/estimator.py`, `wro/robot.py` | Combine camera, ultrasonic and odometry information into the robot's estimated state |
+| Planning | `wro/plan.py`, `wro/lattice.py`, `wro/lattice.cpp` | Evaluate candidate paths for obstacle avoidance and turns |
+| Driving and parking | `wro/drive.py`, `wro/pathdrive.py`, `wro/parking.py` | Manage driving states, path tracking, recovery and parking development |
+| Hardware and simulation | `wro/hardware.py`, `wro/sim.py` | Provide the robot hardware layer and the simulation environment |
+
+### ▶️ Run the V2 modes
+
+Follow the [V2 setup and run guide](src/v2/README.md) to prepare the Raspberry Pi and install the hardware dependencies. From `src/v2/`, calibrate the assembled car, then choose one driving mode:
+
+```bash
+sudo python3 calibrate.py
+sudo python3 main.py open
+# or: sudo python3 main.py obstacle
 ```
+
+Parking mode is present for development, but the parking behaviour is not yet complete.
 
 The implementation will evolve together with hardware validation and measured track behaviour.
 
@@ -317,24 +294,26 @@ V1 remains documented because it is an important part of the project's engineeri
 ```text
 StormDrive/
 ├── README.md
-├── docs/                       # Engineering journal, testing and decisions
 ├── competition/                # Final competition configuration
-├── european/                   # V2 platform and software references
-├── src/
-│   ├── config.h, main.ino      # V1 Arduino source
-│   └── v2/                     # V2 Python source and wro/ modules
-├── mechanical/                 # V1 STL files and mechanical notes
-├── schematics/                 # Wiring documentation
+├── docs/                       # Testing, decisions, engineering journal and rules
+├── european/                   # V2 hardware and software references
+├── mechanical/                 # V1 mechanical files and notes
 ├── media/
 │   ├── media/team-photos/      # Team and Romanian-stage photos
-│   ├── robot-photos/           # V1 vehicle views
-│   └── videos.md               # V2 test footage and final-video checklist
+│   ├── robot-photos/           # First prototype/V2 comparison and V1 views
+│   └── videos.md               # Current test footage and final-video checklist
+├── schematics/                 # Electrical architecture and wiring notes
+├── src/
+│   ├── config.h, main.ino      # V1 Arduino source
+│   └── v2/
+│       ├── main.py             # V2 run modes
+│       └── wro/                # Perception, estimation, planning, control, hardware, simulation
 ├── vendor/adeept-picar-b2/     # Adeept examples kept as reference
 ├── LICENSE
 └── .gitignore
 ```
 
-Starter pages for testing, engineering decisions and final configuration are already included. Team-measured run results, verified V2 wiring, current-vehicle photos and final competition evidence still need to be added.
+The repository includes a V2 run guide, test protocol, engineering journal, hardware notes and current team test footage. The team is still collecting dated repeatability data and recording the final V2 wiring and competition configuration. Dedicated multi-angle V2 photos and final challenge videos will be added when verified.
 
 ---
 
@@ -346,9 +325,10 @@ Starter pages for testing, engineering decisions and final configuration are alr
 - `media/media/team-photos/robert.jpg`
 - `media/media/team-photos/team-wro-romania-2026.jpg`
 
-### Robot
-The existing `media/robot-photos/` directory documents the previous V1 platform.
-
+### Robot development
+- [First team prototype beside the current V2](media/robot-photos/first-prototype-v2-comparison.jpg) — the prototype that started the team; it is not StormDrive V1.
+- [StormDrive V1 photo archive](media/robot-photos/README.md) — multi-angle views of the separate car that competed at the Romanian Championship.
+- [V2 test footage and evidence checklist](media/videos.md) — current runs, with final challenge evidence still to be confirmed.
 ---
 
 ## 📈 Development Status
@@ -398,9 +378,9 @@ Status will be updated as development progresses.
 
 Next documentation updates:
 
-- Add dated results and repeatability data to **Testing** and the **Engineering Journal**.
-- Complete the **Final Competition Configuration** with the hardware and software actually used.
-- Add verified V2 wiring, current-vehicle photos and final challenge videos.
+- Add dated run-by-run results and repeatability data to **Testing** and the **Engineering Journal**.
+- Record the verified V2 wiring and final competition configuration after calibration.
+- Add dedicated multi-angle V2 photos and challenge-specific final videos when confirmed.
 
 ---
 
