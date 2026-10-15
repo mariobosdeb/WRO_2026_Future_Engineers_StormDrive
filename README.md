@@ -28,9 +28,17 @@
 
 ## ⚡ StormDrive at a glance
 
-| StormDrive V1 | StormDrive V2 | Current team progress |
-|---|---|---|
-| 🥉 3rd place at WRO Romania 2026 — our first competition car | 🇪🇺 Current car for the WRO 2026 Open Championship Europe, developed from Adeept infrastructure with team adaptations | ✅ Car built and ready for Europe<br>✅ Open Challenge: three laps<br>🔄 Obstacle Challenge: close to three laps<br>🔄 Final calibration and parking tuning |
+### 🥉 StormDrive V1
+**3rd place at WRO Romania 2026** — our first competition car.
+
+### 🇪🇺 StormDrive V2
+Our current car for the **WRO 2026 Open Championship Europe**, built from Adeept infrastructure and adapted by our team.
+
+### ✅ Current V2 progress
+- ✅ **Build complete — StormDrive V2 is ready for Europe.**
+- ✅ Open Challenge: three laps in current team testing
+- 🔄 Obstacle Challenge: close to three laps; final calibration continues
+- 🔄 Parking: final tuning continues
 
 <p align="center">
   <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
