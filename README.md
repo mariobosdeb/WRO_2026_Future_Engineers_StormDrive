@@ -37,8 +37,9 @@ Our current car for the **WRO 2026 Open Championship Europe**, built from Adeept
 ### ✅ Current V2 progress
 - ✅ **Build complete — StormDrive V2 is ready for Europe.**
 - ✅ Open Challenge: three laps in current team testing
-- 🔄 Obstacle Challenge: close to three laps; final calibration continues
-- 🔄 Parking: final tuning continues
+- ✅ Obstacle Challenge calibration and consistency work complete
+- ✅ Autonomous parking completed and validated in team testing
+- ✅ Final calibration and repeatability testing complete
 
 <p align="center">
   <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
@@ -175,7 +176,7 @@ flowchart TD
 
 StormDrive V2 uses Adeept hardware and software infrastructure as a starting point, with the team's own adaptations. The competition-driving software is developed for StormDrive and is not an unmodified Adeept demonstration program.
 
-The V2 build is complete and the car is ready for the WRO 2026 Open Championship Europe. In team testing, Open Challenge completes three laps; Obstacle Challenge is close to three laps. Final calibration and parking tuning continue.
+The V2 build and final competition setup are complete; StormDrive V2 is ready for the WRO 2026 Open Championship Europe. In current team testing, Open Challenge completes three laps. Obstacle Challenge calibration and consistency work, final calibration, repeatability testing, and autonomous parking validation are complete.
 
 ### Current direction
 
@@ -188,8 +189,8 @@ The V2 build is complete and the car is ready for the WRO 2026 Open Championship
 | Vision | Camera and OpenCV used by the V2 software |
 | HuskyLens | **Not currently used** |
 | Additional sensors | Refer to the hardware notes for kit reference details; the competition setup uses the team's selected configuration |
-| Current phase | **On-track testing, calibration and tuning** |
-| Main goal | Reliable three-lap runs and completed parking behaviour |
+| Current phase | **Competition-ready; calibration, parking validation and repeatability testing complete** |
+| Main focus | Maintain reliable performance with the validated competition configuration |
 
 ### 📚 V2 documentation
 
@@ -243,7 +244,7 @@ sudo python3 main.py open
 # or: sudo python3 main.py obstacle
 ```
 
-Parking mode is present for development, but the parking behaviour is not yet complete.
+Parking mode is available, and the autonomous parking sequence has been completed and validated in team testing.
 
 The implementation will evolve together with hardware validation and measured track behaviour.
 
@@ -323,7 +324,7 @@ StormDrive/
 └── .gitignore
 ```
 
-The repository includes a V2 run guide, test protocol, engineering journal, hardware notes and current team test footage. The team is still collecting dated repeatability data and recording the final V2 wiring and competition configuration. Dedicated multi-angle V2 photos and final challenge videos will be added when verified.
+The repository includes a V2 run guide, test protocol, engineering journal, hardware notes, team test footage and the completed V2 competition setup. The team has completed repeatability testing; dated run-by-run results and verified wiring details can be added as supporting evidence. Dedicated multi-angle V2 photos and final challenge videos will be added when verified.
 
 ---
 
@@ -352,12 +353,12 @@ The repository includes a V2 run guide, test protocol, engineering journal, hard
 ### StormDrive V2
 - ✅ **Build complete — StormDrive V2 is ready for the European stage.** Developed from Adeept infrastructure with team adaptations.
 - ✅ Open Challenge completes three laps in current team testing
-- 🔄 Obstacle Challenge is close to three laps; final calibration and consistency tuning continue
-- 🔄 Parking behaviour is still being tuned
-- 🔄 Final calibration and repeatability testing continue
-- ⏳ Document the verified final competition configuration
+- ✅ Obstacle Challenge calibration and consistency work complete
+- ✅ Autonomous parking completed and validated in team testing
+- ✅ Final calibration and repeatability testing complete
+- ✅ Final competition configuration documented
 
-The car is ready for the European stage; the remaining items track final tuning, validation and documentation.
+StormDrive V2 is ready for the European stage, and the final preparation items are complete.
 
 ---
 
@@ -370,10 +371,10 @@ The car is ready for the European stage; the remaining items track final tuning,
 - [x] Reach three Open Challenge laps in current team testing
 - [x] Implement Obstacle Challenge navigation
 - [x] Build StormDrive V2 and make it ready for the WRO 2026 Open Championship Europe
-- [ ] Finish calibration and improve Obstacle Challenge consistency
-- [ ] Complete and validate autonomous parking
-- [ ] Perform repeatability testing
-- [ ] Document the final competition configuration
+- [x] Finish calibration and improve Obstacle Challenge consistency
+- [x] Complete and validate autonomous parking
+- [x] Perform repeatability testing
+- [x] Document the final competition configuration
 
 ---
 
