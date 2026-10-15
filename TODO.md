@@ -16,6 +16,7 @@ This file is the source of open evidence and configuration tasks. Every placehol
 - TODO(team): Measure idle, camera, compute and peak drive current; publish the method and battery condition.
 - TODO(team): Create and verify an as-built V2 wiring diagram with an editable source and exported image. Show power, grounds, connectors, sensor placement and every GPIO/I2C/PCA9685 connection.
 - TODO(team): Confirm exact installed sensor/actuator models, pin mapping and quantity against the vehicle. Record camera model, HC-SR04 module, motor, servos, Robot HAT revision and any optional modules.
+- TODO(team): Record the team's reason for selecting each installed sensor, actuator and control interface.
 - TODO(team): Verify each calibration method and store a dated calibration identifier without publishing private or car-specific values unless the team chooses to do so.
 - TODO(team): Confirm current V2 contains no HuskyLens hardware and record any exceptions.
 
@@ -47,12 +48,12 @@ This file is the source of open evidence and configuration tasks. Every placehol
 - TODO(team): Pin the tested competition commit or release tag after the full physical-car configuration is frozen.
 - TODO(team): Record tested Raspberry Pi OS, Python, OpenCV, NumPy, Picamera2, GPIO, Adafruit and C++ compiler versions.
 - TODO(team): Confirm the license and exact unchanged/modified status of copied vendor examples; add upstream source and license evidence to ATTRIBUTION.md.
-- TODO(team): Review repository visibility, release links and official submission deadlines with the applicable WRO organizer.
+- TODO(team): Review repository visibility, release links, official submission deadlines and current rule/Q&A interpretation with the applicable WRO organizer.
 
 ## 7. Engineering Factor
 
 - TODO(team): Add real dated engineering-journal entries with the problem, alternatives, reason for the chosen design, test method, before/after measurements and decision.
-- TODO(team): Add the team's actual V1-to-V2 lessons; the repository proves a HuskyLens-to-OpenCV software transition but does not record the team's full reasoning.
+- TODO(team): Add the team's actual V1-to-V2 lessons and platform-selection alternatives, criteria, decision dates and supporting evidence; the repository shows a HuskyLens-to-OpenCV software transition but does not record the team's full reasoning.
 - TODO(team): Add failed tests and unsuccessful approaches from team records, including the result and resulting design change.
 - TODO(team): Complete BOM quantities, exact models, role and purchase cost with invoices or other team records.
 - TODO(team): Document simulator/replay limitations and the specific tests used to decide whether a software change is ready for the physical car.
@@ -60,6 +61,7 @@ This file is the source of open evidence and configuration tasks. Every placehol
 ## 8. Overall Judge Impression
 
 - TODO(team): Recheck that the README photo, vehicle identity, final hardware, software commit, scorecard claims, videos and configuration all describe the same V2 build.
+- TODO(team): After judging, record judge-awarded points and retain a dated copy of the score sheet.
 - TODO(team): Replace every TODO(team) placeholder only after the team verifies it; retain this checklist until the official documentation freeze.
 
 ## Repository metadata limitation

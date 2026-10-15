@@ -6,7 +6,7 @@ The records below preserve decisions documented in the repository. They do not i
 
 ### DR-XXX — Short title
 
-**Date:** TODO(team): Add the decision date.  
+**Date:** Record the actual decision date.  
 **Status:** Proposed / Tested / Accepted / Rejected
 
 **Problem or constraint:**  
@@ -20,7 +20,7 @@ The records below preserve decisions documented in the repository. They do not i
 
 ### DR-001 — Develop V2 on an Adeept PiCar-B platform
 
-Existing project documentation identifies Adeept PiCar-B as the V2 base platform and separates it from the earlier V1 vehicle. TODO(team): Add the actual comparison criteria, alternatives, date and test evidence behind this choice.
+Existing project documentation identifies Adeept PiCar-B as the V2 base platform and separates it from the earlier V1 vehicle. TODO(team): Add the actual comparison criteria, alternatives, decision date and test evidence behind this choice.
 
 ### DR-002 — Separate vendor examples from competition software
 
