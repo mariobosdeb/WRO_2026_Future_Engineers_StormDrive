@@ -1,6 +1,6 @@
 # Engineering Journal
 
-This journal records engineering reasoning that can be traced to source or existing repository files. It does not invent test dates, performance improvements or team observations.
+This journal records engineering reasoning traceable to source or existing repository files. It does not invent test dates, performance improvements or team observations. The [GitHub history audit](github-history.md) records when the visible V1 and V2 source appeared.
 
 ## V1 to V2
 

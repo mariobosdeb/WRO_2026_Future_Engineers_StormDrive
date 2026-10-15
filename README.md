@@ -1,103 +1,120 @@
 # StormDrive — WRO Future Engineers 2026
 
-![StormDrive team at the Romanian WRO event](team-photos/team-wro-romania-2026.jpg)
+![StormDrive team at the Romanian WRO event](t-photos/team-wro-romania-2026.jpg)
 
-StormDrive is a WRO Future Engineers 2026 autonomous-car project built on an Adeept PiCar-B platform, with team-developed Python/OpenCV navigation and a C++ lattice planner.
+StormDrive is a WRO Future Engineers autonomous-car project. The current software is written in Python with OpenCV, and uses a C++ lattice planner on an Adeept PiCar-B-based platform. This repository separates the older Arduino/HuskyLens V1 work from the current Raspberry Pi V2 software and the V1 mechanical archive.
 
-The current competition vehicle is StormDrive V2. The first-team prototype, V1 national-stage car, and V2 are separate vehicles; see the [vehicle archive](vehicle-photos/README.md).
+This README describes what the repository and source code establish. Team-reported results are labeled as such; physical measurements, final hardware details and competition evidence that are not present remain listed in [TODO.md](TODO.md).
 
-## Quick start / Key results
+## Quick start / key results
 
-| Item | Repository record |
+| Area | Current repository evidence |
 |---|---|
-| V1 result | The repository reports 3rd place at WRO Romania 2026. |
-| Open Challenge | The team reports three laps; no dated run sheet or source commit is published yet. |
-| Obstacle Challenge | Calibration and consistency work are team-reported; the current obstacle entry point completes laps, then stops. |
-| Parking | Parking is implemented as a separate <code>parcare</code> mode; it is not invoked by the current <code>obstacle</code> entry point. |
-| Software | V2 contains OpenCV perception, state estimation, simulation, replay/calibration tools, and an A* lattice planner in C++. |
+| Open Challenge | The source has a lane-following driver and a 12-corner finish condition. Older team notes report a three-lap run, but no dated run sheet is included. |
+| Obstacle Challenge | The V2 source has camera-based pillar perception, field localization, a pillar map and a lattice path planner. |
+| Parking | A parking planner is implemented as a separate `parcare` mode. The `obstacle` entry point does not currently continue into parking. |
+| Mobility | Configuration-derived wheelbase, steering and speed values are documented separately from measured vehicle values. |
+| Software | V2 includes OpenCV perception, state estimation, automatic/manual calibration, simulation, recording/replay and a C++ A* lattice implementation. |
 
-The WRO 2026 rules require parallel parking after three Obstacle Challenge laps. The separation above is a verified code gap; see [strategy and integration notes](docs/strategy.md) and [TODO](TODO.md). Results in this table are team reports unless a linked record says otherwise.
+The official 2026 rules describe three Obstacle Challenge laps followed by parallel parking. The code currently exposes Obstacle and Parking as separate flows; this is a source-verified integration gap, not an inference about undocumented software on the car. See [strategy](docs/strategy.md) and [status](docs/status.md). No judge score or end-to-end physical result is claimed.
 
 ## Team
 
-| Member | Role listed in this repository |
+| Member | Role recorded in the repository |
 |---|---|
 | Mario Barladianu | Lead Developer |
 | Isabella Guzu | Software Research |
 | Robert Dascalu | Hardware Specialist |
 
-The team photo above is an existing Romanian-event photo. The official competition team-photo selection and a funny team photo still need confirmation; see [team photos](team-photos/README.md).
+The photo above is an existing team/event photo. The repository does not identify it as the official international submission photo. See the [team photo gallery](t-photos/README.md) and the evidence tasks in [TODO.md](TODO.md).
 
-## StormDrive V2
+## Mobility and mechanical design
 
-[![First team prototype beside StormDrive V2](vehicle-photos/first-prototype-v2-comparison.jpg)](vehicle-photos/first-prototype-v2-comparison.jpg)
+The current vehicle is described by the project records as StormDrive V2, based on the Adeept PiCar-B. Source configuration maps one traction motor through PCA9685 channels 15/14 and a steering servo through channel 0. The camera and ultrasonic sensor share a pan/tilt head in the V2 software model. The exact as-built kit revision, motor and servo part numbers, steering linkage, tire dimensions, printed parts and physical modifications are not proven by the code.
 
-This image is a comparison, not a six-view record of V2. The current repository contains multi-angle V1 photos only. The six V2 photo positions are listed in the [vehicle gallery](vehicle-photos/README.md).
+The configuration defaults are 250 mm length, 180 mm width and 160 mm wheelbase, and the config itself marks the geometry as needing measurement. The bicycle-model calculation gives about 0.43 m turning radius from the configured wheelbase and effective wheel angle. The full-command speed estimate is about 0.95 m/s; Open mode normally commands up to 36%, with a nominal configured speed of about 0.34 m/s. These are code-derived estimates, not physical measurements. The [mobility page](docs/mobility.md) shows the calculation, kit-versus-team table and open measurements.
 
-| Specification | V2 code or repository record |
-|---|---|
-| Base platform | Adeept PiCar-B, as identified in existing project documentation |
-| Main controller | Raspberry Pi platform; exact model is not recorded |
-| Drive and steering | Code declares one M1 traction motor and one steering servo through PCA9685; exact physical models and as-built linkage are not recorded |
-| V2 defaults | 250 mm length, 180 mm width, 160 mm wheelbase in <code>src/v2/wro/config.py</code>; the file labels these as values to measure |
-| Turning and speed | Config-derived model estimate: about 0.43 m turning radius and 0.95 m/s at 100% command. Neither is a measured vehicle result. Open mode's highest regular command is 36%; see [Mobility](docs/mobility.md). |
-| Vision and range | Picamera2/OpenCV plus an HC-SR04 ultrasonic sensor in the V2 hardware code; camera model and as-built wiring are TODO |
-| HuskyLens | Not used by the V2 software path |
+## Power and sensor architecture
 
-## Software architecture
+The V2 software interface declares a Picamera2/OpenCV camera, an HC-SR04-compatible sonar on GPIO 23/24, three line inputs on GPIO 22/27/17, an ADS7830 battery monitor over I2C, PCA9685 actuator outputs, start button, LEDs and buzzer. The optional MPU6050 is disabled in configuration. HuskyLens is not part of the V2 software path.
 
-The diagrams describe the modules present in source. Open Challenge uses lane estimation and a state machine; Obstacle uses global localization, a pillar map and a C++ lattice planner. Parking currently has its own entry point.
+Software pin assignments cannot prove the physical harness, power rails, installed models or measured current draw. The repository does not yet contain a verified V2 wiring diagram. The [power and sensing page](docs/power-and-sensing.md) records each code-facing interface and calibration entry point; the [schemes folder](schemes/README.md) reserves the wiring-diagram location. Exact battery, regulator, fuse, grounding and as-built wiring evidence remains in [TODO.md](TODO.md).
+
+## Software architecture and obstacle strategy
+
+The diagrams describe current modules, not a claim that every mode has been integrated on the physical vehicle.
 
 ```mermaid
 flowchart LR
-  S["Camera + sonar"] --> P["Perception and geometry"]
-  P --> E["Estimator / particle filter"]
-  E --> D["Open driver or obstacle path driver"]
-  D --> L["Lane controller or lattice planner + tracker"]
-  L --> H["PCA9685 hardware layer"]
-  H --> R["Motor, steering and pan/tilt"]
-  E --> K["Separate parking planner"]
+  C[Camera and sonar] --> P[OpenCV perception and geometry]
+  P --> E[State estimator and particle filter]
+  E --> O[Open lane driver]
+  E --> M[Pillar map and Obstacle PathDriver]
+  O --> L[Lane controller]
+  M --> A[C++ A* lattice and path tracker]
+  E --> K[Separate parking planner]
+  L --> H[PCA9685 hardware layer]
+  A --> H
   K --> H
+  H --> R[Motor, steering and pan/tilt]
 ```
 
-## Run the V2 software
+Open mode estimates lane position, selects a state and follows a lane-relative path with recovery and finish states. Obstacle mode localizes against the field, updates a map of pillar colors and plans a collision-avoiding path. The C++ lattice search is exposed through the Python planner wrapper. Parking has its own planner and entry point; it is not automatically called after Obstacle mode finishes. The [strategy page](docs/strategy.md) explains the Open, Obstacle and Parking flows, edge cases and file references.
 
-On the assembled Raspberry Pi car, use the team's installed hardware environment. Dependency and OS versions are not pinned yet. Calibrate the actual vehicle before driving. Keep the car on a clear track with an operator ready to stop it.
+## Systems thinking and engineering decisions
+
+The implementation exposes several design trade-offs that can be reviewed in source. Camera color/brightness perception is combined with sonar distance and an estimator; the code can use multiple cues without requiring HuskyLens in V2. The obstacle planner uses a discretized lattice and costs paths against mapped obstacles, while Open mode follows a lane controller. A simulator and replay tools support repeatable software experiments. These are observations about the implementation; the repository does not record the team's original alternatives or measured reasons for choosing each design.
+
+The project history includes a time-based steering-radius test marked unreliable, a disabled particle-filter line update whose simulator geometry is not verified on the carpet, and alternate camera-pitch calibration settings. The [engineering journal](docs/engineering-journal.md) distinguishes these source comments from tested failures. Add actual dates, measurements, failed runs and resulting decisions before describing an approach as proven.
+
+## Testing, reproducibility and build/run
+
+Physical results need a dated row tied to the vehicle revision, source commit, calibration, battery condition, track layout and run configuration. The [testing page](docs/testing.md) includes a run-log template and simulation/replay instructions. Existing team summaries are not expanded into invented success rates.
+
+On the assembled Raspberry Pi vehicle, use the team's installed hardware environment. The repository does not pin Raspberry Pi OS or Python package versions. From the project root:
 
 ```bash
 cd src/v2
 sudo python3 calibrate.py
 sudo python3 main.py open
-# Other entry points:
+```
+
+The other current entry points are:
+
+```bash
 sudo python3 main.py obstacle
 sudo python3 main.py parcare
 ```
 
-The <code>obstacle</code> mode currently does not chain into <code>parcare</code>. Do not treat a separate parking-mode result as proof of an integrated Obstacle Challenge run.
+Calibrate the actual car and use an operator ready to stop it. The two latter commands are separate modes; running both in sequence is not evidence of an integrated Obstacle Challenge. The C++ planner is compiled by the software wrapper when needed; see [source setup notes](src/v2/README.md). Exact OS, libraries, compiler versions, installation steps and a clean-machine reproduction record still need team verification.
 
-## Vehicle photo placeholders
+## Adeept source and team-developed software
 
-| View | V2 image |
-|---|---|
-| Front | TODO(team): Add a dedicated V2 front photo. |
-| Back | TODO(team): Add a dedicated V2 back photo. |
-| Left | TODO(team): Add a dedicated V2 left-side photo. |
-| Right | TODO(team): Add a dedicated V2 right-side photo. |
-| Top | TODO(team): Add a dedicated V2 top photo. |
-| Bottom | TODO(team): Add a dedicated V2 bottom photo. |
+The project identifies Adeept PiCar-B / Robot HAT hardware and includes separate vendor example files under `vendor/adeept-picar-b2/examples/`. The V2 Python/OpenCV perception, estimator, mapping, planner integration, simulator, recorder/replay and calibration workflows are in `src/v2/`. The team attribution table lists the source modules. Vendor source provenance and license details are not fully confirmed; see [Adeept attribution](vendor/adeept-picar-b2/ATTRIBUTION.md) and [originality](docs/originality.md).
+
+## Photos, videos and repository layout
+
+The [V2 photo gallery](v-photos/README.md) lists the six required views and separates them from the historical V1 images. The [team gallery](t-photos/README.md) identifies the existing images. Challenge videos and their verification status are listed in [video/video.md](video/video.md). A supplied eight-area score sheet is transcribed separately from the current official five-category rubric in [scorecard documents](docs/scorecard.md).
+
+The repository follows the WRO Future Engineers template folder names:
+
+- `src/` — V1 and V2 source, with the current V2 source under `src/v2/`.
+- `models/` — V1 STL archive; V2 model folder is reserved for verified parts.
+- `schemes/` — historical V1 wiring notes and the V2 diagram placeholder.
+- `t-photos/` and `v-photos/` — team images and the separated V1/V2 vehicle galleries.
+- `video/` — video index and challenge links.
+- `other/` — reviewed supporting material.
 
 ## Documentation
 
-- [Mobility management](docs/mobility.md) · [Power and sensing](docs/power-and-sensing.md) · [Obstacle and parking strategy](docs/strategy.md)
-- [Testing and run log](docs/testing.md) · [Engineering journal](docs/engineering-journal.md) · [BOM](BOM.md)
-- [Videos](video/video.md) · [Photos](vehicle-photos/README.md) · [Originality and attribution](docs/originality.md)
-- [Judge scorecard](docs/scorecard.md) · [Official-rule checklist](docs/wro-2026-compliance.md) · [Open TODO list](TODO.md)
-- [GitHub metadata proposal](docs/github-metadata.md) · [Changelog](CHANGELOG.md) · [V2 source guide](src/v2/README.md)
-
-## Simulation and replay
-
-The simulator runs the same Open and Obstacle drivers against a rendered 3 × 3 m track model. It is useful for software experiments, not evidence of physical-car performance. Example commands and recording limits are in [Testing](docs/testing.md).
+- [Official WRO 2026 rules and documentation rubric](docs/wro-2026-compliance.md)
+- [Mobility](docs/mobility.md) · [Power and sensing](docs/power-and-sensing.md) · [Strategy](docs/strategy.md)
+- [Testing](docs/testing.md) · [Engineering journal](docs/engineering-journal.md) · [BOM](BOM.md)
+- [Originality and attribution](docs/originality.md) · [Status](docs/status.md) · [GitHub history audit](docs/github-history.md)
+- [Current WRO scorecard](docs/scorecard.md) · [Supplied eight-area score sheet](docs/scorecard-legacy-8-area.md)
+- [Videos](video/video.md) · [Repository metadata proposal](docs/github-metadata.md) · [Changelog](CHANGELOG.md)
+- [All open team evidence tasks](TODO.md)
 
 ## License
 
-The project root includes an MIT License. Vendor example files have separate, unverified licensing status; see [Adeept attribution](vendor/adeept-picar-b2/ATTRIBUTION.md).
+The repository root contains an MIT License. Vendor examples may have separate terms; verify the source and license before redistribution. See [ATTRIBUTION.md](vendor/adeept-picar-b2/ATTRIBUTION.md).

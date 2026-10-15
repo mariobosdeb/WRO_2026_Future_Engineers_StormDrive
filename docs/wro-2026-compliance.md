@@ -1,29 +1,42 @@
 # WRO 2026 Rules and Documentation Checklist
 
-This project checklist links to the official materials. National organizers may issue event-specific guidance, so the team must confirm applicable rules and current Q&A before the competition.
+This checklist links to official materials and records repository evidence. National organizers may issue event-specific guidance; confirm applicable rules and current Q&A before relying on a requirement.
 
 - [WRO Future Engineers 2026 Game Rules (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)
 - [WRO Future Engineers 2026 Documentation Rubric (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Documentation-Rubric.pdf)
 - [2026 season information and Q&A access](https://wro-association.org/competition/2026-season/)
+- [WRO Future Engineers documentation template (2022 repository)](https://github.com/World-Robot-Olympiad-Association/wro2022-fe-template)
 
-The team's image of an eight-area, 30-point score sheet is tracked separately in [Judge Scorecard](scorecard.md). The official 2026 documentation rubric is a different five-category, 0/2/4/6-point rubric with 30 points total. Confirm which rubric the local or international judges will apply.
+The current international documentation rubric has five categories worth up to 6 points each. The eight-area score sheet supplied by the team is kept separately in [the legacy transcription](scorecard-legacy-8-area.md); confirm with the organizer which sheet applies to any local event.
 
-## Challenge behavior relevant to this repository
+## Repository evidence against the 2026 requirements
 
-| Rule requirement | Source review | Evidence or action |
+| Requirement | Repository evidence | Evidence gap |
 |---|---|---|
-| Open Challenge is a three-lap run | Open driver has a 12-corner finish condition; old notes report three laps | Add a dated physical run and video identified as Open |
-| Obstacle Challenge has three laps followed by parallel parking | Obstacle PathDriver and ParkDriver are separate CLI modes in current source | TODO(team): integrate and demonstrate the required complete flow |
-| Red/green traffic signs determine passing side | Source cost/strategy treats red as keep left/pass right and green as keep right/pass left | Verify with randomized layouts in both course directions and record outcomes |
-| Challenge video evidence is required | Official rules specify video submissions for the challenges, including an autonomous-driving segment | Confirm the current event duration/format; publish clearly labeled final V2 videos |
-| Public English documentation and vehicle/team photos are required | Root README and photo folders are present | Add six V2 views, identify the official team photo, keep V1 archive separate |
+| Mobility and mechanical design explained with reasoned choices | [Mobility page](mobility.md) separates kit references and code defaults from physical facts | V2 as-built drawings, modifications, dimensions, mobility measurements and reasons |
+| Power, sensors and wiring described | [Power and sensing page](power-and-sensing.md) lists the software-facing interfaces and calibration paths | Verified V2 wiring diagram, exact as-built modules, supply rails and measured power budget |
+| Software and obstacle strategy explained | [Strategy page](strategy.md) includes separate mode diagrams and source references | Current Obstacle and Parking entry points do not demonstrate a single complete challenge run |
+| Engineering decisions supported by evidence | [Engineering journal](engineering-journal.md) identifies source-level design notes and templates | Dated physical experiments and measured before/after results |
+| GitHub material reproducible and well organized | README, source, docs, template directories, changelog and issue templates are present | Target-Pi setup verification, photos/videos, vendor provenance, tested release, and historical milestone evidence |
 
-Check exact dimensions, time limits, video duration, naming and submission process against the current rules and organizer instructions before release; this document is not a technical inspection or compliance certification.
+## Challenge flow
 
-## Project records
+Open mode has a lane-following state machine and a source-level 12-corner finish condition. The code's Obstacle path driver maps red/green pillars and completes its lap condition, while the separate Parking mode runs the parking planner. The current source therefore does not demonstrate the required Obstacle-to-parking flow end to end.
 
-- [Vehicle gallery](../vehicle-photos/README.md)
-- [Team gallery](../team-photos/README.md)
+The official rules call for one video per challenge and describe a minimum autonomous driving segment of 30 seconds. The current video links are candidates until the team confirms each challenge, duration, date and final vehicle/software configuration. See [video index](../video/video.md).
+
+## GitHub submission timing
+
+The 2026 international event is listed for 2026-10-13 through 2026-10-16. Approximate relative dates calculated from the first day are 2026-08-13 (two months), 2026-09-13 (one month), 2026-09-29 (two weeks) and 2026-09-22 (three weeks for the repository URL); the organizer sets the exact timing.
+
+A history audit shows the first commit on 2026-06-04 contains only README.md, V1 code was added in June, and the V2 source first appears on 2026-10-11. This means this repository does not demonstrate the required first-commit code amount for the final software, and the V2 source arrived after the approximate two-week milestone. Existing history is preserved; see [the GitHub audit](github-history.md).
+
+The repository is public in the metadata snapshot as of 2026-10-16. The API cannot verify its public status or URL-submission timestamp at the original submission time. Keep it public for 12 months after the applicable competition date; for the international event ending 2026-10-16, that date is 2027-10-16.
+
+## Related project records
+
+- [Vehicle gallery](../v-photos/README.md)
+- [Team gallery](../t-photos/README.md)
 - [Videos](../video/video.md)
 - [Final configuration](../competition/final-configuration.md)
-- [Team TODO](../TODO.md)
+- [TODO](../TODO.md)

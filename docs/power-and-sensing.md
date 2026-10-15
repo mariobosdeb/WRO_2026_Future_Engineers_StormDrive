@@ -35,7 +35,7 @@ The PCA9685 uses I2C address 0x5F at 50 Hz in the code. The exact Pi board, Robo
 
 Code reads a battery monitor and reduces the estimated speed with voltage. It does not identify battery chemistry/capacity, regulator rails, wiring gauge, fuse, switch, measured current draw, brownout behavior or return paths. Therefore no accurate power-distribution diagram or consumption estimate can be derived from this repository.
 
-TODO(team): Record the as-built battery and regulators, measure idle/peak current and voltage under camera and drive load, then publish an editable V2 wiring source plus an exported diagram in schematic/. Include common grounds, protection, connectors and GPIO/PCA9685 mapping.
+TODO(team): Record the as-built battery and regulators, measure idle/peak current and voltage under camera and drive load, then publish an editable V2 wiring source plus an exported diagram in schemes/. Include common grounds, protection, connectors and GPIO/PCA9685 mapping.
 
 ## Calibration procedures present in code
 
@@ -50,4 +50,4 @@ The per-car calibration JSON is intentionally ignored by Git. TODO(team): Record
 
 ## Wiring status
 
-The [V1 historical wiring notes](../schematic/v1/README.md) describe the legacy vehicle only. No V2 as-built electrical diagram can be generated safely from software pin constants alone. See [TODO](../TODO.md#2-power-and-sense-management).
+The [V1 historical wiring notes](../schemes/v1/README.md) describe the legacy vehicle only. No V2 as-built electrical diagram can be generated safely from software pin constants alone. See [TODO](../TODO.md).

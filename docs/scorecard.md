@@ -1,18 +1,23 @@
-# Judge Scorecard
+# WRO 2026 Documentation Scorecard
 
-This tracker transcribes the eight scoring areas and maximum values shown in the score sheet supplied by the team. It is a team-provided score sheet, not the official WRO 2026 documentation rubric. No earned score is claimed here.
+The official WRO 2026 documentation rubric has five categories worth up to 6 points each. The estimates below are a conservative, document-only readiness check made from the repository at the time of this PR. They are not judge scores and do not assess the physical vehicle, presentation or results that the team has not supplied.
 
-| Scoring area | Maximum | Evidence in this repository | Evidence still needed |
-|---|---:|---|---|
-| Mobility Management | 4 | V2 drive code, configured vehicle model, historical V1 CAD | As-built dimensions, stock-versus-modified parts, measured steering/speed/turning, assembly photos |
-| Power and Sense Management | 4 | V2 hardware interfaces and calibration code | Verified as-built wiring, exact hardware, power rails, measured current, calibration records |
-| Obstacle Management | 4 | Perception, estimator, pillar map, local planner and C++ lattice planner | Complete integrated challenge run, including parking, dated randomized-layout results and video |
-| Pictures — Team and vehicle | 4 | Existing Romanian-event team image, first-prototype/V2 comparison and V1 views | Official team photo confirmation, funny photo if used, six dedicated V2 views |
-| Performance videos | 4 | Existing three-lap clip and freestyle Short | Identify challenge, date, final configuration and publish final Open/Obstacle/Parking evidence |
-| GitHub utilization | 4 | Public source, commit history, documentation and this evidence map | Apply repository topics/description, complete provenance/license notes, publish tested release |
-| Engineering Factor | 4 | Source comments, calibration tools, simulator, replay and documentation templates | Dated engineering decisions, physical run data, measured comparisons and verified failed approaches |
-| Overall Judge impression | 2 | English README and linked evidence structure | Make photos, videos, tested configuration, integrated behavior and claims agree |
+| Official 2026 category | Max | Evidence currently documented | Main evidence needed for the top rubric level | Provisional estimate |
+|---|---:|---|---|---:|
+| Mobility & Mechanical Design | 6 | Code-derived geometry/speed, kit-versus-team table, V1 CAD archive and V1/V2 separation | As-built V2 CAD/photos, measured dimensions and mobility, design trade-offs, physical iterations | 2/6 |
+| Power & Sensor Architecture | 6 | Software-facing interfaces, pin assignments, calibration code and hardware-facing documentation | Verified V2 wiring diagram, exact installed components, power budget/current measurements, sensor placement and calibration evidence | 2/6 |
+| Software Architecture & Obstacle Strategy | 6 | Modular Open/Obstacle/Parking paths, perception, estimator, pillar map, Python/C++ lattice planner, simulator and flow diagrams | End-to-end Obstacle-to-parking execution, physical challenge evidence, tested recovery behavior and verified timing | 4/6 |
+| Systems Thinking & Engineering Decisions | 6 | Engineering journal, code comments documenting disabled/changed approaches, simulator and test procedure | Dated trade-off records, failed attempts, measured comparisons, subsystem interactions and test-backed decisions | 2/6 |
+| Reproducibility & GitHub Quality | 6 | English README over 5,000 characters, official folder names, code, docs, issue templates, contribution guide and history audit | Verified setup on the target Pi, complete photos/schemes/videos, license provenance, applicable commit milestones and tested release | 2/6 |
+| **Total readiness estimate** | **30** |  |  | **12/30** |
 
-The score sheet shown to the team has a maximum of **30 points**. The separate official WRO 2026 documentation rubric uses five categories worth up to 6 points each. See [the official rubric](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Documentation-Rubric.pdf) and the [rules checklist](wro-2026-compliance.md). Confirm with the event organizer which score sheet is used for judging.
+The largest current score gaps depend on team evidence or physical integration and cannot be filled from the repository alone. All missing evidence is listed in [TODO.md](../TODO.md).
 
-TODO(team): Add judge-awarded scores only after the event, with score sheet/date if available.
+## Separate eight-area score sheet supplied by the team
+
+The supplied image lists a different eight-area rubric (maximum 30). It is preserved as a separate transcription and explicitly labeled for organizer confirmation: [Eight-area score sheet](scorecard-legacy-8-area.md). It is not interchangeable with the official WRO 2026 five-category rubric.
+
+## Sources
+
+- [WRO Future Engineers 2026 Documentation Rubric (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Documentation-Rubric.pdf)
+- [WRO Future Engineers 2026 Game Rules (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)

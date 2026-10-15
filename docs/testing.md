@@ -10,7 +10,7 @@ Add one row per actual physical attempt, including failures. Do not treat simula
 
 | Date | Mode (Open / Obstacle / Parking) | Run no. | Result (success / failure) | Time | Observations |
 |---|---|---:|---|---:|---|
-| TODO | TODO | TODO | TODO | TODO | TODO(team): Replace this placeholder with a real dated attempt. |
+| TODO(team): date | TODO(team): mode | TODO(team): run no. | TODO(team): outcome | TODO(team): time | TODO(team): record actual observations. |
 
 No dated rows are present in the existing documentation. TODO(team): Add source commit, calibration ID, track configuration, direction, starting zone, intervention/recovery count and a video/log link for each run.
 

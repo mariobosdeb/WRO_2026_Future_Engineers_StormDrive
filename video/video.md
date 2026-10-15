@@ -1,6 +1,6 @@
 # Performance Videos
 
-The links below are existing team videos. Their titles and URLs are copied from the repository; challenge classification, recording date and exact vehicle/software configuration have not been verified.
+The links below are existing team videos. Their titles and URLs are copied from the repository; challenge classification, recording date and exact vehicle/software configuration have not been verified. WRO 2026 requires a video for each challenge; see the rules checklist for the applicable duration and submission details.
 
 ## Open Challenge — three laps
 

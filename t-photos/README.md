@@ -1,6 +1,6 @@
 # Team Photos
 
-This folder holds existing team images. The current gallery entry is the team's Romanian WRO event photo; the repository does not confirm whether it is the official photo required for submission.
+This folder uses the WRO template name for team photos and holds existing team images. The current gallery entry is the team's Romanian WRO event photo; the repository does not confirm whether it is the official photo required for submission.
 
 | Image | Description |
 |---|---|
