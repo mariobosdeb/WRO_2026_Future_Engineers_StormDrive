@@ -5,8 +5,9 @@ Testing is part of the engineering process. This file records repeatable experim
 ## Current team-reported status
 
 - **Open Challenge:** completes three laps in current team testing.
-- **Obstacle Challenge:** close to three laps; calibration and tuning continue.
-- **Parking:** still in development.
+- **Obstacle Challenge:** final calibration and consistency work complete.
+- **Parking:** completed and validated in team testing.
+- **Final calibration and repeatability testing:** complete.
 
 These notes reflect the team's latest report. No dated, run-by-run measurement log has been supplied for this summary yet. The current test clips are linked in [Project Media](../media/videos.md); confirm the challenge, date and duration before treating them as final competition evidence.
 
