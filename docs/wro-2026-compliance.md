@@ -6,6 +6,8 @@ This page is a working checklist for the WRO 2026 Future Engineers requirements 
 
 **Target event:** [WRO 2026 – Open Championship – Europe](https://wro-association.org/competition/international-events/) — Zagreb, Croatia, 13–16 October 2026.
 
+**Separate team scoring sheet:** The eight-row, 30-point rubric supplied by the team is tracked in [Judge Scorecard](scorecard.md). This project scorecard is distinct from the official rules checklist below.
+
 > This is a project checklist, not a replacement for the official rules. WRO Question & Answers (Q&A) can clarify, extend, or redefine rules during the season. The team must check the official Q&A before the final competition configuration is frozen.
 
 ## 1. Public GitHub requirements

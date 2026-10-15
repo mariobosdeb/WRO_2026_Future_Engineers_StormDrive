@@ -7,6 +7,7 @@ This folder is the index for the engineering record. Start with [Status & Eviden
 | Section | Purpose | Status |
 |---|---|---|
 | [Status & Evidence](status.md) | Separates team-reported progress from published evidence | Current summary; run-level evidence pending |
+| [Judge Scorecard](scorecard.md) | Tracks all 8 criteria and maximums from the team's supplied scoring sheet | 30 points maximum; evidence gaps listed without claiming a score |
 | [WRO 2026 Compliance](wro-2026-compliance.md) | Rule-aware documentation and final evidence checklist | Working checklist; final configuration not verified |
 | [Engineering Journal](engineering-journal.md) | Engineering story, iterations and decisions | Structure present; dated measured entries pending |
 | [Testing](testing.md) | Test plan, team-reported summary and run log | Summary present; no dated run rows published |

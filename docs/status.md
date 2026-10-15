@@ -1,5 +1,7 @@
 # StormDrive — Status & Evidence
 
+The assessment framework is the [8-area Judge Scorecard](scorecard.md), transcribed from the scoring table supplied by the team (30 points maximum). It lists evidence needed for each row; no earned score is inferred.
+
 ## How to read this page
 
 This page separates the team's current report from evidence that another reader can verify in the repository. The latest repository status update is dated **2026-10-15**; that is not a claim that every test happened on that date.

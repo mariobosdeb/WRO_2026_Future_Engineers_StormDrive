@@ -51,7 +51,7 @@ _These are team-reported outcomes. Run-by-run measurements and the frozen compet
 
 ### 🔎 Explore the project
 
-[🤖 V2 source and run guide](src/v2/README.md) · [📊 Status & evidence](docs/status.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
+[🏆 Judge scorecard (30 points)](docs/scorecard.md) · [🤖 V2 source and run guide](src/v2/README.md) · [📊 Status & evidence](docs/status.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
 
 <details>
 <summary><strong>Contents of this README</strong></summary>
@@ -384,6 +384,7 @@ The team reports that StormDrive V2 is ready for the European stage. The public 
 
 ## 📚 Documentation
 
+- **[Judge Scorecard](docs/scorecard.md)** — all 8 scoring areas from the supplied 30-point rubric
 - **[Documentation Hub](docs/README.md)** — central index for engineering records
 - **[European Stage](european/README.md)** — V2 development overview
 - **[Hardware Reference](european/hardware.md)** — platform, interfaces and hardware test plan
