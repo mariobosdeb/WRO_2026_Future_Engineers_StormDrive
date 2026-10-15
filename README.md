@@ -342,14 +342,14 @@ The repository includes a V2 run guide, test protocol, engineering journal, hard
 - ✅ 3rd place at the Romanian stage
 
 ### StormDrive V2
-- ✅ V2 build complete and ready for WRO 2026 Open Championship Europe; developed from Adeept infrastructure with team adaptations
+- ✅ **Build complete — StormDrive V2 is ready for the European stage.** Developed from Adeept infrastructure with team adaptations.
 - ✅ Open Challenge completes three laps in current team testing
-- 🔄 Obstacle Challenge is close to three laps; calibration and tuning continue
-- 🔄 Parking behaviour is in development
-- 🔄 Final calibration and repeatability work
-- ⏳ European-stage competition configuration
+- 🔄 Obstacle Challenge is close to three laps; final calibration and consistency tuning continue
+- 🔄 Parking behaviour is still being tuned
+- 🔄 Final calibration and repeatability testing continue
+- ⏳ Document the verified final competition configuration
 
-Status will be updated as development progresses.
+The car is ready for the European stage; the remaining items track final tuning, validation and documentation.
 
 ---
 
@@ -361,11 +361,11 @@ Status will be updated as development progresses.
 - [x] Build the V2 autonomous software architecture
 - [x] Reach three Open Challenge laps in current team testing
 - [x] Implement Obstacle Challenge navigation
+- [x] Build StormDrive V2 and make it ready for the WRO 2026 Open Championship Europe
 - [ ] Finish calibration and improve Obstacle Challenge consistency
 - [ ] Complete and validate autonomous parking
 - [ ] Perform repeatability testing
 - [ ] Document the final competition configuration
-- [ ] Prepare StormDrive V2 for WRO 2026 Open Championship Europe
 
 ---
 
