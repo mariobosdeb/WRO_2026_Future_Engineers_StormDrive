@@ -1,108 +1,58 @@
-# StormDrive Testing & Validation
+# Testing and Validation
 
-Testing is part of the engineering process. This page separates the team's latest status report from test records that can be checked and repeated.
+## Team-reported status
 
-## Current team-reported status
+Existing repository notes report three Open Challenge laps, completed Obstacle Challenge calibration/consistency work, validated autonomous parking and repeatability testing. They do not give dated run-by-run records. These remain team-reported summaries, not a measured success rate.
 
-The latest repository status update is dated **2026-10-15**; individual test dates were not included.
+## Run log template
 
-| Workstream | Team report | Public run-level record |
-|---|---|---|
-| Open Challenge | Three laps completed in current team testing | No dated row with the tested commit, direction, track layout and outcome |
-| Obstacle Challenge | Calibration and consistency work complete | No dated row documenting sign placements, decisions and outcome |
-| Autonomous parking | Completed and validated in team testing | No recorded parking position/parallelism result or challenge-specific video |
-| Final calibration | Complete | Calibration file is local and its tested version is not recorded here |
-| Repeatability | Complete | Number of attempts, successes and environmental conditions are not published |
+Add one row per actual physical attempt, including failures. Do not treat simulator output as a physical test.
 
-These are team-reported outcomes, not a run ledger. The clips in [Project Media](../media/videos.md) are development footage; the challenge, date, configuration and duration have not all been confirmed.
+| Date | Mode (Open / Obstacle / Parking) | Run no. | Result (success / failure) | Time | Observations |
+|---|---|---:|---|---:|---|
+| TODO | TODO | TODO | TODO | TODO | TODO(team): Replace this placeholder with a real dated attempt. |
 
-## Test categories
+No dated rows are present in the existing documentation. TODO(team): Add source commit, calibration ID, track configuration, direction, starting zone, intervention/recovery count and a video/log link for each run.
 
-The lists below are a test plan, not a completion tracker. An unchecked item means its result is not recorded in this repository; it does not say whether the team performed the test.
+## Test procedure
 
-### Component tests
+1. Record the car revision, software commit, local calibration ID, battery condition, track configuration, direction and start position.
+2. State one objective and the expected result before a run.
+3. Run the physical car with an operator ready to stop it. Record outcome, time, collisions/sign errors, recoveries and parking result.
+4. Preserve failures and identify what changed before the next attempt.
+5. Link trace/log/video evidence and state whether the result came from simulation or the assembled car.
 
-- [ ] Raspberry Pi boot and stability
-- [ ] Robot HAT / motor controller
-- [ ] Steering servo
-- [ ] Drive motor(s)
-- [ ] Camera
-- [ ] Distance sensor(s), if used
-- [ ] Line/light sensors, if used
-- [ ] IMU, if used
-- [ ] Encoder(s), if used
-- [ ] Battery monitoring
-- [ ] Start button
-
-### Subsystem tests
-
-- [ ] Steering calibration
-- [ ] Forward/reverse control
-- [ ] Speed control
-- [ ] Camera/perception pipeline
-- [ ] Lane/track detection
-- [ ] Traffic-sign detection
-- [ ] Obstacle decision logic
-- [ ] Lap detection
-- [ ] Parking sequence
-
-### Integration tests
-
-- [ ] Full autonomous start sequence
-- [ ] Perception → navigation → steering
-- [ ] Perception → navigation → speed
-- [ ] Long-duration run
-- [ ] Power stability during acceleration and turning
-- [ ] Recovery/failure behaviour
-
-## WRO scenario coverage
-
-### Open Challenge
-
-Record runs with clockwise and counter-clockwise driving, different starting zones and corridor widths, three complete laps, and autonomous finish behaviour.
-
-### Obstacle Challenge
-
-Record randomized red and green sign placements, the required passing side, starting-zone/parking-lot configuration, three complete laps and the autonomous parking result.
-
-## Public run log
-
-No dated, run-by-run result rows have been published yet. Add a row for every attempt, including failures; do not infer a success rate from selected clips.
-
-| Run ID | Date | Mode / direction / start | Track configuration | Source commit / calibration | Outcome / laps | Time | Interventions / errors | Parking result | Evidence |
-|---|---|---|---|---|---|---|---|---|---|
-
-## Repeatability protocol
-
-For each important configuration, record multiple consecutive runs under comparable conditions:
-
-- vehicle hardware revision and software commit;
-- calibration version and track arrangement;
-- driving direction and starting zone;
-- attempts, successful completions and lap count;
-- completion time where relevant;
-- interventions, recovery events and sign/obstacle errors;
-- parking result and environmental conditions;
-- link to video or trace, where available.
-
-## Test report template
+### Record template
 
     Test ID:
     Date and time:
-    Hardware revision:
-    Software commit:
-    Calibration version:
-    Objective and hypothesis:
-    Track configuration / direction / start:
+    Mode and direction:
+    Vehicle revision:
+    Source commit and calibration ID:
+    Track layout / sign placement / start:
+    Objective and expected result:
     Procedure:
-    Attempts / successful runs:
-    Completion time(s):
-    Lap failures / sign errors / interventions:
-    Parking result:
-    Observation and decision:
-    Evidence link:
-    Next experiment:
+    Result and elapsed time:
+    Laps / collisions / sign decisions / recovery:
+    Parking position, angle and boundary clearance:
+    Observations:
+    Evidence:
+    Decision and next test:
 
-## Evidence policy
+## Simulator
 
-Keep simulator and physical-car results separate. A successful run is evidence for that recorded configuration; it is not by itself a repeatability result. Never add measurements without the source, date and method.
+From src/v2, the simulator can run randomized Open, Obstacle and Parking scenarios:
+
+    python3 simulate.py open --n 6 --seed 1
+    python3 simulate.py obstacle --n 6 --seed 1 --perturb 1
+    python3 simulate.py parcare --n 6 --seed 1
+
+The simulator models a 3 × 3 m field, walls, pillars, camera, sonar, motion, collisions and parking metrics. The --perturb option varies modeled steering, speed, camera, light, slip and latency; --cal loads the local calibration file. Simulation evaluates software against the simulator's assumptions and is not evidence of physical performance.
+
+## Recording and replay
+
+- Open replay: <code>sudo python3 main.py open --rec</code> then <code>python3 replay_open.py debug/rec_TIMESTAMP</code>.
+- Obstacle replay: <code>python3 replay.py debug/rec_TIMESTAMP</code> expects rows.jsonl, meta.json and recorded frames.
+- TODO(team): main.py currently wraps RecHAL only for Open; confirm and document how the Obstacle recordings consumed by replay.py are created.
+
+Recorder images are lossless PNGs and can be large. Keep raw debug recordings out of Git; publish selected, reviewed evidence only. [The .gitignore](../.gitignore) ignores debug output and per-car calibration while allowing reviewed CSV test records to be committed.

@@ -1,4 +1,4 @@
-# Python
+# Python runtime
 __pycache__/
 *.py[cod]
 *.pyo
@@ -9,7 +9,16 @@ venv/
 calibration.json
 debug/
 *.log
-*.csv
+*.npz
+*.so
+
+# Archives and large generated artifacts
+*.zip
+*.7z
+*.rar
+*.tar
+*.tar.gz
+*.tgz
 
 # Arduino temporary build files
 **/build/
@@ -18,9 +27,8 @@ debug/
 *.o
 *.a
 
-# OS generated files
+# OS-generated files
 .DS_Store
 Thumbs.db
 *.bak
 *.tmp
-

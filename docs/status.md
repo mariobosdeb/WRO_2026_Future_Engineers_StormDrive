@@ -1,34 +1,27 @@
-# StormDrive — Status & Evidence
+# Status and Evidence
 
-The assessment framework is the [8-area Judge Scorecard](scorecard.md), transcribed from the scoring table supplied by the team (30 points maximum). It lists evidence needed for each row; no earned score is inferred.
+The project uses the [team-provided eight-area score sheet](scorecard.md) as an evidence checklist. The statements below distinguish source-verified behavior from older team-reported test summaries.
 
-## How to read this page
+## Current V2 source
 
-This page separates the team's current report from evidence that another reader can verify in the repository. The latest repository status update is dated **2026-10-15**; that is not a claim that every test happened on that date.
+| Area | What source or repository records show | Evidence still needed |
+|---|---|---|
+| Open Challenge | Open driver has lane, turn, recovery and finish states; source is configured to finish after 12 counted corners. Older project notes report three laps. | Dated physical run rows tied to a commit, calibration, direction, track and video |
+| Obstacle Challenge | PathDriver localizes the field, maps pillars and plans around red/green signs. It stops after its three-lap finish condition. | Current code does not chain into parking; complete the required flow and publish a physical run |
+| Parking | A separate `parcare` entry point runs ParkDriver using assumed field geometry. | No integrated obstacle-to-parking execution or dated parking measurement is recorded |
+| Power and sensing | Source defines camera, sonar, battery monitor, line inputs and actuator interfaces. | Inspect actual hardware, wiring, supply rails, installed models and current consumption |
+| Mechanics | Existing STL set and photos are explicitly V1. V2 geometry constants are marked for measurement. | V2 as-built measurements, assembly record and V2 CAD |
+| Media | Existing team/event images, V1 photos, a prototype/V2 comparison and two YouTube links are present. | Official team-photo choice, six V2 views and challenge/date labels for videos |
 
-## V2 status
+Older summaries say Open three laps, Obstacle calibration/consistency work, and autonomous parking/repeatability were completed. They do not include dated, run-by-run records, so they remain team-reported rather than independently verifiable results.
 
-| Area | Team-reported status | Evidence currently published | Evidence still needed |
-|---|---|---|---|
-| Open Challenge | Three laps completed in team testing | A clip titled “After three complete laps” is linked in [Project Media](../media/videos.md); challenge, date, configuration and duration are not confirmed there | Dated run record with source commit, track setup, direction, outcome and video evidence |
-| Obstacle Challenge | Calibration and consistency work reported complete | Existing clips are not identified as final Obstacle Challenge evidence | Challenge-specific video and run records covering sign choices and parking |
-| Autonomous parking | Completed and validated in team testing | No parking result is recorded run by run | Dated result with final position/parallelism assessment and video |
-| Repeatability | Testing reported complete | No run count, success rate or conditions are published | Per-run log with hardware, calibration, software commit and outcome |
-| Competition configuration | Team reports that V2 is ready for Europe | [Configuration page](../competition/final-configuration.md) still contains unverified fields | Exact board, actuators, sensors, dimensions, mass, calibration and tested commit |
-| V2 wiring | Not documented as an as-built diagram | [Schematics](../schematics/README.md) describes historical V1 notes | Verified V2 power and signal diagram, connector/pin mapping and common-ground or isolation details |
-| V2 photos | Current V2 appears in a comparison photo | Multi-angle photo archive is explicitly for V1 | Dedicated V2 front, back, left, right, top and bottom photos |
-| Fresh setup | Run guide exists | Python/system dependency versions and a tested OS image are not pinned | Reproducible dependency manifest and setup verified on the competition hardware |
+## Verified flow gap
 
-## Evidence policy
+In `src/v2/main.py`, the `obstacle` mode selects PathDriver; the `parcare` mode selects ParkDriver separately. PathDriver terminates after its lap-completion condition. The official 2026 Obstacle Challenge includes parking after three laps, so the current source does not show one end-to-end challenge flow. Details and diagrams are in [Strategy](strategy.md). This is a source review, not a statement about undocumented code installed on the Raspberry Pi.
 
-- Treat the status column as a team report, not an independently measured result.
-- Do not publish success rates, timing, dimensions, mass, sensor placement or calibration values until the team records the source and method.
-- Keep simulator runs separate from physical-car runs.
-- For every important run, record the source commit and calibration file/version used.
+## Sources
 
-## Next evidence to add
-
-1. Add dated rows to the [test log](testing.md), including failed runs.
-2. Complete the [competition configuration](../competition/final-configuration.md) from the actual car and tested commit.
-3. Publish the as-built V2 wiring and dedicated V2 photos.
-4. Identify final Open and Obstacle Challenge videos and record their dates, configurations and relevant durations.
+- [V2 source guide](../src/v2/README.md)
+- [Testing and simulator](testing.md)
+- [Team TODO list](../TODO.md)
+- [WRO 2026 rules checklist](wro-2026-compliance.md)

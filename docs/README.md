@@ -1,36 +1,21 @@
-# StormDrive Documentation Hub
+# Documentation
 
-This folder is the index for the engineering record. Start with [Status & Evidence](status.md) for the current team report and the evidence that is still missing.
+Start with the [project README](../README.md), then use these evidence pages.
 
-## WRO 2026 documentation map
-
-| Section | Purpose | Status |
-|---|---|---|
-| [Status & Evidence](status.md) | Separates team-reported progress from published evidence | Current summary; run-level evidence pending |
-| [Judge Scorecard](scorecard.md) | Tracks all 8 criteria and maximums from the team's supplied scoring sheet | 30 points maximum; evidence gaps listed without claiming a score |
-| [WRO 2026 Compliance](wro-2026-compliance.md) | Rule-aware documentation and final evidence checklist | Working checklist; final configuration not verified |
-| [Engineering Journal](engineering-journal.md) | Engineering story, iterations and decisions | Structure present; dated measured entries pending |
-| [Testing](testing.md) | Test plan, team-reported summary and run log | Summary present; no dated run rows published |
-| [Engineering Decisions](decisions.md) | Alternatives, trade-offs, risks and reasons | Initial records present; add evidence and team reasoning |
-| [European Stage](../european/README.md) | V2 development overview | Team reports build and testing milestones complete |
-| [Hardware](../european/hardware.md) | Adeept platform reference | Kit reference; not a verified V2 bill of materials |
-| [Software Reference](../european/software-reference.md) | Manufacturer capabilities and reusable concepts | Vendor reference, separate from competition code |
-| [Schematics](../schematics/README.md) | Historical V1 wiring notes | V1 only; verified V2 wiring not published |
-| [Mechanical](../mechanical/markdown.md) | V1 files and design history | V1 files; V2 changes/CAD pending |
-| [V2 Source](../src/v2/README.md) | Source, prerequisites and run instructions | Modes documented; dependency versions and final commit pending |
-| [Competition Configuration](../competition/final-configuration.md) | Exact final vehicle and software configuration | Draft; exact values and tested commit missing |
-| [Competition Videos](../media/videos.md) | V2 progress clips and final challenge evidence | Progress clips available; final evidence unconfirmed |
-
-## Documentation principle
-
-The repository separates three kinds of information:
-
-1. **Manufacturer reference** — information supplied with the PiCar-B kit.
-2. **StormDrive implementation** — code, wiring, mechanical design and decisions created by the team.
-3. **Measured results** — values recorded from the team's own tests.
-
-Do not treat the kit's example values as measurements from StormDrive. For every performance claim, preserve the test date, vehicle configuration, calibration and source commit.
-
-## Finalization rule
-
-The team reports that V2 is ready for the European stage and that calibration, parking validation and repeatability testing are complete. The public repository is not yet a reproducible final record: exact configuration values, run-by-run results, verified V2 wiring, dedicated V2 photos and final challenge evidence remain to be added. See [Status & Evidence](status.md).
+| Page | Contents |
+|---|---|
+| [Status](status.md) | Source-verified behavior, team reports and evidence gaps |
+| [Scorecard](scorecard.md) | The team-provided eight-area, 30-point score sheet |
+| [Mobility](mobility.md) | Kit references, code-derived geometry/speeds and measurements needed |
+| [Power and sensing](power-and-sensing.md) | V2 sensor/actuator interfaces, calibration and unknown hardware details |
+| [Strategy](strategy.md) | Open, Obstacle and Parking code flows, planner and integration gap |
+| [Testing](testing.md) | Physical run template, simulator, recording and replay |
+| [Engineering journal](engineering-journal.md) | Evidence-based design notes and entry template |
+| [Originality](originality.md) | Kit/vendor references versus project source contributions |
+| [WRO 2026 checklist](wro-2026-compliance.md) | Official rule references and documentation requirements |
+| [Engineering decisions](decisions.md) | Existing design decision record |
+| [Competition configuration](../competition/final-configuration.md) | Final vehicle/software facts to record |
+| [Bill of materials](../BOM.md) | Components, quantity, role and cost status |
+| [Videos](../video/video.md) | Existing links and required challenge evidence |
+| [Repository metadata proposal](github-metadata.md) | Description and topics for GitHub settings |
+| [Team TODO](../TODO.md) | Open tasks grouped by the team's scoring areas |

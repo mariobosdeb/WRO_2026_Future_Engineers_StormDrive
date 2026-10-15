@@ -1,92 +1,51 @@
-# StormDrive Engineering Journal
+# Engineering Journal
 
-This is the engineering record for the team's first prototype → StormDrive V1 → StormDrive V2.
+This journal records engineering reasoning that can be traced to source or existing repository files. It does not invent test dates, performance improvements or team observations.
 
-The journal should document **problems, observations, hypotheses, alternatives, changes, tests, measurements and decisions**. Assembly notes alone do not show why a design was selected.
+## V1 to V2
 
-## How to record a decision
+Existing documentation records StormDrive V1 as an Arduino/HuskyLens national-stage car and V2 as an Adeept PiCar-B / Raspberry Pi platform using Picamera2 and OpenCV. The files prove that the project kept separate V1 and V2 material; they do not record the complete team comparison or prove that V1 failed.
 
-    Date
-    Problem and constraint
-    Observation
-    Hypothesis
-    Options considered
-    Chosen change
-    Test method
-    Measured result
-    Decision
-    Next step
-    Source commit / evidence
+TODO(team): Add the actual platform selection criteria, alternatives, team reasoning, test evidence and lessons learned from the national event.
 
-## WRO documentation criteria covered
+## Failed approaches and lessons visible in source
 
-| Criterion | Journal evidence |
-|---|---|
-| Mobility & Mechanical Design | Chassis, drive, steering, dimensions, torque/speed reasoning and mechanical iterations |
-| Power & Sensor Architecture | Power distribution, sensor placement, calibration, interference and reliability |
-| Software Architecture & Obstacle Strategy | Algorithms, state machine, lane following, obstacle/sign handling and tuning |
-| Systems Thinking & Engineering Decisions | Constraints, trade-offs, risks, subsystem interactions and reasons |
-| Reproducibility & GitHub Quality | Exact configuration, version history, test workflow and final documentation |
+| Source evidence | What the code/document says | Evidence limit |
+|---|---|---|
+| calibrate.py menu and radius_test() | The menu marks the time-based radius test as no longer necessary and says the timed method was unreliable; an interactive radius test remains in the file. | No dated test record or measured comparison is committed. |
+| config.py: PF_USE_LINES | Color-line updates in the particle filter are disabled because their simulator geometry is not verified on the physical carpet. | This is a code comment, not a test report. |
+| config.py: side-wall AUTOCAL_PITCH | The later config assignment disables the side-wall pitch-calibration variant, while SonarPitchCal is enabled. | No before/after error log is published. |
+| V1/V2 source separation | The old V1 files use Arduino/HuskyLens notes; V2 uses Raspberry Pi, OpenCV and custom Python/C++ modules. | The repository does not say which specific V1 limitation motivated each change. |
 
-## First team prototype
+TODO(team): Add actual failed runs, images, logs, measurements, dates, decisions and the change each failure caused. Avoid describing a design as a failure unless the team has evidence for that conclusion.
 
-The [photo archive](../media/robot-photos/first-prototype-v2-comparison.jpg) shows the earliest prototype beside the current V2. This vehicle predates V1; it is not the car that competed at the Romanian national stage.
+## Existing test-log template
 
-## V1 — National stage
+No dated rows were present in the repository test table. Add them in [Testing](testing.md) after the test, not before it.
 
-### V1 baseline
+| Date | Subsystem / mode | Hypothesis | Change | Measured result | Decision | Evidence |
+|---|---|---|---|---|---|---|
+| TODO | TODO | TODO | TODO | TODO(team): Add an actual measurement. | TODO | TODO |
 
-- Arduino-based control architecture;
-- HuskyLens-based perception;
-- Ackermann-style steering;
-- rear-wheel drive;
-- iterative custom chassis development.
+## Decision entry template
 
-### V1 engineering lessons
+    Date:
+    Constraint or problem:
+    Observation and evidence:
+    Options considered:
+    Chosen design and reason:
+    Test method:
+    Before / after measurements:
+    Trade-offs and failure modes:
+    Decision:
+    Source commit and evidence link:
 
-Add the team's actual lessons from the Romanian competition and cite the tests or observations that support each one. Do not add unsupported numerical claims.
+## Risk register
 
-## V2 — European stage
-
-StormDrive V2 uses the Adeept PiCar-B platform and Raspberry Pi computing platform as a starting point, with team adaptations and StormDrive competition software.
-
-**Latest team-reported status:** the build is ready for the European stage; the team reports three Open Challenge laps, completed Obstacle Challenge calibration, validated autonomous parking and completed repeatability testing. The latest repository status update is dated 2026-10-15, but the dates and run-by-run measurements are not published. See [Testing & Validation](testing.md) and [Status & Evidence](status.md).
-
-### Entry V2-001 — Platform transition
-
-**Problem:** The team needed a platform for European-stage development after the Romanian competition.
-
-**Observation:** V1 provided competition experience and revealed areas to improve.
-
-**Decision:** Start V2 as a new platform instead of treating it as a sequence of V1 modifications.
-
-**Evidence:** V1 files and the V2 source are kept in separate repository paths.
-
-**Evidence still needed:** comparison criteria, dated tests, the exact final vehicle configuration and the source commit used in competition.
-
-## Test log
-
-No dated test rows have been published yet. Add real measurements here or link each row to [Testing & Validation](testing.md).
-
-| ID | Date | Subsystem | Test | Expected | Measured result | Decision | Source/evidence |
-|---|---|---|---|---|---|---|---|
-
-## Design changes
-
-| Version | Change | Why | Evidence | Result |
-|---|---|---|---|---|
-| V1 | Initial platform | Starting architecture | Competition and test records to be linked | Historical vehicle documented |
-| V2 | Adeept PiCar-B foundation with team adaptations | New European-stage platform | Add comparison criteria and test evidence | Team reports build and testing milestones complete |
-
-## Risks and mitigations
-
-| Risk | Possible effect | Mitigation | Verification record |
-|---|---|---|---|
-| Steering center drift | Path error | Calibrate and record the usable center/limits | Add calibration file version and run record |
-| Power instability | Computer reset or control loss | Measure supply rails and peak load | Add measured voltage/current trace |
-| Vision ambiguity | Incorrect steering | Test lighting and camera placement | Add scenario-specific perception evidence |
-| Obstacle misclassification | Wrong lane side | Validate sign detection and decisions | Add red/green run records |
-
-## Recordkeeping rule
-
-Add measured values only after the team has measured them. Identify manufacturer example values as references and keep them separate from values measured on StormDrive.
+| Risk | Code or document indication | Verification required |
+|---|---|---|
+| Steering model differs from hardware | Config geometry is marked to measure; calibration JSON is local. | TODO(team): Measure steering gain, center and radius on V2. |
+| Power loss / brownout | Battery monitor thresholds exist, but no current or rail measurements are published. | TODO(team): Measure supply rails and peak draw during driving. |
+| Camera ambiguity | HSV masks and wall thresholds depend on lighting and physical setup. | TODO(team): Publish perception evidence across event lighting/layouts. |
+| Pillar localization error | PillarMap filters and seat-snaps repeated detections. | TODO(team): Compare mapped signs with known physical seats and record errors. |
+| Obstacle/parking integration | CLI routes obstacle and parking to separate drivers. | TODO(team): Integrate and physically test the required complete challenge. |

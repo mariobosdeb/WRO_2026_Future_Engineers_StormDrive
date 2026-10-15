@@ -1,28 +1,18 @@
-# StormDrive — Judge Scorecard (30 points)
+# Judge Scorecard
 
-This tracker follows the eight scoring areas and maximums in the score sheet supplied by the team. The maximums are copied from that image. The repository does not claim an earned score; only judges can award points.
+This tracker transcribes the eight scoring areas and maximum values shown in the score sheet supplied by the team. It is a team-provided score sheet, not the official WRO 2026 documentation rubric. No earned score is claimed here.
 
-| Scoring area | Maximum | Evidence already in the repository | Evidence to add or improve to support the maximum |
+| Scoring area | Maximum | Evidence in this repository | Evidence still needed |
 |---|---:|---|---|
-| Mobility Management | 4 | V2 drive/planning code, Adeept platform reference, and historical V1 mechanical files | As-built V2 dimensions and mechanical layout; drive/steering explanation; design trade-offs; measured turning, speed and reliability results tied to the tested configuration |
-| Power and Sense Management | 4 | V2 hardware software references and historical V1 wiring notes | Verified V2 wiring with power rails, grounds/isolation, connectors and pins; actual sensors and placement; calibration method; measured power budget and sensor reliability |
-| Obstacle Management | 4 | V2 perception, estimation and planning modules; the team reports completed calibration and consistency work | Explain red/green sign interpretation and passing-side decisions; show state transitions and edge cases; add dated runs with layouts, outcomes and challenge-specific video |
-| Pictures – Team and vehicle | 4 | Team and national-stage photos; comparison photo of the first prototype and current V2; multi-angle photos of V1 | Dedicated, clearly captioned V2 photos from front, back, left, right, top and bottom, plus team/build/testing photos that identify the actual vehicle version |
-| Performance videos | 4 | Two V2 development clips linked in [Project Media](../media/videos.md) | Add clearly identified Open and Obstacle Challenge videos of the competition configuration; record date, source commit, challenge setup and the relevant autonomous segment; check the event's format requirements |
-| GitHub utilization | 4 | Public repository with source, vendor reference, documentation, media, mechanical files, license and commit history | Pin the tested competition commit/release; make setup reproducible with a tested OS/dependency manifest; link each result to source/configuration; keep files navigable and evidence current |
-| Engineering Factor | 4 | V1→V2 history, software modules, decision and journal templates | Add real engineering decisions with alternatives, constraints, failed attempts, measured before/after results and the team's specific adaptations; link evidence to code, CAD and tests |
-| Overall Judge impression | 2 | Visual README, team identity and clear V1/V2 story | Make the first page consistent and concise; give judges one-click links to each scoring area; align every claim, photo, video and final configuration with the same tested vehicle/version |
-| **Total** | **30** |  |  |
+| Mobility Management | 4 | V2 drive code, configured vehicle model, historical V1 CAD | As-built dimensions, stock-versus-modified parts, measured steering/speed/turning, assembly photos |
+| Power and Sense Management | 4 | V2 hardware interfaces and calibration code | Verified as-built wiring, exact hardware, power rails, measured current, calibration records |
+| Obstacle Management | 4 | Perception, estimator, pillar map, local planner and C++ lattice planner | Complete integrated challenge run, including parking, dated randomized-layout results and video |
+| Pictures — Team and vehicle | 4 | Existing Romanian-event team image, first-prototype/V2 comparison and V1 views | Official team photo confirmation, funny photo if used, six dedicated V2 views |
+| Performance videos | 4 | Existing three-lap clip and freestyle Short | Identify challenge, date, final configuration and publish final Open/Obstacle/Parking evidence |
+| GitHub utilization | 4 | Public source, commit history, documentation and this evidence map | Apply repository topics/description, complete provenance/license notes, publish tested release |
+| Engineering Factor | 4 | Source comments, calibration tools, simulator, replay and documentation templates | Dated engineering decisions, physical run data, measured comparisons and verified failed approaches |
+| Overall Judge impression | 2 | English README and linked evidence structure | Make photos, videos, tested configuration, integrated behavior and claims agree |
 
-## Judge-ready order
+The score sheet shown to the team has a maximum of **30 points**. The separate official WRO 2026 documentation rubric uses five categories worth up to 6 points each. See [the official rubric](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Documentation-Rubric.pdf) and the [rules checklist](wro-2026-compliance.md). Confirm with the event organizer which score sheet is used for judging.
 
-1. [README](../README.md) — short project overview and direct evidence links.
-2. [V2 source and run guide](../src/v2/README.md) — prerequisites, modes and exact run commands.
-3. [Final competition configuration](../competition/final-configuration.md) — exact vehicle, calibration and source commit.
-4. [Testing and run log](testing.md) — dated attempts, including failures.
-5. [Engineering journal](engineering-journal.md) and [decisions](decisions.md) — why the design changed and what the measurements showed.
-6. [Photos](../media/robot-photos/README.md), [videos](../media/videos.md), [wiring](../schematics/README.md) and [hardware reference](../european/hardware.md).
-
-## Current limitation
-
-The team reports that V2 is ready and that the main driving, obstacle, parking and repeatability work is complete. The public repository still lacks run-by-run measurements, a verified V2 wiring diagram, dedicated multi-angle V2 photos, final challenge videos and the exact competition commit. Those items are the main evidence gaps across the scorecard; do not replace them with estimated specifications or self-awarded points.
+TODO(team): Add judge-awarded scores only after the event, with score sheet/date if available.
