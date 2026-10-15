@@ -1,99 +1,92 @@
-# 📓 StormDrive Engineering Journal
+# StormDrive Engineering Journal
 
 This is the engineering record for the team's first prototype → StormDrive V1 → StormDrive V2.
 
-The purpose is to document **problems, observations, hypotheses, design changes, tests, measurements and decisions**. Assembly instructions alone are not enough: the journal should show how the team engineered the vehicle.
+The journal should document **problems, observations, hypotheses, alternatives, changes, tests, measurements and decisions**. Assembly notes alone do not show why a design was selected.
 
-## How we record a decision
+## How to record a decision
 
-Use this structure for every important change:
+    Date
+    Problem and constraint
+    Observation
+    Hypothesis
+    Options considered
+    Chosen change
+    Test method
+    Measured result
+    Decision
+    Next step
+    Source commit / evidence
 
-```text
-Date
-Problem
-Observation
-Hypothesis
-Options considered
-Chosen change
-Test method
-Measured result
-Decision
-Next step
-```
-
-## WRO documentation criteria covered here
+## WRO documentation criteria covered
 
 | Criterion | Journal evidence |
 |---|---|
-| Mobility & Mechanical Design | Chassis, drive, steering, dimensions, torque/speed reasoning, mechanical iterations |
-| Power & Sensor Architecture | Power distribution, sensor placement, calibration, interference, reliability |
-| Software Architecture & Obstacle Strategy | Algorithms, state machine, lane following, obstacle/traffic-sign handling, tuning |
-| Systems Thinking & Engineering Decisions | Constraints, trade-offs, risks, interactions and why decisions were made |
-| Reproducibility & GitHub Quality | Version history, reproducible configuration, test workflow and final documentation |
+| Mobility & Mechanical Design | Chassis, drive, steering, dimensions, torque/speed reasoning and mechanical iterations |
+| Power & Sensor Architecture | Power distribution, sensor placement, calibration, interference and reliability |
+| Software Architecture & Obstacle Strategy | Algorithms, state machine, lane following, obstacle/sign handling and tuning |
+| Systems Thinking & Engineering Decisions | Constraints, trade-offs, risks, subsystem interactions and reasons |
+| Reproducibility & GitHub Quality | Exact configuration, version history, test workflow and final documentation |
 
 ## First team prototype
 
-The [photo archive](../media/robot-photos/first-prototype-v2-comparison.jpg) shows the earliest prototype the team built beside the current V2. This vehicle predates V1; it is not the car that competed at the Romanian national stage.
+The [photo archive](../media/robot-photos/first-prototype-v2-comparison.jpg) shows the earliest prototype beside the current V2. This vehicle predates V1; it is not the car that competed at the Romanian national stage.
 
 ## V1 — National stage
 
 ### V1 baseline
 
-- Arduino-based control architecture
-- HuskyLens-based perception
-- Ackermann-style steering
-- Rear-wheel drive
-- Iterative custom chassis development
+- Arduino-based control architecture;
+- HuskyLens-based perception;
+- Ackermann-style steering;
+- rear-wheel drive;
+- iterative custom chassis development.
 
 ### V1 engineering lessons
 
-Record here the actual lessons from the Romanian competition and the tests that support them. Avoid unsupported numerical claims.
+Add the team's actual lessons from the Romanian competition and cite the tests or observations that support each one. Do not add unsupported numerical claims.
 
 ## V2 — European stage
 
-### V2 platform decision
+StormDrive V2 uses the Adeept PiCar-B platform and Raspberry Pi computing platform as a starting point, with team adaptations and StormDrive competition software.
 
-StormDrive V2 uses the Adeept PiCar-B Mars Rover platform and Raspberry Pi computing platform as a starting point, with the team's own adaptations and competition-driving software.
-
-**Current team-reported status (date not recorded):** the V2 build and final competition setup are complete, and the car is ready for the European stage. Open Challenge completes three laps in team testing. Obstacle Challenge calibration and consistency work, final calibration, repeatability testing, and autonomous parking validation are complete. Dated run-by-run measurements and official competition results still need to be recorded here.
+**Latest team-reported status:** the build is ready for the European stage; the team reports three Open Challenge laps, completed Obstacle Challenge calibration, validated autonomous parking and completed repeatability testing. The latest repository status update is dated 2026-10-15, but the dates and run-by-run measurements are not published. See [Testing & Validation](testing.md) and [Status & Evidence](status.md).
 
 ### Entry V2-001 — Platform transition
 
-**Problem:** The team needed a new platform for the European-stage development after the Romanian competition.
+**Problem:** The team needed a platform for European-stage development after the Romanian competition.
 
-**Observation:** V1 provided competition experience and identified areas for improvement.
+**Observation:** V1 provided competition experience and revealed areas to improve.
 
-**Decision:** Start V2 as a new platform rather than treating it as a sequence of modifications to V1.
+**Decision:** Start V2 as a new platform instead of treating it as a sequence of V1 modifications.
 
-**Evidence:** V1 remains in the repository and V2 has separate documentation.
+**Evidence:** V1 files and the V2 source are kept in separate repository paths.
 
-**Next step:** Add dated repeatability measurements and final competition-day results to the journal. Record any configuration changes made during the event.
+**Evidence still needed:** comparison criteria, dated tests, the exact final vehicle configuration and the source commit used in competition.
 
 ## Test log
 
-| ID | Date | Subsystem | Test | Expected | Measured result | Decision |
-|---|---|---|---|---|---|---|
-| T-001 | YYYY-MM-DD | Steering | Center/left/right limits | Record stable usable range | TBD | TBD |
-| T-002 | YYYY-MM-DD | Drive | Forward/reverse | Correct direction | TBD | TBD |
-| T-003 | YYYY-MM-DD | Camera | Image acquisition | Stable frames | TBD | TBD |
-| T-004 | YYYY-MM-DD | Power | Voltage/current baseline | Stable supply | TBD | TBD |
+No dated test rows have been published yet. Add real measurements here or link each row to [Testing & Validation](testing.md).
+
+| ID | Date | Subsystem | Test | Expected | Measured result | Decision | Source/evidence |
+|---|---|---|---|---|---|---|---|
 
 ## Design changes
 
 | Version | Change | Why | Evidence | Result |
 |---|---|---|---|---|
-| V1 | Initial platform | Starting architecture | Competition/testing history | Documented |
-| V2 | PiCar-B platform | New European-stage platform | Platform evaluation | Testing |
+| V1 | Initial platform | Starting architecture | Competition and test records to be linked | Historical vehicle documented |
+| V2 | Adeept PiCar-B foundation with team adaptations | New European-stage platform | Add comparison criteria and test evidence | Team reports build and testing milestones complete |
 
 ## Risks and mitigations
 
-| Risk | Possible effect | Mitigation | Verification |
+| Risk | Possible effect | Mitigation | Verification record |
 |---|---|---|---|
-| Steering center drift | Path error | Calibrate and record center | TBD |
-| Power instability | Computer reset / control loss | Measure rails and peak load | TBD |
-| Vision ambiguity | Incorrect steering | Test lighting and camera placement | TBD |
-| Obstacle misclassification | Wrong lane side | Validate sign detection | TBD |
+| Steering center drift | Path error | Calibrate and record the usable center/limits | Add calibration file version and run record |
+| Power instability | Computer reset or control loss | Measure supply rails and peak load | Add measured voltage/current trace |
+| Vision ambiguity | Incorrect steering | Test lighting and camera placement | Add scenario-specific perception evidence |
+| Obstacle misclassification | Wrong lane side | Validate sign detection and decisions | Add red/green run records |
 
-## Important rule
+## Recordkeeping rule
 
-Measured values belong in this journal only after the team has actually measured them. Manufacturer example values should remain clearly identified as reference values.
+Add measured values only after the team has measured them. Identify manufacturer example values as references and keep them separate from values measured on StormDrive.

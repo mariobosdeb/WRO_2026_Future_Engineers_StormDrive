@@ -41,6 +41,8 @@ Our current car for the **WRO 2026 Open Championship Europe**, built from Adeept
 - ✅ Autonomous parking completed and validated in team testing
 - ✅ Final calibration and repeatability testing complete
 
+_These are team-reported outcomes. Run-by-run measurements and the frozen competition configuration are not yet published; see [Status & Evidence](docs/status.md)._
+
 <p align="center">
   <img src="media/robot-photos/first-prototype-v2-comparison.jpg" width="850" alt="StormDrive team’s first-ever prototype beside the current V2 car">
 </p>
@@ -49,7 +51,7 @@ Our current car for the **WRO 2026 Open Championship Europe**, built from Adeept
 
 ### 🔎 Explore the project
 
-[🤖 V2 source and run guide](src/v2/README.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
+[🤖 V2 source and run guide](src/v2/README.md) · [📊 Status & evidence](docs/status.md) · [🧪 Testing](docs/testing.md) · [🔧 Hardware](european/hardware.md) · [📓 Engineering journal](docs/engineering-journal.md) · [🎥 Video evidence](media/videos.md) · [📚 Documentation hub](docs/README.md)
 
 <details>
 <summary><strong>Contents of this README</strong></summary>
@@ -176,7 +178,7 @@ flowchart TD
 
 StormDrive V2 uses Adeept hardware and software infrastructure as a starting point, with the team's own adaptations. The competition-driving software is developed for StormDrive and is not an unmodified Adeept demonstration program.
 
-The V2 build and final competition setup are complete; StormDrive V2 is ready for the WRO 2026 Open Championship Europe. In current team testing, Open Challenge completes three laps. Obstacle Challenge calibration and consistency work, final calibration, repeatability testing, and autonomous parking validation are complete.
+The team reports that StormDrive V2 is built and ready for the WRO 2026 Open Championship Europe. It also reports three Open Challenge laps, completed Obstacle Challenge calibration, validated autonomous parking, and completed repeatability testing. These are team-reported results; dated run records and the exact frozen competition configuration are not yet published. See [Status & Evidence](docs/status.md).
 
 ### Current direction
 
@@ -189,8 +191,8 @@ The V2 build and final competition setup are complete; StormDrive V2 is ready fo
 | Vision | Camera and OpenCV used by the V2 software |
 | HuskyLens | **Not currently used** |
 | Additional sensors | Refer to the hardware notes for kit reference details; the competition setup uses the team's selected configuration |
-| Current phase | **Competition-ready; calibration, parking validation and repeatability testing complete** |
-| Main focus | Maintain reliable performance with the validated competition configuration |
+| Current phase | Team reports competition-ready; public run records and exact final configuration remain incomplete |
+| Main focus | Publish the verified competition configuration and run-by-run evidence |
 
 ### 📚 V2 documentation
 
@@ -198,7 +200,7 @@ The V2 build and final competition setup are complete; StormDrive V2 is ready fo
 - [💻 Software Reference](european/software-reference.md)
 - [🇪🇺 European Stage](european/README.md)
 - [🧭 Documentation Hub](docs/README.md)
-- [🔌 Schematics](schematics/README.md)
+- [🔌 V1 historical wiring notes](schematics/README.md) — verified V2 wiring is not yet published
 
 The V2 documentation uses the Adeept package as technical reference material. Manufacturer examples are kept distinct from StormDrive implementation details and from measured results.
 
@@ -227,9 +229,9 @@ The V2 code is divided into modules for the actual camera, sensor, planning and 
 |---|---|---|
 | Entry points | `main.py`, `open.py`, `obstacle.py`, `parcare.py` | Start the Open, Obstacle or parking mode |
 | Perception | `wro/perception.py`, `wro/geometry.py` | Read the camera view and identify track edges, obstacles and parking markers |
-| State estimation | `wro/estimator.py`, `wro/robot.py` | Combine camera, ultrasonic and odometry information into the robot's estimated state |
+| State estimation | `wro/estimator.py`, `wro/robot.py` | Combine camera observations, sonar readings and motion estimates into the robot's estimated state |
 | Planning | `wro/plan.py`, `wro/lattice.py`, `wro/lattice.cpp` | Evaluate candidate paths for obstacle avoidance and turns |
-| Driving and parking | `wro/drive.py`, `wro/pathdrive.py`, `wro/parking.py` | Manage driving states, path tracking, recovery and parking development |
+| Driving and parking | `wro/drive.py`, `wro/pathdrive.py`, `wro/parking.py` | Manage driving states, path tracking, recovery and the parking sequence |
 | Hardware and simulation | `wro/hardware.py`, `wro/sim.py` | Provide the robot hardware layer and the simulation environment |
 | Calibration and run analysis | `calibrate.py`, `calib_auto.py`, `simulate.py`, `replay.py`, `wro/record.py` | Calibrate the car, simulate runs and replay recorded sensor data offline |
 
@@ -244,9 +246,9 @@ sudo python3 main.py open
 # or: sudo python3 main.py obstacle
 ```
 
-Parking mode is available, and the autonomous parking sequence has been completed and validated in team testing.
+Parking mode is available. The team reports that its autonomous parking sequence has been completed and validated; the public run log does not yet include a dated parking result. See [Testing & Validation](docs/testing.md).
 
-The implementation will evolve together with hardware validation and measured track behaviour.
+The software and hardware should be treated as a single tested configuration; record the commit and calibration used for each published run.
 
 ---
 
@@ -260,7 +262,7 @@ Testing is part of the engineering process, not only a final step.
 4. **Track testing** — corners, obstacles, laps and parking.
 5. **Repeatability testing** — multiple consecutive runs under similar conditions.
 
-The team updates this page with current track progress; simulator results and physical-car testing are kept distinct.
+The team reports that final calibration and repeatability testing are complete. The repository does not yet publish dated run-by-run measurements, so simulator results and physical-car testing must remain clearly distinguished in any added evidence. See [Status & Evidence](docs/status.md) and the [test log](docs/testing.md).
 
 ### Engineering record format
 
@@ -305,7 +307,7 @@ V1 remains documented because it is an important part of the project's engineeri
 ```text
 StormDrive/
 ├── README.md
-├── competition/                # Final competition configuration
+├── competition/                # Draft final configuration; exact values still need verification
 ├── docs/                       # Testing, decisions, engineering journal and rules
 ├── european/                   # V2 hardware and software references
 ├── mechanical/                 # V1 mechanical files and notes
@@ -313,7 +315,7 @@ StormDrive/
 │   ├── media/team-photos/      # Team and Romanian-stage photos
 │   ├── robot-photos/           # First prototype/V2 comparison and V1 views
 │   └── videos.md               # Current test footage and final-video checklist
-├── schematics/                 # Electrical architecture and wiring notes
+├── schematics/                 # Historical V1 notes; verified V2 wiring pending
 ├── src/
 │   ├── config.h, main.ino      # V1 Arduino source
 │   └── v2/
@@ -324,7 +326,7 @@ StormDrive/
 └── .gitignore
 ```
 
-The repository includes a V2 run guide, test protocol, engineering journal, hardware notes, team test footage and the completed V2 competition setup. The team has completed repeatability testing; dated run-by-run results and verified wiring details can be added as supporting evidence. Dedicated multi-angle V2 photos and final challenge videos will be added when verified.
+The repository includes the V2 source, a run guide, testing protocol, engineering journal, hardware references and development footage. The team reports that repeatability testing is complete, but the public repo has no dated run-by-run log. The final configuration page still has unverified fields, the schematic is for V1, and dedicated multi-angle V2 photos and final challenge videos are pending. See [Status & Evidence](docs/status.md) for the evidence gaps.
 
 ---
 
@@ -356,9 +358,11 @@ The repository includes a V2 run guide, test protocol, engineering journal, hard
 - ✅ Obstacle Challenge calibration and consistency work complete
 - ✅ Autonomous parking completed and validated in team testing
 - ✅ Final calibration and repeatability testing complete
-- ✅ Final competition configuration documented
+- ⚠️ Final configuration draft exists; exact hardware values and the tested source commit are not recorded
 
-StormDrive V2 is ready for the European stage, and the final preparation items are complete.
+_The V2 progress above reflects the team's report; see [Status & Evidence](docs/status.md) for what is and is not documented publicly._
+
+The team reports that StormDrive V2 is ready for the European stage. The public record still needs the exact competition configuration, run-by-run results, verified V2 wiring and final challenge evidence.
 
 ---
 
@@ -374,7 +378,7 @@ StormDrive V2 is ready for the European stage, and the final preparation items a
 - [x] Finish calibration and improve Obstacle Challenge consistency
 - [x] Complete and validate autonomous parking
 - [x] Perform repeatability testing
-- [x] Document the final competition configuration
+- [ ] Record the exact final competition hardware, calibration and source commit
 
 ---
 
@@ -384,7 +388,7 @@ StormDrive V2 is ready for the European stage, and the final preparation items a
 - **[European Stage](european/README.md)** — V2 development overview
 - **[Hardware Reference](european/hardware.md)** — platform, interfaces and hardware test plan
 - **[Software Reference](european/software-reference.md)** — supplied software capabilities and reusable concepts
-- **[Schematics](schematics/README.md)** — electrical architecture and wiring
+- **[V1 historical wiring notes](schematics/README.md)** — verified V2 wiring is not yet published
 - **[Mechanical](mechanical/markdown.md)** — mechanical files and design history
 
 Next documentation updates:

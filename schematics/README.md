@@ -1,31 +1,32 @@
-## 🛠️ Electrical Architecture & Schematics
+# StormDrive V1 — Historical Wiring Notes
 
-Our vehicle employs a **galvanically isolated power architecture**. By utilizing two independent power sources and separate physical switches, we ensure that the propulsion and control systems operate as distinct electrical units, preventing high-current motor noise from affecting the sensitive logic and vision processing.
+> This page describes legacy notes for StormDrive V1, the Arduino/HuskyLens car used at the Romanian national stage. It is not a wiring diagram for StormDrive V2 and has not been verified against a complete as-built V1 harness.
 
-### 🔗 Connection Matrix
-| Component | Power Source | Logic/Signal Pins | Purpose |
-| :--- | :--- | :--- | :--- |
-| **Arduino Uno** | 9V Battery | - | Logic Control |
-| **L298N Driver** | 7.4V 2S Battery | Pins 5 (ENA), 7, 8 | Motor Control |
-| **Steering Servo** | Arduino 5V Out | Pin 10 | Directional Actuation |
-| **HuskyLens AI** | Arduino 5V Out | A4 (SDA), A5 (SCL) | Vision Data (I2C) |
+## V1 connections reported in the earlier notes
 
-### 🧩 System Logic Diagram
-The following diagram illustrates our dual-battery strategy, where the control and drive circuits operate as isolated electrical systems:
+| Component | Reported supply | Reported signal | Verification status |
+|---|---|---|---|
+| Arduino Uno | 9 V battery | — | Historical note; confirm regulator/input path on actual V1 |
+| L298N motor driver | 7.4 V 2S battery | ENA pin 5; control pins 7 and 8 | Historical note; pin mapping not verified here |
+| Steering servo | Arduino 5 V output | Pin 10 | Historical note; current and supply suitability not verified here |
+| HuskyLens | Arduino 5 V output | I²C, A4/SDA and A5/SCL | Historical note; voltage and wiring not verified here |
 
+Do not use this table to wire V2 or to reproduce V1 without checking the actual hardware and component requirements. Add photographs or a measured continuity/pinout record before calling it an as-built schematic.
 
+## Power separation and isolation
 
-```mermaid
-graph TD
-    %% Alimentare Logica
-    B9V[Baterie 9V Logică] --> S1{Switch 1}
-    S1 --> Arduino[Arduino Uno]
-    
-    %% Alimentare Putere
-    B7V[Baterie 7.4V Putere] --> S2{Switch 2}
-    S2 --> L298N[L298N Motor Driver]
-    
-    %% Semnal si Comunicare
-    Arduino -- "Pins 5, 7, 8" --> L298N
-    Arduino -- "I2C" --> HL[HuskyLens]
-    Arduino -- "Pin 10" --> Servo[Servo Direcție]
+An earlier version of this page described the power system as galvanically isolated. The published diagram shows two batteries and switches but does not show isolation components or establish how signal references and grounds are connected. Separate power sources alone do not demonstrate galvanic isolation. The isolation claim is therefore withdrawn until the actual V1 wiring is inspected and documented.
+
+## Historical V1 logic diagram
+
+    9 V logic battery → switch 1 → Arduino Uno
+    7.4 V drive battery → switch 2 → L298N → drive motor
+    Arduino pins 5, 7 and 8 → L298N control inputs
+    Arduino I²C (A4/A5) → HuskyLens
+    Arduino pin 10 → steering servo
+
+The drawing is a summary of prior notes, not a substitute for return paths, connector details, regulator information or an as-built wiring diagram.
+
+## V2 wiring status
+
+No verified as-built V2 wiring diagram is published in this folder. V2 uses an Adeept PiCar-B platform with team adaptations; the kit documentation is not proof of the car's final wiring. Add the actual power rails, grounds or isolation, connector/pin mapping, sensor placement and protection used on the competition vehicle.

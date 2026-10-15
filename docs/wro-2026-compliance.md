@@ -14,17 +14,17 @@ This page is a working checklist for the WRO 2026 Future Engineers requirements 
 |---|---|---|
 | Public GitHub repository | ✅ | This repository is public. |
 | README in English | ✅ | Root `README.md` is in English and exceeds the 5000-character minimum. |
-| Engineering progress documented | 🔄 | Engineering journal structure is provided; continue adding dated entries. |
-| Final vehicle design documented | 🔄 | V2 hardware and mechanical documentation must be completed after testing. |
-| Final competition source code | ⏳ | V2 competition code is not final yet. Add the exact code used at the event. |
-| Mobility, power/sensing and obstacle-management discussion | 🔄 | Covered by `european/`, `schematics/` and the journal; add measured results and final decisions. |
+| Engineering progress documented | 🔄 | Journal structure is present; dated measured entries and linked run records are not yet published. |
+| Final vehicle design documented | 🔄 | V2 platform references exist; exact as-built hardware, dimensions and final mechanical details remain incomplete. |
+| Final competition source code | 🔄 | V2 source is public; the exact frozen competition commit is not recorded in the final configuration page. |
+| Mobility, power/sensing and obstacle-management discussion | 🔄 | Reference material and a V1 schematic are present; verified V2 wiring and measured results are still needed. |
 | Vehicle photos: every side, top and bottom | ⚠️ | The archive now includes a first-prototype/V2 comparison and multi-angle V1 photos. Add dedicated V2 front/back/left/right/top/bottom photos. |
 | Team photo | ✅ | `media/media/team-photos/team-wro-romania-2026.jpg` |
 | YouTube video — Open Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm the challenge, duration and final configuration before using one as evidence. |
 | YouTube video — Obstacle Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm obstacle behaviour, duration and final configuration before using one as evidence. |
 | Public repository link submitted by organizer deadline | ⏳ | Record the official deadline when announced. |
 | Repository remains public for at least 12 months after event | ⏳ | Keep the repository public for at least 12 months after the European Open Championship. |
-| At least 3 meaningful commits | ✅ | Repository history already contains multiple development commits. Timing of required commits must still be checked against the official event date. |
+| At least 3 meaningful commits | ✅ | Repository history contains multiple development commits. Verify required timing against the official event rules and submission deadline. |
 | Code comments/documentation | 🔄 | Maintain comments and module documentation in the final V2 code. |
 
 ## 2. Required engineering story

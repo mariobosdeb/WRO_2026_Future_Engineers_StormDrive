@@ -1,92 +1,79 @@
-# 🏁 Final Competition Configuration
+# Competition Configuration — Final Record
 
-This page records the exact StormDrive configuration used at the WRO 2026 Open Championship Europe. Complete it only after the competition hardware, software and local calibration have been frozen.
+> **Status: DRAFT.** The team reports that StormDrive V2 is ready for the European stage, but the exact as-built competition configuration and tested source commit have not been recorded here. Do not treat the checklist below as a verified compliance result.
 
-> Do not mark this page final until the vehicle has passed the team's own rule/compliance check and the final competition software and hardware have been frozen.
+Use the actual vehicle, calibration and source revision presented at the event. Fill unknown values from team records; do not infer them from the Adeept kit examples.
 
 ## Vehicle identity
 
-| Item | Final value |
+| Item | Current repository record |
 |---|---|
 | Project | StormDrive |
 | Season | WRO 2026 Future Engineers |
-| Platform | Adeept PiCar-B base with team adaptations |
-| Main controller | TBD — verify exact Raspberry Pi model and RAM |
-| Drive architecture | TBD — verify final configuration |
-| Steering actuator | Kit servo / TBD final calibration |
-| Camera | TBD |
-| Additional sensors | TBD |
-| Vehicle mass | TBD — measure |
-| Vehicle dimensions | TBD — measure |
-| Final software version | TBD |
-| Final commit | TBD |
+| Platform | Adeept PiCar-B base with team adaptations; exact modified parts not listed |
+| Main controller | Raspberry Pi platform; exact model and RAM not recorded |
+| Drive architecture | Not recorded; verify on the final vehicle |
+| Steering actuator | Kit servo reported; exact model, geometry and calibrated limits not recorded |
+| Camera | Raspberry Pi camera/Picamera2 software path; exact camera model not recorded |
+| Additional sensors | Not recorded for the final vehicle |
+| Vehicle mass | Not measured in this page |
+| Vehicle dimensions | Not measured in this page |
+| Calibration | Local calibration file; tested version not identified |
+| Final software version | V2 source under src/v2; competition tag not recorded |
+| Final source commit | Not recorded |
 
 ## Final software
 
-Record the exact commit/tag used at the competition:
-
-- Commit SHA: `TBD`
-- Version/tag: `TBD`
-- Entry point: `TBD`
+- Tested commit SHA: **TBD — record the exact competition commit**
+- Version/tag: **TBD**
+- Entry point: **src/v2/main.py**
+- Modes: **open**, **obstacle**, **parcare**
+- Calibration file/version: **TBD — identify the file used on the car**
 
 ## Final hardware
 
-Record every component actually present on the competition vehicle:
+Record the parts actually installed, not every part included in the kit:
 
-- [ ] Main computing board
-- [ ] Motor controller / Robot HAT
-- [ ] Drive motor(s)
-- [ ] Steering servo
-- [ ] Camera
+- [ ] Main computing board and Raspberry Pi OS image
+- [ ] Motor controller / Robot HAT and motor mapping
+- [ ] Drive motor(s) and drive axle
+- [ ] Steering servo and measured limits
+- [ ] Camera and mount
 - [ ] Distance sensor(s), if used
 - [ ] Light/line sensor(s), if used
-- [ ] IMU, if used
-- [ ] Encoder(s), if used
-- [ ] Battery/batteries
-- [ ] Voltage regulation
-- [ ] Power switches
-- [ ] Start button
+- [ ] IMU or encoder(s), if used
+- [ ] Battery, regulation and measured power rails
+- [ ] Power switch and start button
+- [ ] Vehicle mass and dimensions
 
 ## Rule verification
 
-- [ ] 4 wheels
-- [ ] One driving axle
-- [ ] One steering actuator
-- [ ] Dimensions ≤ 300 × 200 mm and height ≤ 300 mm
-- [ ] Mass ≤ 1.5 kg
-- [ ] No differential-drive architecture
-- [ ] No one-motor-per-side electronic differential
+These items remain unchecked until the final vehicle is inspected and the result recorded:
+
+- [ ] Four wheels, one driving axle and one steering actuator
+- [ ] Dimensions and mass within the current rule limits
+- [ ] No prohibited differential-drive arrangement
 - [ ] No more than two driving motors
-- [ ] Driving motors connected to the driving axle directly or through gearing
-- [ ] No wireless communication used during the round
-- [ ] No human assistance/data entry while running
-- [ ] One power switch
-- [ ] One start button
-- [ ] Robot waits for start after power-on
-- [ ] No prohibited calibration/data entry through physical adjustments
-- [ ] Open Challenge tested in both driving directions
+- [ ] No wireless communication during a round
+- [ ] Autonomous operation without human data entry or assistance
+- [ ] Required power switch, start button and waiting/start procedure
+- [ ] Open Challenge tested in both directions and with applicable field configurations
 - [ ] Obstacle Challenge tested with red and green signs
-- [ ] Autonomous lap completion tested
-- [ ] Autonomous finish/stop tested
-- [ ] Autonomous parallel parking tested
+- [ ] Autonomous lap completion, finish behaviour and parallel parking verified
 
 ## Documentation freeze
 
-Before submission, verify:
+- [ ] Exact competition source commit recorded and accessible
+- [ ] Final hardware and calibration correspond to the tested car
+- [ ] Verified as-built V2 wiring published
+- [ ] Dedicated V2 photos show all required views
+- [ ] Final Open and Obstacle Challenge videos identified and checked against current rules
+- [ ] Engineering journal and run log contain dated evidence
+- [ ] Latest official WRO rules and Q&A reviewed
 
-- [ ] README is complete and in English.
-- [ ] Final V2 code is public.
-- [ ] Final CAD/STL files are public where applicable.
-- [ ] Final wiring diagram is public.
-- [ ] Final V2 photos show front, back, left, right, top and bottom.
-- [ ] Team photo is public.
-- [ ] Open Challenge video link is public or accessible by link and contains ≥30 seconds of autonomous driving.
-- [ ] Obstacle Challenge video link is public or accessible by link and contains ≥30 seconds of autonomous driving.
-- [ ] Engineering journal contains the design story and measured evidence.
-- [ ] Commit history satisfies the official timing requirements.
-- [ ] Repository is public and the official repository link has been submitted by the organizer deadline.
-- [ ] Latest official WRO Q&A has been reviewed.
+## Competition-day change log
 
-## Competition-day note
+| Date/time | Change | Reason | New source/configuration reference | Retest result |
+|---|---|---|---|---|
 
-The exact competition-day configuration should be treated as immutable documentation: code, hardware, calibration constants and configuration files here must correspond to the vehicle actually presented to the judges.
+Record every change made after the configuration is frozen. The exact software, hardware and calibration values here must match the vehicle used for the documented result.

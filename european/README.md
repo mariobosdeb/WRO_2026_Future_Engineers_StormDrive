@@ -1,25 +1,26 @@
 # StormDrive V2 — WRO 2026 Open Championship Europe
 
-StormDrive V2 is the team's car for the WRO 2026 Open Championship Europe. The earliest prototype marked the beginning of the team; StormDrive V1 was a separate, later car that competed at the Romanian national stage. The team used the Adeept platform and software package as a starting point for V2, then developed its own competition-driving software.
+StormDrive V2 is the team's car for the WRO 2026 Open Championship Europe. The earliest prototype marked the beginning of the team; StormDrive V1 was a separate car that competed at the Romanian national stage. The team used the Adeept platform and package as a starting point for V2, then developed its own competition-driving software.
 
 [See the first prototype beside the current V2](../media/robot-photos/first-prototype-v2-comparison.jpg).
 
-## Current development status
+## Current team-reported status
 
-- Vehicle build: complete; StormDrive V2 is ready for the European stage.
-- Open Challenge: completes three laps in team testing.
-- Obstacle Challenge calibration and consistency work: complete.
-- Parking: autonomous behaviour completed and validated in team testing.
-- Final calibration and repeatability testing: complete.
-- Final competition configuration: documented.
+- Vehicle build: reported complete and ready for the European stage.
+- Open Challenge: three laps reported in team testing.
+- Obstacle Challenge calibration and consistency work: reported complete.
+- Autonomous parking: reported complete and validated in team testing.
+- Final calibration and repeatability: reported complete.
 
-The status above reflects the team's current report. Dated run-by-run evidence can be added to the engineering and testing logs.
+These are team-reported milestones. Dated run-by-run results and the exact frozen configuration are not yet published; see [Status & Evidence](../docs/status.md).
 
 ## Project files
 
-- [V2 source and run guide](../src/v2/README.md)
-- [Hardware reference](hardware.md)
+- [V2 source, prerequisites and run guide](../src/v2/README.md)
+- [Hardware reference](hardware.md) — Adeept kit reference, not a verified as-built bill of materials.
 - [Adeept software reference](software-reference.md)
+- [Testing and run log](../docs/testing.md)
+- [Final competition configuration](../competition/final-configuration.md) — draft; exact values and tested commit remain to be recorded.
+- [Historical V1 wiring notes](../schematics/README.md) — V2 wiring is not yet published.
 
-The Adeept package is reference material and the foundation for the platform. It is not the StormDrive competition program. Robot-specific calibration and run logs are kept locally rather than committed.
-
+The Adeept package is reference material and the platform foundation. Robot-specific calibration and run logs are generated locally; publish selected records with their source commit and configuration.

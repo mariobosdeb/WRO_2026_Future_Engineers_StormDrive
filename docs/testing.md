@@ -1,19 +1,26 @@
-# 🧪 StormDrive Testing & Validation
+# StormDrive Testing & Validation
 
-Testing is part of the engineering process. This file records repeatable experiments and the evidence used to make hardware and software decisions.
+Testing is part of the engineering process. This page separates the team's latest status report from test records that can be checked and repeated.
 
 ## Current team-reported status
 
-- **Open Challenge:** completes three laps in current team testing.
-- **Obstacle Challenge:** final calibration and consistency work complete.
-- **Parking:** completed and validated in team testing.
-- **Final calibration and repeatability testing:** complete.
+The latest repository status update is dated **2026-10-15**; individual test dates were not included.
 
-These notes reflect the team's latest report. No dated, run-by-run measurement log has been supplied for this summary yet. The current test clips are linked in [Project Media](../media/videos.md); confirm the challenge, date and duration before treating them as final competition evidence.
+| Workstream | Team report | Public run-level record |
+|---|---|---|
+| Open Challenge | Three laps completed in current team testing | No dated row with the tested commit, direction, track layout and outcome |
+| Obstacle Challenge | Calibration and consistency work complete | No dated row documenting sign placements, decisions and outcome |
+| Autonomous parking | Completed and validated in team testing | No recorded parking position/parallelism result or challenge-specific video |
+| Final calibration | Complete | Calibration file is local and its tested version is not recorded here |
+| Repeatability | Complete | Number of attempts, successes and environmental conditions are not published |
+
+These are team-reported outcomes, not a run ledger. The clips in [Project Media](../media/videos.md) are development footage; the challenge, date, configuration and duration have not all been confirmed.
 
 ## Test categories
 
-### 1. Component tests
+The lists below are a test plan, not a completion tracker. An unchecked item means its result is not recorded in this repository; it does not say whether the team performed the test.
+
+### Component tests
 
 - [ ] Raspberry Pi boot and stability
 - [ ] Robot HAT / motor controller
@@ -27,7 +34,7 @@ These notes reflect the team's latest report. No dated, run-by-run measurement l
 - [ ] Battery monitoring
 - [ ] Start button
 
-### 2. Subsystem tests
+### Subsystem tests
 
 - [ ] Steering calibration
 - [ ] Forward/reverse control
@@ -39,7 +46,7 @@ These notes reflect the team's latest report. No dated, run-by-run measurement l
 - [ ] Lap detection
 - [ ] Parking sequence
 
-### 3. Integration tests
+### Integration tests
 
 - [ ] Full autonomous start sequence
 - [ ] Perception → navigation → steering
@@ -48,84 +55,54 @@ These notes reflect the team's latest report. No dated, run-by-run measurement l
 - [ ] Power stability during acceleration and turning
 - [ ] Recovery/failure behaviour
 
-## WRO scenario tests
+## WRO scenario coverage
 
 ### Open Challenge
 
-Test with:
-
-- clockwise driving;
-- counter-clockwise driving;
-- different starting sections/zones;
-- different corridor widths;
-- three complete laps;
-- autonomous finish behaviour.
+Record runs with clockwise and counter-clockwise driving, different starting zones and corridor widths, three complete laps, and autonomous finish behaviour.
 
 ### Obstacle Challenge
 
-Test with:
+Record randomized red and green sign placements, the required passing side, starting-zone/parking-lot configuration, three complete laps and the autonomous parking result.
 
-- red traffic signs requiring the vehicle to pass on the right;
-- green traffic signs requiring the vehicle to pass on the left;
-- multiple randomized sign locations;
-- parking lot in different starting-section configurations;
-- three complete laps;
-- autonomous parking;
-- full parking and parallelism criteria.
+## Public run log
+
+No dated, run-by-run result rows have been published yet. Add a row for every attempt, including failures; do not infer a success rate from selected clips.
+
+| Run ID | Date | Mode / direction / start | Track configuration | Source commit / calibration | Outcome / laps | Time | Interventions / errors | Parking result | Evidence |
+|---|---|---|---|---|---|---|---|---|---|
 
 ## Repeatability protocol
 
-For each important configuration, record multiple consecutive runs under comparable conditions.
+For each important configuration, record multiple consecutive runs under comparable conditions:
 
-Record at minimum:
-
-- configuration/version;
-- test date;
-- track configuration;
-- driving direction;
-- start position;
-- lap count;
-- completion/failure;
-- time where relevant;
-- interventions;
-- obstacle/sign errors;
-- parking result;
-- notable environmental conditions;
-- software/calibration version.
+- vehicle hardware revision and software commit;
+- calibration version and track arrangement;
+- driving direction and starting zone;
+- attempts, successful completions and lap count;
+- completion time where relevant;
+- interventions, recovery events and sign/obstacle errors;
+- parking result and environmental conditions;
+- link to video or trace, where available.
 
 ## Test report template
 
-```text
-Test ID:
-Date:
-Configuration:
-Objective:
-Hypothesis:
-Track configuration:
-Driving direction:
-Starting zone:
-
-Procedure:
-1.
-2.
-3.
-
-Measured results:
-- Runs:
-- Successful runs:
-- Completion time(s):
-- Lap failures:
-- Sign/obstacle errors:
-- Parking result:
-- Other measurements:
-
-Observation:
-
-Decision:
-
-Next experiment:
-```
+    Test ID:
+    Date and time:
+    Hardware revision:
+    Software commit:
+    Calibration version:
+    Objective and hypothesis:
+    Track configuration / direction / start:
+    Procedure:
+    Attempts / successful runs:
+    Completion time(s):
+    Lap failures / sign errors / interventions:
+    Parking result:
+    Observation and decision:
+    Evidence link:
+    Next experiment:
 
 ## Evidence policy
 
-Do not convert a successful single run into a performance claim. Important claims should be supported by recorded tests and measurements.
+Keep simulator and physical-car results separate. A successful run is evidence for that recorded configuration; it is not by itself a repeatability result. Never add measurements without the source, date and method.
