@@ -1,6 +1,6 @@
 # Obstacle and Parking Strategy
 
-This page describes behavior present in the V2 source. Simulator behavior is not a physical-car result. The official WRO 2026 rules require three Obstacle Challenge laps followed by parallel parking; the current CLI uses separate obstacle and parking entry points, which is an integration gap.
+This page describes the current GitHub V2 source snapshot. The exact 16:30 run source is only partly identified: the team reports that pathdrive.py and main.py were modified after the run, so current copies cannot be treated as as-run evidence. See the [15 October run analysis](run-analysis-2026-10-15.md). Simulator behavior is not a physical-car result. The official WRO 2026 rules require three Obstacle Challenge laps followed by parallel parking; the current CLI uses separate obstacle and parking entry points, which is an integration gap.
 
 ## Open Challenge
 
