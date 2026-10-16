@@ -1,99 +1,64 @@
-# 📓 StormDrive Engineering Journal
+# Engineering Journal
 
-This is the engineering record for the team's first prototype → StormDrive V1 → StormDrive V2.
+This journal records engineering reasoning traceable to source or existing repository files. It does not invent test dates, performance improvements or team observations. The [GitHub history audit](github-history.md) records when the visible V1 and V2 source appeared.
 
-The purpose is to document **problems, observations, hypotheses, design changes, tests, measurements and decisions**. Assembly instructions alone are not enough: the journal should show how the team engineered the vehicle.
+## V1 to V2
 
-## How we record a decision
+Existing documentation records StormDrive V1 as an Arduino/HuskyLens national-stage car and V2 as an Adeept PiCar-B / Raspberry Pi platform using Picamera2 and OpenCV. The files prove that the project kept separate V1 and V2 material; they do not record the complete team comparison or prove that V1 failed.
 
-Use this structure for every important change:
+TODO(team): Add the actual platform selection criteria, alternatives, team reasoning, test evidence and lessons learned from the national event.
 
-```text
-Date
-Problem
-Observation
-Hypothesis
-Options considered
-Chosen change
-Test method
-Measured result
-Decision
-Next step
-```
+## Failed approaches and lessons visible in source
 
-## WRO documentation criteria covered here
+| Source evidence | What the code/document says | Evidence limit |
+|---|---|---|
+| calibrate.py menu and radius_test() | The menu marks the time-based radius test as no longer necessary and says the timed method was unreliable; an interactive radius test remains in the file. | No dated test record or measured comparison is committed. |
+| config.py: PF_USE_LINES | Color-line updates in the particle filter are disabled because their simulator geometry is not verified on the physical carpet. | This is a code comment, not a test report. |
+| config.py: side-wall AUTOCAL_PITCH | The later config assignment disables the side-wall pitch-calibration variant, while SonarPitchCal is enabled. | No before/after error log is published. |
+| V1/V2 source separation | The old V1 files use Arduino/HuskyLens notes; V2 uses Raspberry Pi, OpenCV and custom Python/C++ modules. | The repository does not say which specific V1 limitation motivated each change. |
 
-| Criterion | Journal evidence |
-|---|---|
-| Mobility & Mechanical Design | Chassis, drive, steering, dimensions, torque/speed reasoning, mechanical iterations |
-| Power & Sensor Architecture | Power distribution, sensor placement, calibration, interference, reliability |
-| Software Architecture & Obstacle Strategy | Algorithms, state machine, lane following, obstacle/traffic-sign handling, tuning |
-| Systems Thinking & Engineering Decisions | Constraints, trade-offs, risks, interactions and why decisions were made |
-| Reproducibility & GitHub Quality | Version history, reproducible configuration, test workflow and final documentation |
+TODO(team): Attach the raw artifacts for the reported runs and add any other failed tests, images, measurements, dates, decisions and resulting design changes from team records. Avoid describing a design as a failure unless the team has evidence for that conclusion.
 
-## First team prototype
+## 2026-10-15 — Debug review of physical runs
 
-The [photo archive](../media/robot-photos/first-prototype-v2-comparison.jpg) shows the earliest prototype the team built beside the current V2. This vehicle predates V1; it is not the car that competed at the Romanian national stage.
+The team supplied a detailed summary and seven frames from four Raspberry Pi runs. Raw logs/CSV/JSON have not been committed here, so numeric claims remain team-reported pending raw-artifact review. See the full [15 October run analysis](run-analysis-2026-10-15.md).
 
-## V1 — National stage
+- The 16:30 clockwise Obstacle run used the older PathDriver and ended by operator stop at about 104.6 s after one lap/four corners. No blocked state, reversing or recovery maneuver was reported. The map contained 10 seats vs a maximum of 6 pillars.
+- Frames 070.20 and 073.04 reportedly show nearly identical observations while the estimated pose shifts about 0.3 m; another pose change is about 0.45 m in 0.52 s. The team's leading hypothesis is particle-filter pose instability; inspect the trace and frames to rule out camera/turning effects.
+- The calibration file already contains CAM_PITCH_DEG=15.75; 15.8° was only a rounded reading and corectie_pitch_camera_grade is null. No pitch correction was suggested. The team reports the file was unchanged since 2026-10-12 13:04.
+- The 16:27 Open run ended after about 3 s with no corners and no reported error. The 16:28 Obstacle run stopped before GO with gyro bias −46.22 °/s; the 16:30 run measured −5.74 °/s. The available measurements do not establish whether −5.74 °/s is normal for this sensor. The team suspects motion during calibration, but an I2C read error has not been excluded. Repeat stationary startups and record sample spread before drawing a conclusion.
+- The 21:37 Obstacle log reportedly has three flushed lines and no Traceback/operator-stop marker. Current journalctl contains only the 16 October boot; the stop cause remains unresolved unless an older journal export exists.
+- The newer ObsDriver has not been tested on the physical car; all these runs used the old PathDriver. The exact as-run pmap/perception/config/estimator/hardware/calibration files are identified by the team, but pathdrive.py and main.py were modified after 16:30 and their earlier versions are unknown.
 
-### V1 baseline
+TODO(team): Attach the raw artifacts and exact as-run versions if recoverable; test pose stability and camera geometry using a no-drive logger; repeat stationary IMU startups with sample spread; and record follow-up runs against a source commit. Do not alter CAM_PITCH_DEG based on the rounded 15.8° reading.
 
-- Arduino-based control architecture
-- HuskyLens-based perception
-- Ackermann-style steering
-- Rear-wheel drive
-- Iterative custom chassis development
+## Existing test-log template
 
-### V1 engineering lessons
+The four dated run summaries above are now recorded in [Testing](testing.md); they were provided by the team and their raw artifacts have not been inspected in this repository. Add future rows after each actual test, including unsuccessful attempts.
 
-Record here the actual lessons from the Romanian competition and the tests that support them. Avoid unsupported numerical claims.
-
-## V2 — European stage
-
-### V2 platform decision
-
-StormDrive V2 uses the Adeept PiCar-B Mars Rover platform and Raspberry Pi computing platform as a starting point, with the team's own adaptations and competition-driving software.
-
-**Current team-reported status (date not recorded):** the V2 build and final competition setup are complete, and the car is ready for the European stage. Open Challenge completes three laps in team testing. Obstacle Challenge calibration and consistency work, final calibration, repeatability testing, and autonomous parking validation are complete. Dated run-by-run measurements and official competition results still need to be recorded here.
-
-### Entry V2-001 — Platform transition
-
-**Problem:** The team needed a new platform for the European-stage development after the Romanian competition.
-
-**Observation:** V1 provided competition experience and identified areas for improvement.
-
-**Decision:** Start V2 as a new platform rather than treating it as a sequence of modifications to V1.
-
-**Evidence:** V1 remains in the repository and V2 has separate documentation.
-
-**Next step:** Add dated repeatability measurements and final competition-day results to the journal. Record any configuration changes made during the event.
-
-## Test log
-
-| ID | Date | Subsystem | Test | Expected | Measured result | Decision |
+| Date | Subsystem / mode | Hypothesis | Change | Measured result | Decision | Evidence |
 |---|---|---|---|---|---|---|
-| T-001 | YYYY-MM-DD | Steering | Center/left/right limits | Record stable usable range | TBD | TBD |
-| T-002 | YYYY-MM-DD | Drive | Forward/reverse | Correct direction | TBD | TBD |
-| T-003 | YYYY-MM-DD | Camera | Image acquisition | Stable frames | TBD | TBD |
-| T-004 | YYYY-MM-DD | Power | Voltage/current baseline | Stable supply | TBD | TBD |
+| TODO(team): date | TODO(team): subsystem/mode | TODO(team): hypothesis | TODO(team): change | TODO(team): actual measured result | TODO(team): decision | TODO(team): evidence link |
 
-## Design changes
+## Decision entry template
 
-| Version | Change | Why | Evidence | Result |
-|---|---|---|---|---|
-| V1 | Initial platform | Starting architecture | Competition/testing history | Documented |
-| V2 | PiCar-B platform | New European-stage platform | Platform evaluation | Testing |
+    Date:
+    Constraint or problem:
+    Observation and evidence:
+    Options considered:
+    Chosen design and reason:
+    Test method:
+    Before / after measurements:
+    Trade-offs and failure modes:
+    Decision:
+    Source commit and evidence link:
 
-## Risks and mitigations
+## Risk register
 
-| Risk | Possible effect | Mitigation | Verification |
-|---|---|---|---|
-| Steering center drift | Path error | Calibrate and record center | TBD |
-| Power instability | Computer reset / control loss | Measure rails and peak load | TBD |
-| Vision ambiguity | Incorrect steering | Test lighting and camera placement | TBD |
-| Obstacle misclassification | Wrong lane side | Validate sign detection | TBD |
-
-## Important rule
-
-Measured values belong in this journal only after the team has actually measured them. Manufacturer example values should remain clearly identified as reference values.
+| Risk | Code or document indication | Verification required |
+|---|---|---|
+| Steering model differs from hardware | Config geometry is marked to measure; calibration JSON is local. | TODO(team): Measure steering gain, center and radius on V2. |
+| Power loss / brownout | Battery monitor thresholds exist, but no current or rail measurements are published. | TODO(team): Measure supply rails and peak draw during driving. |
+| Camera ambiguity | HSV masks and wall thresholds depend on lighting and physical setup. | TODO(team): Publish perception evidence across event lighting/layouts. |
+| Pillar localization error | PillarMap filters and seat-snaps repeated detections. | TODO(team): Compare mapped signs with known physical seats and record errors. |
+| Obstacle/parking integration | CLI routes obstacle and parking to separate drivers. | TODO(team): Integrate and physically test the required complete challenge. |

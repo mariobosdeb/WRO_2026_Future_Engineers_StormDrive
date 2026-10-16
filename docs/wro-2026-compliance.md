@@ -1,198 +1,42 @@
-# WRO 2026 Future Engineers — Documentation & Compliance Checklist
+# WRO 2026 Rules and Documentation Checklist
 
-This page is a working checklist for the WRO 2026 Future Engineers requirements relevant to StormDrive's European Open Championship entry.
+This checklist links to official materials and records repository evidence. National organizers may issue event-specific guidance; confirm applicable rules and current Q&A before relying on a requirement.
 
-**Rule source reviewed:** [WRO Future Engineers Category — Game Rules 2026](https://wro-association.org/competition/2026-season/), version January 15, 2026.
+- [WRO Future Engineers 2026 Game Rules (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Self-Driving-Cars-General-Rules.pdf)
+- [WRO Future Engineers 2026 Documentation Rubric (PDF)](https://wro-association.org/wp-content/uploads/WRO-2026-Future-Engineers-Documentation-Rubric.pdf)
+- [2026 season information and Q&A access](https://wro-association.org/competition/2026-season/)
+- [WRO Future Engineers documentation template (2022 repository)](https://github.com/World-Robot-Olympiad-Association/wro2022-fe-template)
 
-**Target event:** [WRO 2026 – Open Championship – Europe](https://wro-association.org/competition/international-events/) — Zagreb, Croatia, 13–16 October 2026.
+The current international documentation rubric has five categories worth up to 6 points each. The eight-area score sheet supplied by the team is kept separately in [the legacy transcription](scorecard-legacy-8-area.md); confirm with the organizer which sheet applies to any local event.
 
-> This is a project checklist, not a replacement for the official rules. WRO Question & Answers (Q&A) can clarify, extend, or redefine rules during the season. The team must check the official Q&A before the final competition configuration is frozen.
+## Repository evidence against the 2026 requirements
 
-## 1. Public GitHub requirements
-
-| Requirement | StormDrive status | Evidence / action |
+| Requirement | Repository evidence | Evidence gap |
 |---|---|---|
-| Public GitHub repository | ✅ | This repository is public. |
-| README in English | ✅ | Root `README.md` is in English and exceeds the 5000-character minimum. |
-| Engineering progress documented | 🔄 | Engineering journal structure is provided; continue adding dated entries. |
-| Final vehicle design documented | 🔄 | V2 hardware and mechanical documentation must be completed after testing. |
-| Final competition source code | ⏳ | V2 competition code is not final yet. Add the exact code used at the event. |
-| Mobility, power/sensing and obstacle-management discussion | 🔄 | Covered by `european/`, `schematics/` and the journal; add measured results and final decisions. |
-| Vehicle photos: every side, top and bottom | ⚠️ | The archive now includes a first-prototype/V2 comparison and multi-angle V1 photos. Add dedicated V2 front/back/left/right/top/bottom photos. |
-| Team photo | ✅ | `media/media/team-photos/team-wro-romania-2026.jpg` |
-| YouTube video — Open Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm the challenge, duration and final configuration before using one as evidence. |
-| YouTube video — Obstacle Challenge | ⏳ | Progress clips are linked in `media/videos.md`; confirm obstacle behaviour, duration and final configuration before using one as evidence. |
-| Public repository link submitted by organizer deadline | ⏳ | Record the official deadline when announced. |
-| Repository remains public for at least 12 months after event | ⏳ | Keep the repository public for at least 12 months after the European Open Championship. |
-| At least 3 meaningful commits | ✅ | Repository history already contains multiple development commits. Timing of required commits must still be checked against the official event date. |
-| Code comments/documentation | 🔄 | Maintain comments and module documentation in the final V2 code. |
+| Mobility and mechanical design explained with reasoned choices | [Mobility page](mobility.md) separates kit references and code defaults from physical facts | V2 as-built drawings, modifications, dimensions, mobility measurements and reasons |
+| Power, sensors and wiring described | [Power and sensing page](power-and-sensing.md) lists the software-facing interfaces and calibration paths | Verified V2 wiring diagram, exact as-built modules, supply rails and measured power budget |
+| Software and obstacle strategy explained | [Strategy page](strategy.md) includes separate mode diagrams and source references | Current Obstacle and Parking entry points do not demonstrate a single complete challenge run |
+| Engineering decisions supported by evidence | [Engineering journal](engineering-journal.md) identifies source-level design notes and templates | Dated physical experiments and measured before/after results |
+| GitHub material reproducible and well organized | README, source, docs, template directories, changelog and issue templates are present | Target-Pi setup verification, photos/videos, vendor provenance, tested release, and historical milestone evidence |
 
-## 2. Required engineering story
+## Challenge flow
 
-The repository should allow a judge to answer:
+Open mode has a lane-following state machine and a source-level 12-corner finish condition. The code's Obstacle path driver maps red/green pillars and completes its lap condition, while the separate Parking mode runs the parking planner. The current source therefore does not demonstrate the required Obstacle-to-parking flow end to end.
 
-1. **What did we build?**
-2. **Why did we choose this mechanical architecture?**
-3. **How are power and sensors connected?**
-4. **How does the software perceive and control the vehicle?**
-5. **How does the vehicle obey the obstacle/traffic-sign rules?**
-6. **What alternatives did we consider?**
-7. **What failed during testing?**
-8. **What changed because of measurements?**
-9. **Can another team understand and reproduce the final configuration?**
+The official rules call for one video per challenge and describe a minimum autonomous driving segment of 30 seconds. The current video links are candidates until the team confirms each challenge, duration, date and final vehicle/software configuration. See [video index](../video/video.md).
 
-## 3. Five documentation criteria
+## GitHub submission timing
 
-### Criterion 1 — Mobility & Mechanical Design
+The 2026 international event is listed for 2026-10-13 through 2026-10-16. Approximate relative dates calculated from the first day are 2026-08-13 (two months), 2026-09-13 (one month), 2026-09-29 (two weeks) and 2026-09-22 (three weeks for the repository URL); the organizer sets the exact timing.
 
-Document:
+A history audit shows the first commit on 2026-06-04 contains only README.md, V1 code was added in June, and the V2 source first appears on 2026-10-11. This means this repository does not demonstrate the required first-commit code amount for the final software, and the V2 source arrived after the approximate two-week milestone. Existing history is preserved; see [the GitHub audit](github-history.md).
 
-- chassis and mechanical layout;
-- drive mechanism;
-- steering mechanism;
-- wheelbase and track dimensions where useful;
-- mechanical stability and rigidity;
-- torque/speed reasoning;
-- design alternatives and trade-offs;
-- iterations and tests that changed the mechanical design.
+The repository is public in the metadata snapshot as of 2026-10-16. The API cannot verify its public status or URL-submission timestamp at the original submission time. Keep it public for 12 months after the applicable competition date; for the international event ending 2026-10-16, that date is 2027-10-16.
 
-Target evidence: dimensioned diagrams, photos, CAD/STL files, calculations, tests and a clear explanation of why the selected architecture was used.
+## Related project records
 
-### Criterion 2 — Power & Sensor Architecture
-
-Document:
-
-- complete power architecture;
-- batteries and voltage rails;
-- power distribution and regulation;
-- measured current draw where available;
-- sensor selection;
-- sensor placement relative to the game field;
-- calibration procedure;
-- interference/noise/shadow considerations;
-- failure modes and mitigation;
-- complete wiring diagram.
-
-Target evidence: wiring diagram + connection table + measured power data + calibration notes.
-
-### Criterion 3 — Software Architecture & Obstacle Strategy
-
-Document:
-
-- program/module structure;
-- perception pipeline;
-- lane/track following method;
-- steering control;
-- speed control;
-- state machine or equivalent control flow;
-- traffic-sign / obstacle strategy;
-- edge cases;
-- algorithms used and why;
-- testing and tuning metrics;
-- comments in the actual competition code.
-
-Target evidence: architecture diagram, state machine/flowchart, module descriptions, algorithm explanations and test results.
-
-### Criterion 4 — Systems Thinking & Engineering Decisions
-
-Document the engineering reasoning, not only the final result:
-
-- constraints: weight, dimensions, power, processing, time and reliability;
-- interactions between mechanical, electrical, sensing and software systems;
-- alternatives considered;
-- trade-offs;
-- failure modes and mitigation;
-- V1 → V2 evolution;
-- decisions written as `we chose X instead of Y because ...` and supported by tests or engineering reasoning.
-
-### Criterion 5 — Reproducibility & GitHub Quality
-
-The final repository should contain:
-
-- clear project structure;
-- readable README;
-- final source code;
-- CAD/STL files used for the final vehicle, where applicable;
-- wiring information;
-- assembly/reproduction information;
-- testing workflow;
-- version history / meaningful commits;
-- final configuration or release notes.
-
-## 4. Competition-behaviour checklist
-
-Before the final freeze, verify the software and hardware against the competition rules:
-
-- [ ] Four wheels.
-- [ ] One driving axle.
-- [ ] One steering actuator.
-- [ ] No differential-drive architecture.
-- [ ] No one-motor-per-side electronic differential.
-- [ ] Vehicle dimensions do not exceed 300 × 200 mm and 300 mm height.
-- [ ] Vehicle mass does not exceed 1.5 kg.
-- [ ] Maximum two driving motors.
-- [ ] Driving motors are connected to the axle directly or through gearing and are not independently connected to the driving wheels.
-- [ ] No wireless communication is used during competition rounds.
-- [ ] Vehicle runs autonomously without human assistance or data entry.
-- [ ] Only wire connections are used for communication between electromechanical components.
-- [ ] Starting procedure uses one power switch and one start button, with the required waiting state.
-- [ ] No sensor/program calibration or data entry is performed through physical adjustments at round start.
-- [ ] Robot can handle both clockwise and counter-clockwise challenge directions.
-- [ ] Robot can handle randomized starting position and field configuration.
-- [ ] Open Challenge: three complete laps and autonomous finish behaviour.
-- [ ] Obstacle Challenge: three laps while obeying red/green traffic signs.
-- [ ] Obstacle Challenge: parking behaviour is autonomous and parallel when attempting full parking points.
-- [ ] No deliberate contact with or movement of prohibited field elements.
-- [ ] Repair procedure is understood and does not involve uploading programs or entering data.
-
-## 5. Competition timing / submission checklist
-
-- [x] Verify the official event name, location and dates: Open Championship Europe, Zagreb, 13–16 October 2026.
-- [ ] Confirm official GitHub submission deadline from the organizer.
-- [ ] Confirm required timing of the three documentation commits against that event date.
-- [ ] Freeze important documentation before the scoring deadline.
-- [ ] Freeze final competition code before the scoring deadline.
-- [ ] Verify repository is public and accessible without login.
-- [ ] Prepare hard-copy documentation for the European Open Championship.
-- [ ] Review the latest official WRO Q&A immediately before final submission.
-
-## 6. Final evidence package
-
-At the final documentation freeze, the repository should contain at minimum:
-
-```text
-README.md
-
-docs/
-├── README.md
-├── wro-2026-compliance.md
-├── engineering-journal.md
-├── testing.md
-└── decisions.md
-
-european/
-├── README.md
-├── hardware.md
-└── software-reference.md
-
-schematics/
-├── README.md
-└── final-v2-wiring.*
-
-mechanical/
-├── README / documentation
-└── final V2 CAD / STL files where applicable
-
-src/
-└── v2/                 # exact competition source code
-
-media/
-├── final V2 photos
-├── team photo
-└── videos.md
-
-competition/
-└── final-configuration.md
-```
-
-The repository is considered **documentation-ready only when the remaining `⏳` and `⚠️` items have been resolved with real team evidence**. Do not replace missing evidence with estimated specifications or invented results.
+- [Vehicle gallery](../v-photos/README.md)
+- [Team gallery](../t-photos/README.md)
+- [Videos](../video/video.md)
+- [Final configuration](../competition/final-configuration.md)
+- [TODO](../TODO.md)

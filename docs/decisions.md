@@ -1,58 +1,31 @@
-# 🧠 StormDrive Engineering Decisions
+# Engineering Decisions
 
-This file records decisions where the team considered alternatives and selected an approach.
+The records below preserve decisions documented in the repository. They do not include the team's full alternatives or comparative test evidence.
 
 ## Decision record template
 
 ### DR-XXX — Short title
 
-**Date:** YYYY-MM-DD  
+**Date:** Record the actual decision date.  
 **Status:** Proposed / Tested / Accepted / Rejected
 
-**Problem / constraint**  
-What problem are we solving?
+**Problem or constraint:**  
+**Options considered:**  
+**Decision and reason:**  
+**Evidence:** Link to measurement, test, photo, model or commit.  
+**Trade-offs and risks:**  
+**Follow-up test:**
 
-**Options considered**
+## Existing decisions
 
-- Option A
-- Option B
-- Option C
+### DR-001 — Develop V2 on an Adeept PiCar-B platform
 
-**Decision**  
-We chose X instead of Y because ...
+Existing project documentation identifies Adeept PiCar-B as the V2 base platform and separates it from the earlier V1 vehicle. TODO(team): Add the actual comparison criteria, alternatives, decision date and test evidence behind this choice.
 
-**Evidence**  
-Link to test, measurement, photo, CAD revision or code commit.
+### DR-002 — Separate vendor examples from competition software
 
-**Trade-offs**  
-What did we gain and what did we give up?
+The repository keeps selected Adeept examples under `vendor/adeept-picar-b2/` and StormDrive V2 software under `src/v2/`. This makes the distinction visible in the source tree. TODO(team): Verify upstream attribution, license and which files were modified.
 
-**Risk / mitigation**  
-What could still fail and how will we verify it?
+### DR-003 — Tie performance claims to evidence
 
-**Follow-up**  
-What must be tested next?
-
----
-
-## Initial records
-
-### DR-001 — Move from V1 to V2 platform
-
-**Status:** Accepted
-
-The team selected a new Adeept PiCar-B platform for the European-stage development instead of continuing the V1 platform as the main development base.
-
-The decision should be expanded with the team's actual comparison criteria and test evidence as V2 testing progresses.
-
-### DR-002 — Separate manufacturer reference from competition implementation
-
-**Status:** Accepted
-
-The supplied Adeept software and documentation are used as technical reference material. StormDrive competition software will be developed and documented separately so that the repository clearly distinguishes vendor examples from the team's own implementation.
-
-### DR-003 — Evidence before performance claims
-
-**Status:** Accepted
-
-Performance claims will only be added after repeatable tests produce supporting measurements. Estimated or unsupported percentages will not be presented as measured results.
+Project documentation policy is to distinguish measured results from code-derived estimates and team-reported summaries. Add physical result claims only with dated run evidence, the tested commit and configuration.
