@@ -21,16 +21,16 @@ TODO(team): Attach the raw artifacts for the reported runs and add any other fai
 
 ## 2026-10-15 — Debug review of physical runs
 
-The team supplied a summary of four runs from the Raspberry Pi debug folder. The raw log, trace, and learned-map files have not been committed here, so these observations remain team-reported pending artifact review.
+The team supplied a detailed summary and seven frames from four Raspberry Pi runs. Raw logs/CSV/JSON have not been committed here, so numeric claims remain team-reported pending raw-artifact review. See the full [15 October run analysis](run-analysis-2026-10-15.md).
 
-- The 16:30 clockwise Obstacle run used the older PathDriver and ended by operator stop at about 104.6 s after one lap/four corners. No blocked state, reversing or recovery maneuver was reported.
-- The trace reportedly reached −356° heading near 100 s. The learned map listed 10 pillars while the physical course contains at most 6. This is consistent with false or duplicate detections/localization entries; inspect the timestamped trace and frames before treating it as a confirmed root cause.
-- A candidate camera pitch of about 15.8° was inferred from that run but was not applied. The calibration file was reportedly unchanged since 2026-10-12 13:04; no controlled before/after comparison exists.
-- The 16:27 Open run ended after about 3 s with no corners and no reported error. The 16:28 Obstacle run stopped before GO with gyro bias −46 °/s (usual value reported near −6 °/s); movement during calibration is the team's suspected cause. Repeat the calibration with the vehicle stationary before concluding that the sensor or code is faulty.
-- The 21:37 Obstacle log reportedly has three lines and no traceback after ultrasonic startup. Its cause is unresolved until `journalctl -u wro.service` and the matching log are reviewed.
-- The newer ObsDriver has not been tested on the physical car; all these runs used the old PathDriver.
+- The 16:30 clockwise Obstacle run used the older PathDriver and ended by operator stop at about 104.6 s after one lap/four corners. No blocked state, reversing or recovery maneuver was reported. The map contained 10 seats vs a maximum of 6 pillars.
+- Frames 070.20 and 073.04 reportedly show nearly identical observations while the estimated pose shifts about 0.3 m; another pose change is about 0.45 m in 0.52 s. The team's leading hypothesis is particle-filter pose instability; inspect the trace and frames to rule out camera/turning effects.
+- The calibration file already contains CAM_PITCH_DEG=15.75; 15.8° was only a rounded reading and corectie_pitch_camera_grade is null. No pitch correction was suggested. The team reports the file was unchanged since 2026-10-12 13:04.
+- The 16:27 Open run ended after about 3 s with no corners and no reported error. The 16:28 Obstacle run stopped before GO with gyro bias −46.22 °/s; the 16:30 run measured −5.74 °/s. The available measurements do not establish whether −5.74 °/s is normal for this sensor. The team suspects motion during calibration, but an I2C read error has not been excluded. Repeat stationary startups and record sample spread before drawing a conclusion.
+- The 21:37 Obstacle log reportedly has three flushed lines and no Traceback/operator-stop marker. Current journalctl contains only the 16 October boot; the stop cause remains unresolved unless an older journal export exists.
+- The newer ObsDriver has not been tested on the physical car; all these runs used the old PathDriver. The exact as-run pmap/perception/config/estimator/hardware/calibration files are identified by the team, but pathdrive.py and main.py were modified after 16:30 and their earlier versions are unknown.
 
-TODO(team): Attach or selectively publish the three named main-run artifacts, inspect the map/trace and camera frames, repeat IMU calibration while stationary, and record each follow-up run against an identified source commit. Do not apply the inferred camera-pitch value without a controlled test.
+TODO(team): Attach the raw artifacts and exact as-run versions if recoverable; test pose stability and camera geometry using a no-drive logger; repeat stationary IMU startups with sample spread; and record follow-up runs against a source commit. Do not alter CAM_PITCH_DEG based on the rounded 15.8° reading.
 
 ## Existing test-log template
 
