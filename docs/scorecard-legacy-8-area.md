@@ -6,7 +6,7 @@ This page transcribes the score sheet image supplied by the team. It totals 30 p
 |---|---:|---|---|
 | Mobility Management | 4 | V2 drive/steering configuration and code-derived estimates | Physical V2 measurements, modifications and test results |
 | Power and Sense Management | 4 | V2 software sensor/actuator interfaces and calibration tools | As-built wiring, exact hardware, power budget and calibration records |
-| Obstacle Management | 4 | Perception, estimator, pillar map and planner source | Integrated three-lap Obstacle Challenge followed by parking; physical evidence |
+| Obstacle Management | 4 | Perception, estimator, pillar map and planner source; team reports one incomplete CW lap and 10 mapped pillars vs at most 6 physical | Review raw artifacts, demonstrate reliable obstacle handling and complete parking flow |
 | Pictures — Team and vehicle | 4 | Existing team/event photo, comparison image and V1 archive | Official team-photo confirmation and six dedicated V2 views |
 | Performance videos | 4 | Existing three-lap video link and freestyle Short | Verified challenge labels, dates and final-configuration Open/Obstacle videos |
 | GitHub utilization | 4 | Public repository, meaningful history, source and documentation | Milestone history does not establish the required first-commit code amount; no tested release |

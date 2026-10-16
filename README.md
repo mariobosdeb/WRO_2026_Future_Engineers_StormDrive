@@ -10,13 +10,13 @@ This README describes what the repository and source code establish. Team-report
 
 | Area | Current repository evidence |
 |---|---|
-| Open Challenge | The source has a lane-following driver and a 12-corner finish condition. Older team notes report a three-lap run, but no dated run sheet is included. |
-| Obstacle Challenge | The V2 source has camera-based pillar perception, field localization, a pillar map and a lattice path planner. |
+| Open Challenge | The source has a lane-following driver and a 12-corner finish condition. In the latest dated run notes (15 Oct), Open was stopped after about 3 s with 0 corners; the older three-lap report has no dated run sheet. |
+| Obstacle Challenge | A team-reported 15 Oct CW run with the old PathDriver stopped by the operator at about 104.6 s after 1 lap; the map showed 10 pillars although the track has at most 6. |
 | Parking | A parking planner is implemented as a separate `parcare` mode. The `obstacle` entry point does not currently continue into parking. |
 | Mobility | Configuration-derived wheelbase, steering and speed values are documented separately from measured vehicle values. |
 | Software | V2 includes OpenCV perception, state estimation, automatic/manual calibration, simulation, recording/replay and a C++ A* lattice implementation. |
 
-The official 2026 rules describe three Obstacle Challenge laps followed by parallel parking. The code currently exposes Obstacle and Parking as separate flows; this is a source-verified integration gap, not an inference about undocumented software on the car. See [strategy](docs/strategy.md) and [status](docs/status.md). No judge score or end-to-end physical result is claimed.
+The official 2026 rules describe three Obstacle Challenge laps followed by parallel parking. The code currently exposes Obstacle and Parking as separate flows; this is a source-verified integration gap, not an inference about undocumented software on the car. See [strategy](docs/strategy.md) and [status](docs/status.md). The 15 Oct reports are incomplete runs, not successful challenge results. Their log/CSV/JSON files were not included in this repository, and the running code commit is unknown. No judge score or end-to-end physical result is claimed.
 
 ## Team
 

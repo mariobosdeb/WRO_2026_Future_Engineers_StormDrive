@@ -2,7 +2,28 @@
 
 ## Team-reported status
 
-Existing repository notes report three Open Challenge laps, completed Obstacle Challenge calibration/consistency work, validated autonomous parking and repeatability testing. They do not give dated run-by-run records. These remain team-reported summaries, not a measured success rate.
+Older repository notes report three Open Challenge laps, Obstacle calibration/consistency work, and autonomous parking/repeatability testing. The dated 15 October runs summarized below are incomplete and do not verify those earlier summaries. They were supplied by the team; the raw files have not been added to or independently inspected from this repository. Times are as reported, with no timezone specified. The car software commit is unknown.
+
+## Reported physical runs — 2026-10-15
+
+The following entries are transcribed from the team's debug summary. They are not successful challenge results. The named debug files are local artifacts and are not stored in this Git repository.
+
+| Date/time (reported) | Mode / run | Result and time | Laps / corners | Observations | Reported artifacts |
+|---|---|---|---|---|---|
+| 16:30 | Obstacle, CW; old PathDriver (lattice planner + particle filter) | Incomplete; operator stopped it at about 104.6 s | 1 lap; 4 counted corners | No BLOCAT, reverse motion or recovery maneuver in the log. At about 100 s, heading reached −356° (approximately one revolution). The map contained 10 pillar entries while the physical track has at most 6; this indicates false or duplicate mapped pillars. Team suspects perception/localization; raw frames and trace need review before assigning a root cause. | `debug/run_obstacle_1792074634.log`; `debug/trace_obstacle_1792074740.csv`; `debug/learned_obstacle_1792074740.json` |
+| 16:27 | Open | Stopped after about 3 s; no error reported | 0 corners | No completed Open run demonstrated. | `debug/rec_1792074474` |
+| 16:28 | Obstacle; before GO | Aborted before the run | Not applicable | IMU gyro bias was reported as −46 °/s versus a usual value near −6 °/s. Team attributes it to vehicle movement during IMU calibration; repeat calibration with the vehicle stationary to verify. | Artifact filename not provided |
+| 21:37 | Obstacle, CW | Stopped shortly after ultrasonic startup; three-line log, no Traceback | Not recorded | Cause is unknown: possible operator stop, power interruption or service exit. Check the system journal; do not classify the cause until inspected. | Log filename not provided |
+
+All four runs above used the old `PathDriver`; the newer `ObsDriver` has not yet been tested on the physical vehicle. The team reports that `calibration.json` was unchanged since 2026-10-12 13:04. A run analysis suggested `CAM_PITCH_DEG ≈ 15.8°`, but the value was not applied. Treat this as an unverified candidate, not a measured correction. No Git commit was associated with the car software used for these runs.
+
+For the 21:37 service check, use the Raspberry Pi's local clock/timezone:
+
+```bash
+sudo journalctl -u wro.service --since "2026-10-15 21:35:00" --until "2026-10-15 21:40:00" --no-pager
+```
+
+TODO(team): Add the relevant journal output and identify the exact 21:37 log file. Keep unrelated system data out of the repository.
 
 ## Run log template
 
@@ -12,7 +33,7 @@ Add one row per actual physical attempt, including failures. Do not treat simula
 |---|---|---:|---|---:|---|
 | TODO(team): date | TODO(team): mode | TODO(team): run no. | TODO(team): outcome | TODO(team): time | TODO(team): record actual observations. |
 
-No dated rows are present in the existing documentation. TODO(team): Add source commit, calibration ID, track configuration, direction, starting zone, intervention/recovery count and a video/log link for each run.
+The four run summaries above are dated but do not identify the source commit used on the car. TODO(team): Add the source commit, calibration ID, track configuration, direction, starting zone, intervention/recovery count and a video/log link for each future run.
 
 ## Test procedure
 
