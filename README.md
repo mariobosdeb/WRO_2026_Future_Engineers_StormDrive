@@ -11,12 +11,12 @@ This README describes what the repository and source code establish. Team-report
 | Area | Current repository evidence |
 |---|---|
 | Open Challenge | The source has a lane-following driver and a 12-corner finish condition. In the latest dated run notes (15 Oct), Open was stopped after about 3 s with 0 corners; the older three-lap report has no dated run sheet. |
-| Obstacle Challenge | A team-reported 15 Oct CW run with the old PathDriver stopped by the operator at about 104.6 s after 1 lap; the map showed 10 pillars although the track has at most 6. |
+| Obstacle Challenge | A team-reported 15 Oct CW run with the old PathDriver stopped by the operator at about 104.6 s after 1 lap; the map showed 10 pillars although the track has at most 6. Similar frames reportedly coincide with ~0.3 m pose jumps. |
 | Parking | A parking planner is implemented as a separate `parcare` mode. The `obstacle` entry point does not currently continue into parking. |
 | Mobility | Configuration-derived wheelbase, steering and speed values are documented separately from measured vehicle values. |
 | Software | V2 includes OpenCV perception, state estimation, automatic/manual calibration, simulation, recording/replay and a C++ A* lattice implementation. |
 
-The official 2026 rules describe three Obstacle Challenge laps followed by parallel parking. The code currently exposes Obstacle and Parking as separate flows; this is a source-verified integration gap, not an inference about undocumented software on the car. See [strategy](docs/strategy.md) and [status](docs/status.md). The 15 Oct reports are incomplete runs, not successful challenge results. Their log/CSV/JSON files were not included in this repository, and the running code commit is unknown. No judge score or end-to-end physical result is claimed.
+The official 2026 rules describe three Obstacle Challenge laps followed by parallel parking. The current GitHub snapshot exposes Obstacle and Parking as separate flows. This is a source-verified integration gap; it does not establish the exact main.py/pathdrive.py versions used at 16:30 on the Raspberry Pi. See [strategy](docs/strategy.md) and [status](docs/status.md). The 15 Oct reports are incomplete runs, not successful challenge results. The detailed [run analysis](docs/run-analysis-2026-10-15.md) labels all observations as team-reported where raw artifacts are absent. CAM_PITCH_DEG was already 15.75°; 15.8° was only rounding. The running code commit is unknown, and post-run versions of pathdrive.py/main.py are not as-run evidence. No judge score or end-to-end physical result is claimed.
 
 ## Team
 
