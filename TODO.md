@@ -23,16 +23,16 @@ This checklist contains evidence and integration work that the repository cannot
 ## 3. Software Architecture & Obstacle Strategy
 
 - TODO(team): Integrate the required Obstacle Challenge flow so completion of three laps continues into parallel parking, if that is the event configuration; physically test the complete flow.
-- TODO(team): Review `debug/trace_obstacle_1792074740.csv` and `debug/learned_obstacle_1792074740.json` against the main-run log and selected camera frames to distinguish false pillar detections from duplicate map/localization entries; the 15 October summary reports 10 mapped pillars vs a maximum of 6 on the track.
+- TODO(team): Attach/review `debug/run_obstacle_1792074634.log`, `debug/trace_obstacle_1792074740.csv`, `debug/learned_obstacle_1792074740.json` and selected frames to validate the pose/map analysis; the 15 October report shows 10 mapped seats vs a maximum of 6 pillars. Publish only selected reviewed frames if appropriate. See [run analysis](docs/run-analysis-2026-10-15.md).
 - TODO(team): Test red/green passing decisions on randomized pillar layouts in both directions. Record each decision, collision, missed detection, recovery, timeout and failure.
 - TODO(team): Test the newer ObsDriver on the physical car; all 15 October runs in the supplied summary used the old PathDriver.
-- TODO(team): Repeat IMU calibration with the car stationary and verify the reported −46 °/s gyro bias before GO; do not label it a hardware or code fault until reproduced.
-- TODO(team): Inspect `journalctl -u wro.service` around 2026-10-15 21:37 and identify the matching three-line log; the stop cause is unknown.
-- TODO(team): Record the source commit for future physical runs. The 15 October software revision cannot be tied to a Git commit.
-- TODO(team): Review the inferred `CAM_PITCH_DEG ≈ 15.8°` against trace and frames. It was not applied; run a controlled comparison before changing calibration.
+- TODO(team): Repeat three stationary IMU startups, recording the 300 gyro readings and 50 accelerometer readings (mean and spread). The 16:28 bias was −46.22 °/s with up=(0.99,−0.16,0.06); at 16:30 it was −5.74 °/s with up=(1.00,−0.02,0.02). The 16:28 run stopped before GO.
+- TODO(team): If an older journal export was saved, inspect the 2026-10-15 21:35–21:40 `wro.service` entries and identify the matching log. The current journal only contains the 2026-10-16 boot, so “No entries” does not identify the stop cause.
+- TODO(team): Record the source commit for future physical runs. The 15 October software revision cannot be tied to a Git commit; exact as-run `pathdrive.py` and `main.py` are not currently available.
+- The 15 October analysis confirms `CAM_PITCH_DEG=15.75` was already in `calibration.json`; 15.8° was rounding and `corectie_pitch_camera_grade` is null. No pitch adjustment is pending.
 - TODO(team): Test lap/corner counting, late direction discovery, occluded pillars, missing sonar echoes, planning timeouts, localization loss and no-feasible-parking cases; document implemented recovery behavior and observed limits.
 - TODO(team): Confirm how Obstacle traces consumed by replay.py are created; main.py currently wraps recording for Open with --rec, while replay.py expects an Obstacle record.
-- TODO(team): Record dated, run-by-run Open, Obstacle and Parking results in docs/testing.md with source commit, calibration ID, layout, direction, time, outcome and evidence link.
+- TODO(team): Before pose-stability or camera-distance tests, prepare a perception/estimator-only or verified no-drive logger that disables motor commands and commanded-motion odometry. Do not use `main.py` for a fixed-car test until this is reviewed; raised wheels alone are not a no-drive mode. Record dated Open, Obstacle and Parking runs with source commit, calibration ID, layout, direction, time, outcome and evidence.
 
 ## 4. Systems Thinking & Engineering Decisions
 
